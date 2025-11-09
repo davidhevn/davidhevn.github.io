@@ -141,8 +141,8 @@
               <span class="stat__label">Years Experience</span>
             </div>
             <div class="stat">
-              <span class="stat__num">9K+</span>
-              <span class="stat__label">TikTok Followers</span>
+              <span class="stat__num">10K+</span>
+              <span class="stat__label">Followers</span>
             </div>
             <div class="stat">
               <span class="stat__num">Full-Stack</span>
@@ -489,23 +489,21 @@
         <header class="section__head">
          
           <h2 class="h2">Latest Articles</h2>
-          <p class="lead">
-            Sharing knowledge on development trends and best practices.
-          </p>
+          
         </header>
         
         <div class="grid grid--3">
           <article class="blog__card card">
             <img src="{{ url_for('static', filename='assets/blog-1.jpg') }}" 
-                 alt="Blog post about interface design" 
+                 alt="Specialized seminar on advanced technology applications in biomedical science and AI" 
                  loading="lazy" />
             <div class="blog__body">
-              <span class="tag">UI/UX Design</span>
-              <h3 class="h3">Designing Intuitive Interfaces</h3>
+              <span class="tag">Research & Technology</span>
+              <h3 class="h3">Seminar: Advanced Technology Applications in Biomedical Science and Artificial Intelligence</h3>
               <p class="excerpt">
-                Exploring proven techniques for creating user-friendly digital experiences that users love.
+                A specialized seminar at ICTU featuring experts from HKMU on 3D Ultrasound, Quantum Machine Learning, and their applications in modern medicine.
               </p>
-              <a class="read" href="#">
+              <a class="read" href="#" data-blog-modal="blog-seminar-detail">
                 Read Article
                 <span aria-hidden="true">→</span>
               </a>
@@ -513,16 +511,16 @@
           </article>
           
           <article class="blog__card card">
-            <img src="{{ url_for('static', filename='assets/blog-2.jpg') }}" 
-                 alt="Blog post about product development" 
+            <img src="{{ url_for('static', filename='assets/blog-2.1jpg') }}" 
+                 alt="From Student to Discussion Partner: Immersing in AI with Dr. Lin at ICTU" 
                  loading="lazy" />
             <div class="blog__body">
-              <span class="tag">Development</span>
-              <h3 class="h3">From Concept to Launch</h3>
+              <span class="tag">AI & Research</span>
+              <h3 class="h3"> From Student to Discussion Partner: Immersing in AI with Dr. Lin (FCU) at ICTU</h3>
               <p class="excerpt">
-                A comprehensive guide to efficient product development workflows and delivery excellence.
+                A memorable milestone at ICTU's specialized seminar on AI research, featuring Dr. Feng Cheng Lin from Feng Chia University, Taiwan.
               </p>
-              <a class="read" href="#">
+              <a class="read" href="#" data-blog-modal="blog-dr-lin-detail">
                 Read Article
                 <span aria-hidden="true">→</span>
               </a>
@@ -548,6 +546,190 @@
         </div>
       </div>
     </section>
+    
+    <!-- =========================================
+         Blog Modal Overlay
+         ========================================= -->
+    <div id="blog-seminar-detail" class="blog-modal-overlay">
+      <div class="blog-modal">
+        <button class="blog-modal__close" aria-label="Close modal">×</button>
+        <div class="blog-modal__content">
+          <article class="blog-article">
+            <header class="blog-article__header">
+              <span class="tag">Research & Technology</span>
+              <h1 class="h1"> Specialized Seminar: Advanced Technology Applications in Biomedical Science and Artificial Intelligence</h1>
+              <p class="blog-article__meta body-sm muted">
+                <time datetime="2024-09-22">September 22, 2024</time>
+              </p>
+            </header>
+            
+            <div class="blog-article__content">
+              <p class="lead">
+                On September 22, Thai Nguyen University of Information and Communication Technology (ICTU) successfully organized an important specialized seminar, marking academic and research collaboration with experts from the Department of Electronic Engineering and Computer Science at Hong Kong Metropolitan University (HKMU).
+              </p>
+              
+              <p>
+                The event attracted the enthusiastic participation of leadership, faculty, researchers, and students from ICTU, creating a vibrant and highly practical academic exchange atmosphere.
+              </p>
+              
+              <figure class="blog-article__image">
+                <img src="{{ url_for('static', filename='assets/blog-seminar-1.jpg') }}" 
+                     alt="Specialized seminar at ICTU - Overview" 
+                     loading="lazy" />
+                <figcaption class="body-sm muted">The specialized seminar at ICTU with enthusiastic participation from faculty and students</figcaption>
+              </figure>
+              
+              <h2 class="h2">✨ Core Content: The Intersection of Technology and Medicine</h2>
+              
+              <p>
+                The seminar focused on two research areas that are among the world's top priorities:
+              </p>
+              
+              <h3 class="h3">1. Advancing 3D Ultrasound Tools for Carotid Atherosclerosis: Transforming Clinical Trials with Novel Biomarkers and Automation</h3>
+              
+              <p>
+                <strong>Speaker:</strong> Dr. Shirley CHEN, Senior Lecturer, HKMU.
+              </p>
+              
+              <figure class="blog-article__image">
+                <img src="{{ url_for('static', filename='assets/blog-seminar-2.jpg') }}" 
+                     alt="Dr. Shirley Chen presenting on 3D Ultrasound" 
+                     loading="lazy" />
+                <figcaption class="body-sm muted">Dr. Shirley Chen presenting on advanced 3D Ultrasound technology</figcaption>
+              </figure>
+              
+              <p>
+                <strong>Key Highlights:</strong> Dr. Shirley Chen's presentation focused on integrating advanced 3D Ultrasound technology with Automation algorithms. This approach not only improves the accuracy and efficiency of medical imaging diagnostics but also provides novel biomarkers for evaluating and monitoring carotid atherosclerosis, thereby optimizing clinical trials.
+              </p>
+              
+              <h3 class="h3">2. Leveraging Quantum Machine Learning to Classify Biosignals for Disease Detection</h3>
+              
+              <p>
+                <strong>Speaker:</strong> Assoc. Prof. Dr. Kevin HUNG King Fai, Head of Department, HKMU.
+              </p>
+              
+              <figure class="blog-article__image">
+                <img src="{{ url_for('static', filename='assets/blog-seminar-3.jpg') }}" 
+                     alt="Assoc. Prof. Dr. Kevin Hung presenting on Quantum Machine Learning" 
+                     loading="lazy" />
+                <figcaption class="body-sm muted">Assoc. Prof. Dr. Kevin Hung introducing Quantum Machine Learning</figcaption>
+              </figure>
+              
+              <p>
+                <strong>Key Highlights:</strong> Prof. Kevin Hung introduced the breakthrough potential of Quantum Machine Learning (QML). QML, with its ability to process complex data on a large scale and at higher speeds than classical computers, is being applied to analyze biosignals. This research opens new pathways for early and accurate detection of various diseases, demonstrating the indispensable role of quantum physics and AI in modern medicine.
+              </p>
+              
+              <figure class="blog-article__image">
+                <img src="{{ url_for('static', filename='assets/blog-seminar-4.jpg') }}" 
+                     alt="Discussion and exchange scene at the seminar" 
+                     loading="lazy" />
+                <figcaption class="body-sm muted">Enjoying and learning directly from leading experts.</figcaption>
+              </figure>
+              
+              <h2 class="h2">🤝 The Importance of International Collaboration</h2>
+              
+              <p>
+                The seminar served not only as a platform for sharing specialized knowledge but also as an opportunity to strengthen the collaborative relationship between ICTU and HKMU—a public university in Hong Kong renowned for its applied training and research programs.
+              </p>
+              
+              <p>
+                The event successfully facilitated international academic connections, creating an environment for Vietnamese researchers, faculty, and students to directly access world-leading technological trends in Information Technology and Biomedical Science. This provides a solid foundation for developing high-quality human resources capable of integration and contributing to the nation's scientific and technological development.
+              </p>
+              <figure class="blog-article__image">
+                <img src="{{ url_for('static', filename='assets/image_8cbd2178.jpg') }}" 
+                     alt="Group photo of faculty, Dr. Lin, and students" 
+                     loading="lazy" />
+                <figcaption class="body-sm muted">The group photo captures the wonderful learning spirit and the tight academic cooperation between ICTU and HKMU.</figcaption>
+              </figure>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+    
+    <!-- =========================================
+         Blog Modal 2 - Dr. Lin Article
+         ========================================= -->
+    <div id="blog-dr-lin-detail" class="blog-modal-overlay">
+      <div class="blog-modal">
+        <button class="blog-modal__close" aria-label="Close modal">×</button>
+        <div class="blog-modal__content">
+          <article class="blog-article">
+            <header class="blog-article__header">
+              <span class="tag">AI & Research</span>
+              <h1 class="h1"> From Student to Discussion Partner: Immersing in AI with Dr. Lin (FCU) at ICTU</h1>
+              <p class="blog-article__meta body-sm muted">
+                <time datetime="2025-07-17">Thai Nguyen, July 17, 2025</time>
+              </p>
+            </header>
+            
+            <div class="blog-article__content">
+              <p class="lead">
+                That afternoon at ICTU was truly a memorable milestone for me and my fellow technology enthusiasts. The specialized seminar, "Artificial Intelligence Research Experience Sharing: Embedded Devices and Image Processing," featuring Dr. Feng Cheng Lin from Feng Chia University (FCU), Taiwan, was not merely a lecture but a high-level dialogue about the future of AI.
+              </p>
+              
+              <p>
+                Dr. Lin conveyed in great detail the technical challenges of "embedding" complex AI models into devices with limited memory and power. This is precisely the point of convergence between theory and practical application that I and many engineering students are constantly seeking.
+              </p>
+              
+              <figure class="blog-article__image">
+                <img src="{{ url_for('static', filename='assets/image_8c6b84.jpg') }}" 
+                     alt="Dr. Feng Cheng Lin passionately shares strategies for optimizing AI models" 
+                     loading="lazy" />
+                <figcaption class="body-sm muted">Dr. Feng Cheng Lin passionately shares strategies for optimizing AI models, opening new directions for smart devices.</figcaption>
+              </figure>
+              
+              <h2 class="h2">💬 The Dialogue Moment: Moving Beyond Textbook Theory</h2>
+              
+              <p>
+                The part I anticipated the most—and the part I actively participated in—was the Q&A session. After learning about the techniques of Model Pruning and Quantization, I took the initiative to pose a question about the feasibility of deploying specific image processing algorithms in a real-time environment.
+              </p>
+              
+              <p>
+                For me, asking a question was not just about satisfying a personal curiosity; it was an opportunity to validate that what we are learning in school can be directly applied to the most cutting-edge research.
+              </p>
+              
+              <figure class="blog-article__image">
+                <img src="{{ url_for('static', filename='assets/image_8c6ba1.jpg') }}" 
+                     alt="Student actively engaging in Q&A session" 
+                     loading="lazy" />
+                <figcaption class="body-sm muted">I myself am actively engaging in the Q&A, representing the deep interest of ICTU students in the practical application of AI. That was the moment we transitioned from learners to discussion partners.</figcaption>
+              </figure>
+              
+              <h2 class="h2">🤝 Academic Connection and Personal Vision</h2>
+              
+              <p>
+                Directly participating in this discussion has given me a profound insight into future research directions. This seminar is clear proof of the importance of international cooperation in education and research.
+              </p>
+              
+              <figure class="blog-article__image">
+                <img src="{{ url_for('static', filename='assets/image_8cbd26.jpg') }}" 
+                     alt="Photo with Dr. Lin" 
+                     loading="lazy" />
+                <figcaption class="body-sm muted">Enjoying and learning directly from leading experts.</figcaption>
+              </figure>
+              
+              <p>
+                This is a valuable memory, a great motivation for me and my peers to continue striving in the field of AI.
+              </p>
+              
+              <p>
+                The seminar is not only a place for knowledge sharing but also a bridge for a generation of Vietnamese engineers ready to tackle global technological challenges.
+              </p>
+              
+              <figure class="blog-article__image">
+                <img src="{{ url_for('static', filename='assets/image_8cbd21.jpg') }}" 
+                     alt="Group photo of faculty, Dr. Lin, and students" 
+                     loading="lazy" />
+                <figcaption class="body-sm muted">The group photo captures the wonderful learning spirit and the tight academic cooperation between ICTU and FCU.</figcaption>
+              </figure>
+              
+              
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
     
    
 
@@ -961,6 +1143,71 @@
       el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
       observer.observe(el);
     });
+    
+    // Blog Modal Functionality
+    (function() {
+      const blogModalLinks = document.querySelectorAll('[data-blog-modal]');
+      
+      function openBlogModal(modalId) {
+        const blogModalOverlay = document.getElementById(modalId);
+        if (blogModalOverlay) {
+          blogModalOverlay.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+      }
+      
+      function closeBlogModal(modalId) {
+        const blogModalOverlay = document.getElementById(modalId);
+        if (blogModalOverlay) {
+          blogModalOverlay.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      }
+      
+      function closeAllModals() {
+        document.querySelectorAll('.blog-modal-overlay').forEach(modal => {
+          modal.classList.remove('active');
+        });
+        document.body.style.overflow = '';
+      }
+      
+      // Open modal when clicking blog card links
+      blogModalLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const modalId = this.getAttribute('data-blog-modal');
+          if (modalId) {
+            openBlogModal(modalId);
+          }
+        });
+      });
+      
+      // Close modal when clicking close button
+      document.querySelectorAll('.blog-modal__close').forEach(closeBtn => {
+        closeBtn.addEventListener('click', function() {
+          const modalOverlay = this.closest('.blog-modal-overlay');
+          if (modalOverlay) {
+            closeBlogModal(modalOverlay.id);
+          }
+        });
+      });
+      
+      // Close modal when clicking overlay (but not the modal content)
+      document.querySelectorAll('.blog-modal-overlay').forEach(overlay => {
+        overlay.addEventListener('click', function(e) {
+          if (e.target === overlay) {
+            closeBlogModal(overlay.id);
+          }
+        });
+      });
+      
+      // Close modal with Escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          closeAllModals();
+        }
+      });
+    })();
   </script>
 </body>
 </html>
