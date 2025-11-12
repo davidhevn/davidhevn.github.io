@@ -46,7 +46,7 @@ class Toast {
   if (!contactForm) return;
   
   contactForm.addEventListener('submit', async function(e) {
-    e.preventDefault();
+    e.preventDefault(); // prevent default to use AJAX; server also supports non-AJAX fallback
     
     const submitBtn = contactForm.querySelector('button[type="submit"]');
     const originalText = submitBtn.textContent;
@@ -84,7 +84,8 @@ class Toast {
         body: JSON.stringify(formData)
       });
       
-      const data = await response.json();
+      let data = {};
+      try { data = await response.json(); } catch (err) { data = { success: response.ok }; }
       
       if (data.success) {
         Toast.show(data.message || 'Thank you! Your message has been sent.', 'success');
@@ -232,26 +233,231 @@ class Toast {
 })();
 
 // =========================================
-// Search Functionality
+// Search Functionality with Suggestions
 // =========================================
 (function() {
   const searchInput = document.getElementById('search-input');
-  const searchButton = document.getElementById('search-button');
+  const searchDropdown = document.getElementById('search-dropdown');
+  const searchResultsList = document.getElementById('search-results');
   
-  if (searchInput && searchButton) {
-    searchButton.addEventListener('click', function() {
-      const query = searchInput.value.trim();
-      if (query) {
-        window.location.href = `/search?q=${encodeURIComponent(query)}`;
-      }
-    });
-    
-    searchInput.addEventListener('keypress', function(e) {
-      if (e.key === 'Enter') {
-        searchButton.click();
-      }
+  if (!searchInput || !searchDropdown || !searchResultsList) return;
+  
+  const searchIndex = [
+    {
+      title: 'About Me',
+      description: 'Professional summary, principles, background',
+      url: '#about',
+      tags: ['about', 'profile', 'summary']
+    },
+    {
+      title: 'Hobbies Gallery',
+      description: 'Photography, lifestyle, creative hobbies',
+      url: '#hobbies',
+      tags: ['hobbies', 'gallery', 'photos']
+    },
+    {
+      title: 'Technical Skills',
+      description: 'Frontend, backend, DevOps, content creation tools',
+      url: '#skills',
+      tags: ['skills', 'tech', 'stack', 'tools']
+    },
+    {
+      title: 'Portfolio Work',
+      description: 'Featured projects and case studies',
+      url: '#work',
+      tags: ['projects', 'portfolio', 'case study']
+    },
+    {
+      title: 'Blog Articles',
+      description: 'Latest research, AI insights, content strategy',
+      url: '#blog',
+      tags: ['blog', 'articles', 'research', 'ai']
+    },
+    {
+      title: 'Testimonials',
+      description: 'What clients and collaborators say',
+      url: '#testimonials',
+      tags: ['testimonials', 'reviews', 'feedback']
+    },
+    {
+      title: 'Timeline',
+      description: 'Career milestones and journey',
+      url: '#timeline',
+      tags: ['timeline', 'journey', 'career']
+    },
+    {
+      title: 'Certifications',
+      description: 'Professional achievements and recognitions',
+      url: '#certifications',
+      tags: ['certifications', 'achievements', 'awards']
+    },
+    {
+      title: 'Newsletter',
+      description: 'Subscribe for updates and insights',
+      url: '#newsletter',
+      tags: ['newsletter', 'subscribe', 'updates']
+    },
+    {
+      title: 'Contact Form',
+      description: 'Reach out to discuss your project',
+      url: '#contact',
+      tags: ['contact', 'email', 'form']
+    },
+    {
+      title: 'HE Coffee — Cafe Management App',
+      description: 'Internal cafe management system',
+      url: '#work',
+      tags: ['he coffee', 'cafe', 'management']
+    },
+    {
+      title: 'LearnLangs — Language Learning App',
+      description: 'AI-powered language learning platform',
+      url: '#work',
+      tags: ['learnlangs', 'language', 'learning', 'ai']
+    },
+    {
+      title: 'typingtest — Typing Practice App',
+      description: 'Minimalist typing trainer inspired by Monkeytype',
+      url: '#work',
+      tags: ['typingtest', 'typing', 'practice']
+    }
+  ];
+  
+  function filterResults(query) {
+    const lowerQuery = query.toLowerCase();
+    return searchIndex.filter(item => {
+      return (
+        item.title.toLowerCase().includes(lowerQuery) ||
+        item.description.toLowerCase().includes(lowerQuery) ||
+        item.tags.some(tag => tag.includes(lowerQuery))
+      );
     });
   }
+  
+  function renderResults(results, query) {
+    searchResultsList.innerHTML = '';
+    
+    if (!query || query.length < 2) {
+      searchDropdown.classList.remove('active');
+      return;
+    }
+    
+    if (results.length === 0) {
+      const li = document.createElement('li');
+      li.className = 'search__result';
+      li.innerHTML = `
+        <span class="search__result-title">No matches found</span>
+        <span class="search__result-description">Try searching for: skills, projects, blog, contact</span>
+      `;
+      searchResultsList.appendChild(li);
+      searchDropdown.classList.add('active');
+      return;
+    }
+    
+    results.slice(0, 6).forEach(item => {
+      const li = document.createElement('li');
+      li.className = 'search__result';
+      li.tabIndex = 0;
+      li.innerHTML = `
+        <span class="search__result-title">${item.title}</span>
+        <span class="search__result-description">${item.description}</span>
+        <span class="search__result-tag">#${item.tags[0]}</span>
+      `;
+      li.addEventListener('click', () => {
+        window.location.hash = item.url;
+        searchDropdown.classList.remove('active');
+      });
+      li.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+          window.location.hash = item.url;
+          searchDropdown.classList.remove('active');
+        }
+      });
+      searchResultsList.appendChild(li);
+    });
+    
+    searchDropdown.classList.add('active');
+  }
+  
+  function performSearch(query) {
+    const trimmed = query.trim();
+    if (!trimmed) {
+      searchDropdown.classList.remove('active');
+      return;
+    }
+    
+    const results = filterResults(trimmed);
+    
+    if (results.length > 0) {
+      window.location.hash = results[0].url;
+      searchDropdown.classList.remove('active');
+    } else {
+      window.location.href = `/search?q=${encodeURIComponent(trimmed)}`;
+    }
+  }
+  
+  searchInput.addEventListener('input', (e) => {
+    const query = e.target.value;
+    const results = filterResults(query);
+    renderResults(results, query);
+  });
+  
+  searchInput.addEventListener('focus', () => {
+    const query = searchInput.value;
+    if (query.length >= 2) {
+      renderResults(filterResults(query), query);
+    }
+  });
+  
+  searchInput.addEventListener('keydown', (e) => {
+    const focusableResults = Array.from(searchResultsList.querySelectorAll('.search__result'));
+    const activeElement = document.activeElement;
+    
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      if (focusableResults.length > 0) {
+        focusableResults[0].focus();
+      }
+    } else if (e.key === 'Enter' && activeElement === searchInput) {
+      e.preventDefault();
+      performSearch(searchInput.value);
+    } else if (e.key === 'Escape') {
+      searchDropdown.classList.remove('active');
+    }
+  });
+  
+  searchResultsList.addEventListener('keydown', (e) => {
+    const items = Array.from(searchResultsList.querySelectorAll('.search__result'));
+    const currentIndex = items.indexOf(document.activeElement);
+    
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      const nextIndex = (currentIndex + 1) % items.length;
+      items[nextIndex].focus();
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      if (currentIndex === 0) {
+        searchInput.focus();
+      } else {
+        items[currentIndex - 1].focus();
+      }
+    } else if (e.key === 'Escape') {
+      searchDropdown.classList.remove('active');
+      searchInput.focus();
+    }
+  });
+  
+  searchInput.addEventListener('blur', () => {
+    setTimeout(() => {
+      searchDropdown.classList.remove('active');
+    }, 150);
+  });
+  
+  document.addEventListener('click', (e) => {
+    if (!document.getElementById('global-search')?.contains(e.target)) {
+      searchDropdown.classList.remove('active');
+    }
+  });
 })();
 
 // =========================================
@@ -529,4 +735,54 @@ function trapFocus(container) {
 document.querySelectorAll('.blog-modal, .lightbox').forEach(modal => {
   trapFocus(modal);
 });
+
+// =========================================
+// Blog horizontal slider controls
+// =========================================
+(function () {
+  const slider = document.querySelector('.blog__slider');
+  if (!slider) return;
+  const track = slider.querySelector('.blog__track');
+  const prev = slider.querySelector('.blog__nav--prev');
+  const next = slider.querySelector('.blog__nav--next');
+  const dotsContainer = slider.querySelector('.blog__dots');
+  if (!track || !prev || !next || !dotsContainer) return;
+
+  const slides = Array.from(track.children);
+  let slideWidth = () => track.clientWidth;
+
+  // Build dots
+  dotsContainer.innerHTML = slides.map((_, i) => `<button class="blog__dot${i===0?' blog__dot--active':''}" aria-label="Go to slide ${i+1}" aria-controls="blog-slide-${i+1}"></button>`).join('');
+  const dots = Array.from(dotsContainer.querySelectorAll('.blog__dot'));
+
+  function goToSlide(index) {
+    const maxIndex = slides.length - 1;
+    const clamped = Math.max(0, Math.min(index, maxIndex));
+    track.scrollTo({ left: clamped * slideWidth(), behavior: 'smooth' });
+  }
+
+  function updateActiveDot() {
+    const index = Math.round(track.scrollLeft / slideWidth());
+    dots.forEach((d, i) => d.classList.toggle('blog__dot--active', i === index));
+  }
+
+  prev.addEventListener('click', () => goToSlide(Math.round(track.scrollLeft / slideWidth()) - 1));
+  next.addEventListener('click', () => goToSlide(Math.round(track.scrollLeft / slideWidth()) + 1));
+  dots.forEach((dot, i) => dot.addEventListener('click', () => goToSlide(i)));
+
+  track.addEventListener('scroll', () => {
+    // Throttle with rAF
+    if (track._ticking) return;
+    track._ticking = true;
+    requestAnimationFrame(() => {
+      updateActiveDot();
+      track._ticking = false;
+    });
+  });
+
+  window.addEventListener('resize', () => {
+    // Keep slide centered on resize
+    setTimeout(() => goToSlide(Math.round(track.scrollLeft / slideWidth())), 100);
+  });
+})();
 

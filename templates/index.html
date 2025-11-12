@@ -112,9 +112,12 @@
       
       <div class="header__controls">
         <!-- Search -->
-        <div class="search" style="max-width: 200px; margin: 0;">
-          <input type="search" id="search-input" class="search__input" placeholder="Search..." aria-label="Search website" />
-          <button type="button" id="search-button" class="search__button" aria-label="Search">🔍</button>
+        <div class="search search--compact" id="global-search">
+          <input type="search" id="search-input" class="search__input" placeholder="Search..." aria-label="Search website" autocomplete="off" />
+          <div class="search__dropdown" id="search-dropdown" aria-live="polite">
+            <div class="search__hint">Try searching for:</div>
+            <ul class="search__results" id="search-results"></ul>
+          </div>
         </div>
         
         <div class="theme-toggle">
@@ -562,7 +565,9 @@
           
         </header>
         
-        <div class="grid grid--3">
+        <div class="blog__slider">
+          <button class="blog__nav blog__nav--prev" aria-label="Previous articles">‹</button>
+          <div class="blog__track">
           <article class="blog__card card">
             <img src="{{ url_for('static', filename='assets/blog-1.jpg') }}" 
                  alt="Specialized seminar on advanced technology applications in biomedical science and AI" 
@@ -613,6 +618,27 @@
               </a>
             </div>
           </article>
+          
+          <!-- New: English Club President memories -->
+          <article class="blog__card card">
+            <img src="{{ url_for('static', filename='assets/blog-1312.jpg') }}" 
+                 alt="My Journey as English Club President" 
+                 loading="lazy" />
+            <div class="blog__body">
+              <span class="tag">Student Life</span>
+              <h3 class="h3">My Journey as English Club President</h3>
+              <p class="excerpt">
+                A comprehensive journey through my leadership experience, from building the foundation to major achievements, competitions, and the valuable lessons learned along the way.
+              </p>
+              <a class="read" href="#" data-blog-modal="blog-english-club-detail">
+                Đọc bài viết
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+          </div>
+          <button class="blog__nav blog__nav--next" aria-label="Next articles">›</button>
+          <div class="blog__dots" role="tablist" aria-label="Blog slides"></div>
         </div>
       </div>
     </section>
@@ -710,6 +736,209 @@
                      alt="Group photo of faculty, Dr. Lin, and students" 
                      loading="lazy" />
                 <figcaption class="body-sm muted">The group photo captures the wonderful learning spirit and the tight academic cooperation between ICTU and HKMU.</figcaption>
+              </figure>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+    
+    <!-- =========================================
+         Blog Modal 3 - English Club President
+         ========================================= -->
+    <div id="blog-english-club-detail" class="blog-modal-overlay">
+      <div class="blog-modal">
+        <button class="blog-modal__close" aria-label="Close modal">×</button>
+        <div class="blog-modal__content">
+          <article class="blog-article">
+            <header class="blog-article__header">
+              <span class="tag">Student Life</span>
+              <h1 class="h1">My Journey as English Club President</h1>
+              <p class="blog-article__meta body-sm muted">
+                <time datetime="2025-11-11">A journey of many events and milestones</time>
+              </p>
+            </header>
+            <div class="blog-article__content">
+              <p class="lead">
+                This is a comprehensive article compiling the memories from my time as President of the English Club at ICTU. A journey filled with challenges, achievements, and unforgettable moments that shaped not just my leadership skills, but also my personal growth.
+              </p>
+              
+              <h2 class="h2">1. Introduction - The Beginning</h2>
+              
+              <p>
+                Stepping into the role as English Club President was both an honor and a significant responsibility. I remember the mix of excitement and nervousness that filled me during my first official meeting. Taking on this leadership position meant I would be responsible for organizing events, managing a diverse team, and representing our club at various competitions and activities.
+              </p>
+              
+              <p>
+                The first official meeting was a moment I'll never forget. Standing in front of the members, I felt the weight of expectations but also the thrill of new possibilities. It was the beginning of a journey that would teach me invaluable lessons about leadership, teamwork, and personal growth.
+              </p>
+              
+              <figure class="blog-article__image">
+                <img src="{{ url_for('static', filename='assets/blog-4.1.jpg') }}" alt="First official meeting as English Club President" loading="lazy" />
+                <figcaption class="body-sm muted">The Beginning Moment – Full of Passion and Expectation.</figcaption>
+              </figure>
+              
+              <h2 class="h2">2. Building the Foundation</h2>
+              
+              <p>
+                The early days were all about building connections and establishing a strong foundation for the club. Our early club meetings focused on team bonding activities that brought members closer together. We organized fun games and interactive sessions that not only improved English skills but also created lasting friendships.
+              </p>
+              
+              <p>
+                Learning to lead and manage a diverse team was one of my first challenges. Each member brought unique perspectives and talents, and it was my responsibility to create an environment where everyone felt valued and motivated. Through these early activities, I began to understand the true meaning of collaborative leadership.
+              </p>
+              
+              <figure class="blog-article__image">
+                <img src="{{ url_for('static', filename='assets/blog-242.jpg') }}" alt="Team bonding activities and club meetings" loading="lazy" />
+                <figcaption class="body-sm muted">Early club meetings with fun games and team bonding activities.</figcaption>
+              </figure>
+              
+              <h2 class="h2">3. Major Achievements & Competitions</h2>
+              
+              <h3 class="h3">A. English Festival 2024-2025</h3>
+              
+              <p>
+                One of the most memorable achievements was leading our team to compete at Thai Nguyen University. The English Festival 2024-2025 was a significant event that brought together English clubs from various universities. The competition was intense, but our team's dedication and preparation paid off.
+              </p>
+              
+              <p>
+                We won the consolation prize, receiving 1,500,000 VND. But more than the prize money, the pride of representing ICTU on the red carpet was an unforgettable experience. Standing there with my team, I felt immense pride in what we had accomplished together.
+              </p>
+              <figure class="blog-article__image">
+                <img src="{{ url_for('static', filename='assets/blog-443.1.jpg') }}" alt="First official meeting as English Club President" loading="lazy" />
+                <figcaption class="body-sm muted"></figcaption>
+              </figure>
+              <figure class="blog-article__image">
+                <img src="{{ url_for('static', filename='assets/blog-4423.1.jpg') }}" alt="First official meeting as English Club President" loading="lazy" />
+                <figcaption class="body-sm muted"></figcaption>
+              </figure>
+              <figure class="blog-article__image">
+                <img src="{{ url_for('static', filename='assets/blog-44623.1.jpg') }}" alt="First official meeting as English Club President" loading="lazy" />
+                <figcaption class="body-sm muted"></figcaption>
+              </figure>
+              <h3 class="h3">B. Awards & Recognition Ceremony (2023-2024)</h3>
+              
+              <p>
+                The Awards & Recognition Ceremony for the 2023-2024 academic year was a moment of celebration for our entire team. Receiving awards for club excellence was a testament to the hard work and dedication of every member. Standing with the entire team as we were honored was a moment that reinforced the importance of collective effort.
+              </p>
+              <figure class="blog-article__image">
+                <img src="{{ url_for('static', filename='assets/blog-4573.1.jpg') }}" alt="First official meeting as English Club President" loading="lazy" />
+                <figcaption class="body-sm muted"></figcaption>
+              </figure>
+              <h3 class="h3">C. Olympic Tiếng Anh ICTU 2024</h3>
+              
+              <p>
+                Organizing the Olympic Tiếng Anh ICTU 2024 was one of the largest responsibilities I undertook as President. This major English competition required months of planning, coordination, and teamwork. Seeing so many students participate and excel in the competition was incredibly rewarding. The event not only showcased the English skills of ICTU students but also strengthened the English learning community at our university.
+              </p>
+              <figure class="blog-article__image">
+                <img src="{{ url_for('static', filename='assets/blog-457883.1.jpg') }}" alt="First official meeting as English Club President" loading="lazy" />
+                <figcaption class="body-sm muted"></figcaption>
+              </figure>
+              <h3 class="h3">D. STAR Awards 2024</h3>
+              
+              <p>
+                Another significant achievement was our participation in the STAR Awards 2024. We competed in the "Young Generation - Healthy Lifestyle for a Healthy Heart" category, which required us to create meaningful content about health and wellness. Once again, our team's efforts were recognized with another consolation prize win of 1,500,000 VND.
+              </p>
+              
+              <p>
+                Presenting alongside talented teammates was an experience that taught me the value of collaboration and mutual support. Each team member contributed their unique strengths, creating a presentation that was both informative and engaging.
+              </p>
+              <figure class="blog-article__image">
+                <img src="{{ url_for('static', filename='assets/blog-45.883.1.jpg') }}" alt="First official meeting as English Club President" loading="lazy" />
+                <figcaption class="body-sm muted"></figcaption>
+              </figure>
+              <h3 class="h3">E. T.E.C Spell-Off Competition</h3>
+              
+              <p>
+                The T.E.C Spell-Off Competition was a fun and challenging experience that tested our spelling skills and quick thinking. While it was a lighter competition compared to others, it provided valuable opportunities for members to practice and improve their English vocabulary in a competitive yet friendly environment.
+              </p>
+              
+              <figure class="blog-article__image">
+                <img src="{{ url_for('static', filename='assets/blog-3.42.4.jpg') }}" alt="Major competitions and achievements" loading="lazy" />
+                <figcaption class="body-sm muted">Major events and competitions – where we connected and shined.</figcaption>
+              </figure>
+              
+              <h2 class="h2">4. Special Events & Cultural Activities</h2>
+              
+              <h3 class="h3">A. Colourful ICTU 2025</h3>
+              
+              <p>
+                Colourful ICTU 2025 was one of the most vibrant events we organized. This cultural celebration brought together international guests and students from various backgrounds. We organized interactive games and meaningful exchanges that celebrated cultural diversity and created a vibrant, inclusive community.
+              </p>
+              
+              <p>
+                The event was a beautiful representation of how language and culture can bring people together. Seeing students from different countries and backgrounds connect through English and shared activities was truly inspiring. It reinforced my belief in the power of cultural exchange and inclusive leadership.
+              </p>
+              <figure class="blog-article__image">
+                <img src="{{ url_for('static', filename='assets/blog-3.4232.4.jpg') }}" alt="Major competitions and achievements" loading="lazy" />
+                <figcaption class="body-sm muted"></figcaption>
+              </figure>
+              <figure class="blog-article__image">
+                <img src="{{ url_for('static', filename='assets/blog-3.424432.4.jpg') }}" alt="Major competitions and achievements" loading="lazy" />
+                <figcaption class="body-sm muted"></figcaption>
+              </figure>
+              <figure class="blog-article__image">
+                <img src="{{ url_for('static', filename='assets/blog-3.42443772.4.jpg') }}" alt="Major competitions and achievements" loading="lazy" />
+                <figcaption class="body-sm muted"></figcaption>
+              </figure>
+              <h3 class="h3">B. Vietnamese Teachers' Day Celebration</h3>
+              
+              <p>
+                The Vietnamese Teachers' Day Celebration was a heartfelt event where we honored our mentors and advisors. Organizing this celebration was particularly meaningful as it allowed us to express our gratitude to the teachers who had supported and guided us throughout our journey.
+              </p>
+              
+              <p>
+                The gift-giving and appreciation activities created a warm atmosphere that strengthened the bond between students and teachers. It was a reminder that leadership is not just about organizing events, but also about fostering meaningful relationships and showing appreciation to those who support us.
+              </p>
+              <figure class="blog-article__image">
+                <img src="{{ url_for('static', filename='assets/blog-6.42.4.jpg') }}" alt="Major competitions and achievements" loading="lazy" />
+                <figcaption class="body-sm muted"></figcaption>
+              </figure>
+              <figure class="blog-article__image">
+                <img src="{{ url_for('static', filename='assets/blog-6.425.4.jpg') }}" alt="Major competitions and achievements" loading="lazy" />
+                <figcaption class="body-sm muted"></figcaption>
+              </figure>
+              <h2 class="h2">5. Growth & Lessons Learned</h2>
+              
+              <p>
+                My time as English Club President was a period of tremendous personal and professional growth. One of the most significant improvements was in my public speaking skills. Leading meetings, presenting at competitions, and speaking at various events helped me become more confident and articulate in expressing my ideas.
+              </p>
+              
+              <p>
+                Event management and organization became second nature to me. From planning small weekly activities to organizing major competitions, I learned to balance multiple responsibilities, manage timelines, and coordinate with various stakeholders. These skills have proven invaluable in both my academic and professional life.
+              </p>
+              
+              <p>
+                Perhaps the most important lesson was about teamwork and collaboration. Leading a diverse team taught me that the best results come from leveraging each member's unique strengths. I learned to listen, delegate effectively, and create an environment where everyone felt empowered to contribute.
+              </p>
+              
+              <p>
+                Handling pressure and responsibility was another crucial skill I developed. There were moments of stress and uncertainty, but these challenges taught me resilience and problem-solving. I learned that leadership is not about having all the answers, but about finding solutions together with your team.
+              </p>
+              <figure class="blog-article__image">
+                <img src="{{ url_for('static', filename='assets/blog-6.4.jpg') }}" alt="Major competitions and achievements" loading="lazy" />
+                <figcaption class="body-sm muted"></figcaption>
+              </figure>
+              <figure class="blog-article__image">
+                <img src="{{ url_for('static', filename='assets/blog-6.41.jpg') }}" alt="Major competitions and achievements" loading="lazy" />
+                <figcaption class="body-sm muted"></figcaption>
+              </figure>
+              <h2 class="h2">6. Conclusion - Memories That Last</h2>
+              
+              <p>
+                Looking back on my journey as English Club President, I am filled with gratitude for all the experiences, challenges, and achievements. The memories we created together – from the excitement of our first meeting to the pride of winning competitions, from organizing cultural events to celebrating with teachers – these are moments that will stay with me forever.
+              </p>
+              
+              <p>
+                This journey was not just about leading a club; it was about personal transformation, building lasting friendships, and contributing to a community that values learning and growth. The skills I developed, the relationships I built, and the memories I created have shaped who I am today.
+              </p>
+              
+              <p>
+                To all the members, advisors, and supporters who were part of this journey – thank you. These memories are not just mine; they belong to all of us who shared in this incredible experience. The English Club will always hold a special place in my heart, and I am proud to have been part of its story.
+              </p>
+              <figure class="blog-article__image">
+                <img src="{{ url_for('static', filename='assets/blog-6.413.jpg') }}" alt="Major competitions and achievements" loading="lazy" />
+                <figcaption class="body-sm muted"></figcaption>
               </figure>
             </div>
           </article>
@@ -958,7 +1187,7 @@
           </p>
         </header>
         
-        <form id="contact-form" class="card form" method="POST">
+        <form id="contact-form" class="card form" method="POST" action="/contact" novalidate>
           <div class="form__row">
             <div class="field">
               <label for="name">Your Name <span aria-label="required">*</span></label>
@@ -1075,6 +1304,35 @@
       const themeToggle = document.getElementById('theme-toggle');
       const themeIcon = document.getElementById('theme-icon');
       const html = document.documentElement;
+      const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+      let audioCtx = null;
+
+      function playToggleSound() {
+        if (!AudioContextClass) return;
+        if (!audioCtx) {
+          audioCtx = new AudioContextClass();
+        }
+        if (audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+
+        const oscillator = audioCtx.createOscillator();
+        const gainNode = audioCtx.createGain();
+
+        oscillator.type = 'triangle';
+        oscillator.frequency.setValueAtTime(220, audioCtx.currentTime);
+
+        gainNode.gain.setValueAtTime(0.0001, audioCtx.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.25, audioCtx.currentTime + 0.03);
+        gainNode.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.25);
+
+        oscillator.connect(gainNode);
+        gainNode.connect(audioCtx.destination);
+
+        oscillator.start();
+        oscillator.frequency.linearRampToValueAtTime(140, audioCtx.currentTime + 0.12);
+        oscillator.stop(audioCtx.currentTime + 0.28);
+      }
       
       // Get saved theme or default to light
       const savedTheme = localStorage.getItem('theme') || 'light';
@@ -1097,6 +1355,7 @@
         
         // Update icon
         themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+        playToggleSound();
       });
     })();
     

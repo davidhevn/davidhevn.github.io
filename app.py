@@ -164,11 +164,27 @@ def project(slug):
 
 @app.route("/contact", methods=["POST"])
 def contact():
-    data = request.get_json()
+    """
+    Accept both JSON (AJAX) and traditional form submissions.
+    """
+    data = {}
+    if request.is_json:
+        data = request.get_json(silent=True) or {}
+    else:
+        # Fallback to form data
+        data = {
+            'name': request.form.get('name', '').strip(),
+            'email': request.form.get('email', '').strip(),
+            'subject': request.form.get('subject', '').strip(),
+            'message': request.form.get('message', '').strip(),
+        }
     
     # Basic validation
     if not data.get('name') or not data.get('email') or not data.get('message'):
-        return jsonify({'success': False, 'message': 'Please fill in all required fields.'}), 400
+        if request.is_json:
+            return jsonify({'success': False, 'message': 'Please fill in all required fields.'}), 400
+        # Form fallback response
+        return redirect(url_for('home') + '#contact')
     
     # Save to database
     message = ContactMessage(
@@ -180,13 +196,16 @@ def contact():
     db.session.add(message)
     db.session.commit()
     
-    # Send email notification
+    # Send email notification (best-effort)
     try:
         send_contact_email(message)
     except Exception as e:
         print(f"Email sending failed: {e}")
     
-    return jsonify({'success': True, 'message': 'Thank you! Your message has been sent.'})
+    if request.is_json:
+        return jsonify({'success': True, 'message': 'Thank you! Your message has been sent.'})
+    # Redirect back to contact section on success for non-AJAX
+    return redirect(url_for('home') + '#contact')
 
 @app.route("/newsletter", methods=["POST"])
 def newsletter():
