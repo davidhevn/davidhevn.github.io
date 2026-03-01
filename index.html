@@ -692,6 +692,27 @@
           <button class="blog__nav blog__nav--prev" aria-label="Previous articles">‹</button>
           <div class="blog__track">
             
+           <!-- New: Zero to One -->
+          <article class="blog__card card">
+            <div class="blog__media">
+              <img src="static/assets/zero_to_one_cover.png"
+                   alt="Zero to One - Creating the Future"
+                   loading="lazy" />
+            </div>
+            <div class="blog__body">
+              <span class="tag">Business</span>
+              <span class="tag">Philosophy</span>
+              <h3 class="h3">Từ Số 0 Đến Số 1: Đừng Trở Thành Phiên Bản "Lỗi Thời" Của Người Khác</h3>
+              <p class="excerpt">
+                Dựa trên tư duy của Peter Thiel: Tại sao phải cạnh tranh giành giật 1% thị trường trong khi bạn có thể tạo ra một thứ chưa từng tồn tại?
+              </p>
+              <a class="read" href="#" data-blog-modal="blog-zero-to-one-detail">
+                Read Article
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+
           <!-- New: Don't Blame Technology -->
           <article class="blog__card card">
             <img src="static/assets/dont_blame_tech_cover_realistic.png" 
@@ -827,10 +848,78 @@
     </section>
     
     <!-- =========================================
+         Blog Modal Overlay: Zero to One
+         ========================================= -->
+    <div id="blog-zero-to-one-detail" class="blog-modal-overlay">
+     <div class="blog-modal">
+       <button class="blog-modal__close" aria-label="Close modal">×</button>
+       <div class="blog-modal__content">
+         <article class="blog-article">
+           <header class="blog-article__header">
+             <span class="tag">Business & Philosophy</span>
+             <h1 class="h1">Từ Số 0 Đến Số 1: Đừng Trở Thành Phiên Bản "Lỗi Thời" Của Người Khác</h1>
+             <p class="blog-article__meta body-sm muted">
+               <time datetime="2026-03-01">March 01, 2026</time>
+               <span>By DavidHE | Review: Peter Thiel</span>
+             </p>
+           </header>
+
+           <div class="blog-article__content">
+             <p class="lead">
+               Trong thế giới kinh doanh và phát triển bản thân, chúng ta thường được nhồi nhét một tư duy rất an toàn: Hãy nhìn xem người khác đang làm gì thành công, và làm lại điều đó nhưng tốt hơn một chút. Mở một quán cà phê trang trí đẹp hơn, tạo ra một ứng dụng mượt mà hơn, hay cố gắng cạnh tranh để giành giật 1% trong một thị trường khổng lồ.
+             </p>
+
+             <figure class="blog-article__image">
+               <img src="static/assets/zero_to_one_cover.png"
+                    alt="Zero to One - Peter Thiel philosophy"
+                    loading="lazy" />
+               <figcaption class="body-sm muted">Peter Thiel: "Cạnh tranh là dành cho những kẻ thua cuộc."</figcaption>
+             </figure>
+
+             <p>
+               Nhưng khi đọc xong <strong>"Không Đến Một" (Zero to One)</strong> của <strong>Peter Thiel</strong>, tôi nhận ra tư duy đó chính là một cái bẫy. Peter Thiel đã tát một gáo nước lạnh vào những cuốn sách dạy kinh doanh truyền thống khi tuyên bố: "Cạnh tranh là dành cho những kẻ thua cuộc."
+             </p>
+
+             <h2 class="h2">Nghịch lý của sự cạnh tranh</h2>
+             <p>
+               Chúng ta bị ám ảnh bởi sự cạnh tranh từ khi còn ngồi trên ghế nhà trường. Điểm số, thứ hạng, trường đại học danh tiếng... tất cả đào tạo chúng ta trở thành những chiến binh xuất sắc trong việc đánh bại người khác để giành lấy những phần thưởng giống hệt nhau. Hệ quả là khi bước ra đời, các công ty khởi nghiệp cũng lao vào cắn xé nhau trong những thị trường đẫm máu (đại dương đỏ), để rồi lợi nhuận bị bào mòn về con số 0.
+             </p>
+
+             <p>
+               Chiêm nghiệm lại, triết lý "Đi từ 0 đến 1" của Thiel thực sự sâu sắc. Tại sao phải đâm đầu vào mở mạng xã hội thứ 100 trong khi bạn có thể tạo ra một thứ gì đó chưa từng tồn tại? Giá trị thực sự không nằm ở việc bạn đánh bại đối thủ, mà nằm ở việc bạn vươn tới sự độc quyền bằng cách giải quyết một vấn đề độc nhất mà không ai làm được. Độc quyền, theo nghĩa tích cực, chính là phần thưởng cho những kẻ dám sáng tạo.
+             </p>
+
+             <h2 class="h2">Cuộc sống không phải là một tờ vé số</h2>
+             <p>
+               Một trong những chương khiến tôi suy nghĩ nhiều nhất là <strong>"Bạn không phải là một tấm vé số"</strong>. Ngày nay, người ta hay gán thành công của Bill Gates hay Mark Zuckerberg cho may mắn, hoàn cảnh, hay "đúng thời điểm". Thế hệ chúng ta đang mắc hội chứng "lạc quan bất định" – tức là tin tương lai sẽ tốt, nhưng lại chẳng có kế hoạch cụ thể nào, chỉ cố gắng gom góp thật nhiều kỹ năng chung chung để "phòng thân".
+             </p>
+
+             <p>
+               Thiel nhắc nhở chúng ta rằng: Bạn không thể đa dạng hóa cuộc đời mình. Bạn chỉ có một cuộc đời, một tương lai. Việc áp dụng tư duy "thiết kế thông minh" (intelligent design) thay vì phó mặc cho sự "tiến hóa" ngẫu nhiên của hoàn cảnh là cách duy nhất để tạo ra những bước nhảy vọt.
+             </p>
+
+             <h2 class="h2">Bài học cho mỗi chúng ta</h2>
+             <p>
+               Dù bạn không ôm mộng xây dựng một startup tỷ đô, triết lý của "Không Đến Một" vẫn áp dụng hoàn hảo cho việc xây dựng thương hiệu cá nhân và sự nghiệp. Đừng cố gắng trở thành một nhân viên "toàn diện" nhưng nhạt nhòa. Hãy tìm ra "bí mật" của riêng mình – một lĩnh vực ngách, một kỹ năng chuyên biệt mà ít ai quan tâm, sau đó trở thành người xuất sắc nhất, độc quyền trong chính lĩnh vực đó.
+             </p>
+
+             <blockquote class="quote">
+               "Con đường từ 0 đến 1 là con đường cô độc, đi ngược lại đám đông. Nhưng như tác giả Peter Thiel đã nói, đó là cách duy nhất để chúng ta không chỉ làm cho tương lai khác biệt đi, mà còn làm cho nó tốt đẹp hơn."
+             </blockquote>
+
+             <p>
+               Tương lai không tự nhiên xảy ra, nó đang chờ chúng ta kiến tạo. Mọi thứ vĩ đại đều bắt đầu từ một bước đi đầu tiên, đi từ số 0 tròn trĩnh để vươn tới số 1 duy nhất.
+             </p>
+           </div>
+         </article>
+       </div>
+     </div>
+    </div>
+
+    <!-- =========================================
          Blog Modal Overlay
          ========================================= -->
-    <div id="blog-dont-blame-tech-detail" class="blog-modal-overlay">
-      <div class="blog-modal">
+    <div id="blog-dont-blame-tech-detail" class="blog-modal-overlay">      <div class="blog-modal">
         <button class="blog-modal__close" aria-label="Close modal">×</button>
         <div class="blog-modal__content">
           <article class="blog-article">
