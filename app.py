@@ -94,6 +94,10 @@ def inject_current_year():
 def home():
     return render_template("index.html")
 
+@app.route("/cv")
+def cv():
+    return render_template("cv.html")
+
 @app.route("/blog")
 def blog():
     page = request.args.get('page', 1, type=int)

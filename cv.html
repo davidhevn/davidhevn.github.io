@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DavidHE - Project Manager & Full-stack Developer CV</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #14b89c;
+            --bg: #000000;
+            --card: #0a0a0a;
+            --text: #ffffff;
+            --muted: #9ca3af;
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .cv-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        header {
+            background: linear-gradient(135deg, #0a0a0a 0%, #111 100%);
+            padding: 50px;
+            border-bottom: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .name { font-size: 3rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 10px; color: var(--primary); }
+        .title { font-size: 1.25rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
+        .contact-info { margin-top: 20px; display: flex; justify-content: center; gap: 20px; color: var(--muted); font-size: 0.9rem; }
+
+        .main-content { display: grid; grid-template-columns: 1fr 2fr; gap: 40px; padding: 50px; }
+
+        h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 20px; color: var(--primary); border-bottom: 2px solid var(--primary); display: inline-block; padding-bottom: 5px; }
+        h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 5px; }
+        .section { margin-bottom: 40px; }
+
+        .summary { font-size: 1.05rem; color: var(--text); margin-bottom: 30px; line-height: 1.8; }
+
+        .skill-group { margin-bottom: 20px; }
+        .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+        .tag { background: rgba(20, 184, 156, 0.1); color: var(--primary); padding: 4px 12px; border-radius: 100px; font-size: 0.75rem; font-weight: 600; border: 1px solid rgba(20, 184, 156, 0.2); }
+
+        .project-item, .exp-item { margin-bottom: 25px; }
+        .date { font-size: 0.85rem; color: var(--muted); font-weight: 600; margin-bottom: 5px; display: block; }
+        .desc { color: var(--muted); font-size: 0.95rem; margin-top: 5px; }
+
+        @media print {
+            body { padding: 0; background: white; color: black; }
+            .cv-container { box-shadow: none; border: none; width: 100%; max-width: 100%; }
+            .name, h2, h3 { color: black !important; }
+            .tag { border: 1px solid #ccc; color: black; }
+            .contact-info, .desc, .date, .title { color: #444 !important; }
+            .cv-container { background: white; }
+            header { background: #f4f4f4; border-bottom: 2px solid black; }
+        }
+
+        .print-btn {
+            position: fixed; bottom: 30px; right: 30px;
+            background: var(--primary); color: #000;
+            padding: 15px 30px; border-radius: 100px;
+            font-weight: 700; cursor: pointer; text-decoration: none;
+            box-shadow: 0 10px 20px rgba(20, 184, 156, 0.3);
+            transition: transform 0.3s ease;
+        }
+        .print-btn:hover { transform: translateY(-5px); }
+    </style>
+</head>
+<body>
+
+    <div class="cv-container">
+        <header>
+            <div class="name">DAVID HOANG EM</div>
+            <div class="title">Project Manager | Full-stack Developer</div>
+            <div class="contact-info">
+                <span>📧 davidhoangem@gmail.com</span>
+                <span>🌐 davidhe.vn</span>
+                <span>📍 Thai Nguyen, Vietnam</span>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <aside class="sidebar">
+                <div class="section">
+                    <h2>Education</h2>
+                    <div class="exp-item">
+                        <span class="date">2022 - Present</span>
+                        <h3>ICTU</h3>
+                        <p class="desc">Bachelor of Information Technology (IT)<br>Senior Student (Year 3)</p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Core Skills</h2>
+                    <div class="skill-group">
+                        <h3>Management</h3>
+                        <div class="skill-tags">
+                            <span class="tag">Project Management</span>
+                            <span class="tag">Agile/Scrum</span>
+                            <span class="tag">Content Strategy</span>
+                        </div>
+                    </div>
+                    <div class="skill-group">
+                        <h3>Engineering</h3>
+                        <div class="skill-tags">
+                            <span class="tag">Python (Flask)</span>
+                            <span class="tag">React/Next.js</span>
+                            <span class="tag">Tailwind CSS</span>
+                            <span class="tag">.NET Core</span>
+                            <span class="tag">SQL / Docker</span>
+                        </div>
+                    </div>
+                    <div class="skill-group">
+                        <h3>AI Ecosystem</h3>
+                        <div class="skill-tags">
+                            <span class="tag">Cursor</span>
+                            <span class="tag">GitHub Copilot</span>
+                            <span class="tag">Claude / Grok</span>
+                            <span class="tag">Google AI Studio</span>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <main class="content-area">
+                <div class="section">
+                    <h2>Professional Summary</h2>
+                    <p class="summary">
+                        Strategic and results-driven Project Manager & Full-stack Developer currently in senior year at ICTU. Expert at bridging the gap between complex technical requirements and creative digital content. Proficient in leveraging cutting-edge AI tools to accelerate development cycles and deliver high-impact products.
+                    </p>
+                </div>
+
+                <div class="section">
+                    <h2>Key Projects</h2>
+                    <div class="project-item">
+                        <h3>Cờ Tướng GenZ</h3>
+                        <span class="date">Modern Chess Platform | React & Next.js</span>
+                        <p class="desc">Led the end-to-end development of a modernized Chinese Chess platform, integrating GenZ aesthetics with traditional gameplay logic.</p>
+                    </div>
+                    <div class="project-item">
+                        <h3>IELTS Pro</h3>
+                        <span class="date">Education Tech | Tailwind & Vercel</span>
+                        <p class="desc">Designed and managed a comprehensive learning platform for IELTS students, focusing on user experience and progress tracking.</p>
+                    </div>
+                    <div class="project-item">
+                        <h3>Game Vui Dòng Tiền VN</h3>
+                        <span class="date">Financial Education | Phaser & JS</span>
+                        <p class="desc">Developed an interactive educational game tailored for the Vietnamese market to improve financial literacy.</p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Experience</h2>
+                    <div class="exp-item">
+                        <h3>Digital Content Creator</h3>
+                        <span class="date">TikTok & Social Media | 10K+ Followers</span>
+                        <p class="desc">Managing personal brand and creating tech-focused content with high audience engagement.</p>
+                    </div>
+                    <div class="exp-item">
+                        <h3>MC at TNTV</h3>
+                        <span class="date">Thai Nguyen Television</span>
+                        <p class="desc">Hosting media programs and managing production workflows for television broadcasting.</p>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <a href="javascript:window.print()" class="print-btn">Print to PDF 📄</a>
+
+</body>
+</html>
