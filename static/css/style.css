@@ -674,11 +674,22 @@
     top: 0 !important;
     margin-top: 0 !important;
     padding-top: 0 !important;
+    position: static !important;
   }
   
   html {
+    top: 0 !important;
     margin-top: 0 !important;
     padding-top: 0 !important;
+    position: static !important;
+    overflow: visible !important;
+  }
+
+  /* Override Google Translate inline style on html.translated-ltr/rtl */
+  html.translated-ltr,
+  html.translated-rtl {
+    top: 0 !important;
+    margin-top: 0 !important;
   }
   
   /* Ensure header is at the top */
