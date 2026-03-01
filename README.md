@@ -9,6 +9,7 @@ A modern, high-performance, and aesthetically stunning portfolio website. Recent
 - **Floating Pill Nav Bar**: A modern, glassmorphism-inspired navigation bar with button-style links.
 - **Bento Grid Skills**: Technical proficiency section redesigned into a clean, interactive Bento Grid with neon-glow pill tags.
 - **SVG Iconography**: Replaced traditional icons with professional, minimalist SVG icons across the site.
+- **Online CV System**: A dedicated, print-optimized HTML CV (`cv.html`) specifically designed for a Project Manager profile, allowing instant "Save as PDF" functionality with a professional layout.
 
 ### 💼 Advanced Work & Case Studies
 - **Interactive Project Cards**: Projects now feature a landscape-dapper design with hover-to-slide effects.
