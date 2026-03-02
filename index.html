@@ -1,45 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>DavidHE • Professional Software Developer Portfolio</title>
-  <meta name="description" content="DavidHE — Experienced freelance software developer crafting intuitive, user-centered digital solutions with a focus on clarity and impact." />
-  <meta name="keywords" content="DavidHE, Full-Stack Developer, Software Developer, Web Developer, Portfolio, Python, .NET, C#, JavaScript" />
+  <meta name="description"
+    content="DavidHE — Experienced freelance software developer crafting intuitive, user-centered digital solutions with a focus on clarity and impact." />
+  <meta name="keywords"
+    content="DavidHE, Full-Stack Developer, Software Developer, Web Developer, Portfolio, Python, .NET, C#, JavaScript" />
   <meta name="author" content="DavidHE" />
   <link rel="canonical" href="https://davidhevn.github.io/" />
-  
+
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://davidhevn.github.io/" />
   <meta property="og:title" content="DavidHE • Professional Software Developer Portfolio" />
-  <meta property="og:description" content="Experienced freelance software developer crafting intuitive, user-centered digital solutions." />
+  <meta property="og:description"
+    content="Experienced freelance software developer crafting intuitive, user-centered digital solutions." />
   <meta property="og:image" content="static/assets/david-photo.jpg" />
-  
+
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image" />
   <meta property="twitter:url" content="https://davidhevn.github.io/" />
   <meta property="twitter:title" content="DavidHE • Professional Software Developer Portfolio" />
-  <meta property="twitter:description" content="Experienced freelance software developer crafting intuitive, user-centered digital solutions." />
+  <meta property="twitter:description"
+    content="Experienced freelance software developer crafting intuitive, user-centered digital solutions." />
   <meta property="twitter:image" content="static/assets/david-photo.jpg" />
-  
+
   <!-- PWA -->
   <link rel="manifest" href="static/manifest.json" />
   <meta name="theme-color" content="#14b89c" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="apple-mobile-web-app-title" content="DavidHE Portfolio" />
-  
+
   <!-- Preconnect for performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  
+
   <!-- Professional Font Stack -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  
+
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="static/css/style.css" />
-  
+
   <!-- Structured Data (JSON-LD) -->
   <script type="application/ld+json">
   {
@@ -68,7 +73,7 @@
     ]
   }
   </script>
-  
+
   <!-- Google Analytics (replace with your GA ID) -->
   <!--
   <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
@@ -79,10 +84,10 @@
     gtag('config', 'GA_MEASUREMENT_ID');
   </script>
   -->
-  
+
   <!-- Google Translate -->
   <script type="text/javascript">
-    window.googleTranslateElementInit = function() {
+    window.googleTranslateElementInit = function () {
       new google.translate.TranslateElement({
         pageLanguage: 'en',
         includedLanguages: 'en,vi,zh-CN,ja,ko,fr,de,es,pt,ru,ar,hi,th,id,it,nl,pl,tr',
@@ -91,16 +96,18 @@
       }, 'google_translate_element');
     };
   </script>
-  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <script type="text/javascript"
+    src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
+
 <body>
-  
+
   <!-- Accessibility Skip Link -->
   <a class="skip" href="#main">Skip to content</a>
-  
+
   <!-- Google Translate Element (Hidden) -->
   <div id="google_translate_element" style="display: none;"></div>
-  
+
   <!-- =========================================
        Header & Navigation
        ========================================= -->
@@ -109,17 +116,18 @@
       <a class="brand" href="#home" aria-label="Go to home">
         <span class="brand__text">DavidHE</span>
       </a>
-      
+
       <div class="header__controls">
         <!-- Search -->
         <div class="search search--compact" id="global-search">
-          <input type="search" id="search-input" class="search__input" placeholder="Search..." aria-label="Search website" autocomplete="off" />
+          <input type="search" id="search-input" class="search__input" placeholder="Search..."
+            aria-label="Search website" autocomplete="off" />
           <div class="search__dropdown" id="search-dropdown" aria-live="polite">
             <div class="search__hint">Try searching for:</div>
             <ul class="search__results" id="search-results"></ul>
           </div>
         </div>
-        
+
         <div class="theme-toggle">
           <span class="theme-toggle__icon" id="theme-icon">🌙</span>
           <button class="theme-toggle__button" id="theme-toggle" aria-label="Toggle dark mode">
@@ -127,7 +135,7 @@
           </button>
         </div>
       </div>
-      
+
       <!-- Mobile Navigation Toggle -->
       <input id="nav-toggle" type="checkbox" class="nav__toggle" aria-label="Toggle menu" />
       <label for="nav-toggle" class="nav__button" aria-hidden="true">
@@ -135,7 +143,7 @@
         <span></span>
         <span></span>
       </label>
-      
+
       <nav class="nav" aria-label="Primary navigation">
         <ul class="nav__list">
           <li><a href="#home" class="nav__link">Home</a></li>
@@ -147,7 +155,7 @@
           <li><a href="cv.html" class="nav__link nav__cta">Download CV</a></li>
         </ul>
       </nav>
-      
+
       <!-- Language Selector with Globe Icon -->
       <div class="language-selector">
         <button class="language-toggle" id="language-toggle" aria-label="Select language">
@@ -179,12 +187,12 @@
       </div>
     </div>
   </header>
-  
+
   <!-- =========================================
        Main Content
        ========================================= -->
   <main id="main">
-    
+
     <!-- =========================================
          Hero Section
          ========================================= -->
@@ -194,22 +202,24 @@
           <span class="eyebrow">Full-Stack Developer & Content Creator</span>
           <h1 class="h1">Hello, I'm <span class="accent">DavidHE</span></h1>
           <p class="lead">
-            Over 3 years of full-stack development experience, specializing in building large-scale, high-performance, and scalable web applications. Combining digital content creation and media experience to deliver comprehensive solutions.
+            Over 3 years of full-stack development experience, specializing in building large-scale, high-performance,
+            and scalable web applications. Combining digital content creation and media experience to deliver
+            comprehensive solutions.
           </p>
-          
+
           <ul class="chips">
             <li class="chip">Full-Stack Development</li>
             <li class="chip">AI Tools & Ecosystem</li>
             <li class="chip">Content Creation</li>
             <li class="chip">Digital Media</li>
           </ul>
-          
+
           <div class="cta">
             <a href="#work" class="btn btn--primary">Explore My Work</a>
             <a href="#contact" class="btn btn--secondary">Get in Touch</a>
-            <a href="static/cv.pdf" class="btn btn--secondary cv-download" download="DavidHE_CV.pdf">Download CV</a>
+            <a href="cv.html" class="btn btn--secondary cv-download" target="_blank">Download CV</a>
           </div>
-          
+
           <div class="stats">
             <div class="stat">
               <span class="stat__num">3+</span>
@@ -225,117 +235,116 @@
             </div>
           </div>
         </div>
-        
+
         <div class="hero__figure">
-          <img class="hero__3d" 
-               src="static/assets/hero-3d.png" 
-               alt="Abstract 3D illustration representing innovation" />
+          <img class="hero__3d" src="static/assets/hero-3d.png"
+            alt="Abstract 3D illustration representing innovation" />
         </div>
       </div>
       <div class="band" aria-hidden="true"></div>
     </section>
-    
+
     <!-- =========================================
      About Section
      ========================================= -->
-<section id="about" class="section about">
-  <div class="container">
-    <header class="section__head">
-      
-      <h2 class="h2">Crafting Digital Excellence</h2>
-      <p class="lead">
-        Over 3 years of full-stack experience, specializing in building large-scale, high-performance, and scalable web applications. Comfortable across the entire product lifecycle—from front-end interface design to back-end business logic and databases—across multiple technology stacks.
-      </p>
-    </header>
+    <section id="about" class="section about">
+      <div class="container">
+        <header class="section__head">
 
-    <div class="about__grid">
-      <article class="card about__profile">
-        <div class="profile__media">
-          <img
-            class="profile__photo"
-            src="static/assets/david-photo.jpg"
-            alt="DavidHE professional portrait"
-            loading="lazy"
-          />
-          <span class="profile__badge">✨ Full-Stack Developer</span>
-        </div>
-        <div class="profile__body">
-          <h3 class="h3">Dedicated to User-Centered Innovation</h3>
-          <p class="body-lg muted">
-            I build large-scale web applications with strong performance and scalability. I combine solid engineering with hands-on digital content experience to deliver end-to-end, effective solutions.
+          <h2 class="h2">Crafting Digital Excellence</h2>
+          <p class="lead">
+            Over 3 years of full-stack experience, specializing in building large-scale, high-performance, and scalable
+            web applications. Comfortable across the entire product lifecycle—from front-end interface design to
+            back-end business logic and databases—across multiple technology stacks.
           </p>
-          <p class="body-sm muted" style="margin-top: 1rem;">
-            <strong>Personal Information:</strong><br>
-            My name is Nguyen Dai Hoang, and I am currently a 3rd-year student majoring in Information Technology at the International Training Institute of Thai Nguyen University of Information and Communication Technology (ICTU).
-          </p>
-          <div class="tags" style="margin-top: 1rem;">
-            <span class="tag">Full-Stack</span>
-            <span class="tag">AI Tools</span>
-            <span class="tag">Content Creator</span>
-          </div>
-          <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border-color, #e0e0e0);">
-            <p style="margin-bottom: 0.75rem; font-size: 0.875rem; font-weight: 600;">Visit my school:</p>
-            <div style="display: flex; gap: 1rem; align-items: center;">
-              <a href="https://www.facebook.com/ictu.vn" 
-                 target="_blank" 
-                 rel="noopener noreferrer"
-                 style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; color: #1877F2; font-size: 0.875rem; transition: transform 0.2s;"
-                 onmouseover="this.style.transform='scale(1.1)'"
-                 onmouseout="this.style.transform='scale(1)'"
-                 title="Visit ICTU Facebook">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                </svg>
-                <span>Facebook</span>
-              </a>
-              <a href="https://ictu.vn/" 
-                 target="_blank" 
-                 rel="noopener noreferrer"
-                 style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; color: #14b89c; font-size: 0.875rem; transition: transform 0.2s;"
-                 onmouseover="this.style.transform='scale(1.1)'"
-                 onmouseout="this.style.transform='scale(1)'"
-                 title="Visit ICTU Website">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <line x1="2" y1="12" x2="22" y2="12"></line>
-                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-                </svg>
-                <span>Website</span>
-              </a>
+        </header>
+
+        <div class="about__grid">
+          <article class="card about__profile">
+            <div class="profile__media">
+              <img class="profile__photo" src="static/assets/david-photo.jpg" alt="DavidHE professional portrait"
+                loading="lazy" />
+              <span class="profile__badge">✨ Full-Stack Developer</span>
             </div>
-          </div>
+            <div class="profile__body">
+              <h3 class="h3">Dedicated to User-Centered Innovation</h3>
+              <p class="body-lg muted">
+                I build large-scale web applications with strong performance and scalability. I combine solid
+                engineering with hands-on digital content experience to deliver end-to-end, effective solutions.
+              </p>
+              <p class="body-sm muted" style="margin-top: 1rem;">
+                <strong>Personal Information:</strong><br>
+                My name is Nguyen Dai Hoang, and I am currently a 3rd-year student majoring in Information Technology at
+                the International Training Institute of Thai Nguyen University of Information and Communication
+                Technology (ICTU).
+              </p>
+              <div class="tags" style="margin-top: 1rem;">
+                <span class="tag">Full-Stack</span>
+                <span class="tag">AI Tools</span>
+                <span class="tag">Content Creator</span>
+              </div>
+              <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border-color, #e0e0e0);">
+                <p style="margin-bottom: 0.75rem; font-size: 0.875rem; font-weight: 600;">Visit my school:</p>
+                <div style="display: flex; gap: 1rem; align-items: center;">
+                  <a href="https://www.facebook.com/ictu.vn" target="_blank" rel="noopener noreferrer"
+                    style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; color: #1877F2; font-size: 0.875rem; transition: transform 0.2s;"
+                    onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"
+                    title="Visit ICTU Facebook">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                    </svg>
+                    <span>Facebook</span>
+                  </a>
+                  <a href="https://ictu.vn/" target="_blank" rel="noopener noreferrer"
+                    style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; color: #14b89c; font-size: 0.875rem; transition: transform 0.2s;"
+                    onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"
+                    title="Visit ICTU Website">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <line x1="2" y1="12" x2="22" y2="12"></line>
+                      <path
+                        d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                      </path>
+                    </svg>
+                    <span>Website</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="card about__info">
+            <h3 class="h3">Core Principles</h3>
+            <ul class="list">
+              <li>Simplicity & elegance in design</li>
+              <li>User empathy & accessibility</li>
+              <li>Scalable, maintainable code</li>
+              <li>Continuous learning & adaptation</li>
+            </ul>
+            <p class="quote">
+              "I believe in creating software that solves real problems while elevating user satisfaction."
+            </p>
+          </article>
         </div>
-      </article>
-
-      <article class="card about__info">
-        <h3 class="h3">Core Principles</h3>
-        <ul class="list">
-          <li>Simplicity & elegance in design</li>
-          <li>User empathy & accessibility</li>
-          <li>Scalable, maintainable code</li>
-          <li>Continuous learning & adaptation</li>
-        </ul>
-        <p class="quote">
-          "I believe in creating software that solves real problems while elevating user satisfaction."
-        </p>
-      </article>
-    </div>
-  </div>
-</section>
+      </div>
+    </section>
 
 
 
-<!-- =========================================
+    <!-- =========================================
      Hobbies Section (Masonry gallery + upload)
      ========================================= -->
-     <section id="hobbies" class="section hobbies">
+    <section id="hobbies" class="section hobbies">
       <div class="container">
         <header class="section__head">
           <h2 class="h2">Hobbies </h2>
-          
-          
+
+
         </header>
-    
+
         <!-- Masonry grid -->
         <div id="hobbyGrid" class="masonry">
           <!-- 8 ảnh mẫu (bạn có thể thay đường dẫn sang static của Flask) -->
@@ -384,113 +393,110 @@
         </div>
       </div>
     </section>
-    
-<!-- =========================================
+
+    <!-- =========================================
      Skills Section
      ========================================= -->
-<section id="skills" class="section skills">
-  <div class="container">
-    <header class="section__head">
-      
-      <h2 class="h2">Technical Proficiency</h2>
-      
-    </header>
-
-    <div class="skills__wrap">
-      <!-- Full-stack -->
-      <article class="card skill">
-        <div class="skill__head">
-         
-          <h3 class="h3">Full-stack Web Development</h3>
-        </div>
-        <p class="muted">
-          Over 3 years of full-stack experience, specializing in large-scale, high-performance, and scalable web apps.
-        </p>
-        <ul class="badges">
-          <li>HTML5/CSS3</li>
-          <li>JavaScript/ES6+</li>
-          <li>Next.js (Basic)</li>
-          <li>APIs (integration, consumption & design)</li>
-          <li>Python</li>
-          <li>.NET Core (C#)</li>
-          <li>RESTful APIs</li>
-          <li>SQL (DB design & queries)</li>
-          <li>Docker</li>
-          <li>AWS (basic cloud services)</li>
-          <li>CI/CD (Basic)</li>
-          <li>Performance Tuning</li>
-        </ul>
-      </article>
-
-      <!-- AI Tools -->
-      <article class="card skill">
-        <div class="skill__head">
-          
-          <h3 class="h3">AI Tools & Ecosystem</h3>
-        </div>
-        <p class="muted">
-          Using modern AI tools to accelerate development and improve product quality.
-        </p>
-        <ul class="badges">
-          <li>Visual Studio Code</li>
-          <li>Visual Studio 2022</li>
-          <li>Cursor (AI Assistant)</li>
-          <li>GitHub Copilot / Tabnine</li>
-          <li>Claude (LLM)</li>
-          <li>Grok (LLM)</li>
-          <li>GPT (LLM)</li>
-          <li>Gemini (LLM)</li>
-          <li>Google AI Studio</li>
-        </ul>
-      </article>
-
-      <!-- Content -->
-      <article class="card skill">
-        <div class="skill__head">
-        
-          <h3 class="h3">Digital Content Creation & Media</h3>
-        </div>
-        <p class="muted">
-          Hands-on experience building a personal brand and engaging audiences on digital platforms.
-        </p>
-        <ul class="badges">
-          <li>TikTok (9K+ Followers)</li>
-          <li>CapCut (quick editing)</li>
-          <li>Content strategy</li>
-          <li>Streamer / YouTuber</li>
-          <li>Adobe Premiere Pro</li>
-          <li>Photoshop (Thumbnail/Image Design)</li>
-          <li>MC at TNTV</li>
-          <li>Scriptwriting</li>
-          <li>Media content creation</li>
-        </ul>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- =========================================
-     Portfolio Section
-     ========================================= -->
-     <section id="work" class="section portfolio">
+    <section id="skills" class="section skills">
       <div class="container">
         <header class="section__head">
-          
+
+          <h2 class="h2">Technical Proficiency</h2>
+
+        </header>
+
+        <div class="skills__wrap">
+          <!-- Full-stack -->
+          <article class="card skill">
+            <div class="skill__head">
+
+              <h3 class="h3">Full-stack Web Development</h3>
+            </div>
+            <p class="muted">
+              Over 3 years of full-stack experience, specializing in large-scale, high-performance, and scalable web
+              apps.
+            </p>
+            <ul class="badges">
+              <li>HTML5/CSS3</li>
+              <li>JavaScript/ES6+</li>
+              <li>Next.js (Basic)</li>
+              <li>APIs (integration, consumption & design)</li>
+              <li>Python</li>
+              <li>.NET Core (C#)</li>
+              <li>RESTful APIs</li>
+              <li>SQL (DB design & queries)</li>
+              <li>Docker</li>
+              <li>AWS (basic cloud services)</li>
+              <li>CI/CD (Basic)</li>
+              <li>Performance Tuning</li>
+            </ul>
+          </article>
+
+          <!-- AI Tools -->
+          <article class="card skill">
+            <div class="skill__head">
+
+              <h3 class="h3">AI Tools & Ecosystem</h3>
+            </div>
+            <p class="muted">
+              Using modern AI tools to accelerate development and improve product quality.
+            </p>
+            <ul class="badges">
+              <li>Visual Studio Code</li>
+              <li>Visual Studio 2022</li>
+              <li>Cursor (AI Assistant)</li>
+              <li>GitHub Copilot / Tabnine</li>
+              <li>Claude (LLM)</li>
+              <li>Grok (LLM)</li>
+              <li>GPT (LLM)</li>
+              <li>Gemini (LLM)</li>
+              <li>Google AI Studio</li>
+            </ul>
+          </article>
+
+          <!-- Content -->
+          <article class="card skill">
+            <div class="skill__head">
+
+              <h3 class="h3">Digital Content Creation & Media</h3>
+            </div>
+            <p class="muted">
+              Hands-on experience building a personal brand and engaging audiences on digital platforms.
+            </p>
+            <ul class="badges">
+              <li>TikTok (9K+ Followers)</li>
+              <li>CapCut (quick editing)</li>
+              <li>Content strategy</li>
+              <li>Streamer / YouTuber</li>
+              <li>Adobe Premiere Pro</li>
+              <li>Photoshop (Thumbnail/Image Design)</li>
+              <li>MC at TNTV</li>
+              <li>Scriptwriting</li>
+              <li>Media content creation</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================
+     Portfolio Section
+     ========================================= -->
+    <section id="work" class="section portfolio">
+      <div class="container">
+        <header class="section__head">
+
           <h2 class="h2">Work</h2>
           <p class="lead">
-          
+
           </p>
         </header>
-    
+
         <div class="grid grid--3">
           <!-- Project 7: Cờ Tướng GenZ -->
           <article class="work card" data-blog-modal="project-cotuong-detail">
             <div class="work__media">
-              <img
-                src="static/assets/project co tuonggenz.png"
-                alt="Cờ Tướng GenZ"
-                loading="lazy"
-              />
+              <img src="static/assets/project co tuonggenz.png" alt="Cờ Tướng GenZ" loading="lazy" />
             </div>
             <div class="work__body">
               <div class="work-meta">
@@ -505,11 +511,7 @@
           <!-- Project 4: IELTS Pro -->
           <article class="work card" data-blog-modal="project-ielts-detail">
             <div class="work__media">
-              <img
-                src="static/assets/project-ielts.jpg"
-                alt="IELTS Pro"
-                loading="lazy"
-              />
+              <img src="static/assets/project-ielts.jpg" alt="IELTS Pro" loading="lazy" />
             </div>
             <div class="work__body">
               <div class="work-meta">
@@ -524,11 +526,7 @@
           <!-- Project 5: Ice Tea -->
           <article class="work card" data-blog-modal="project-icetea-detail">
             <div class="work__media">
-              <img
-                src="static/assets/project-icetea.jpg"
-                alt="Ice Tea"
-                loading="lazy"
-              />
+              <img src="static/assets/project-icetea.jpg" alt="Ice Tea" loading="lazy" />
             </div>
             <div class="work__body">
               <div class="work-meta">
@@ -543,11 +541,7 @@
           <!-- Project 6: Game Vui Dòng Tiền Việt Nam -->
           <article class="work card" data-blog-modal="project-cashflow-detail">
             <div class="work__media">
-              <img
-                src="static/assets/project-cashflow.jpg"
-                alt="Game Vui Dòng Tiền"
-                loading="lazy"
-              />
+              <img src="static/assets/project-cashflow.jpg" alt="Game Vui Dòng Tiền" loading="lazy" />
             </div>
             <div class="work__body">
               <div class="work-meta">
@@ -562,11 +556,7 @@
           <!-- Project 1: HE Coffee -->
           <article class="work card" data-blog-modal="project-coffee-detail">
             <div class="work__media">
-              <img
-                src="static/assets/project-1.jpg"
-                alt="HE Coffee"
-                loading="lazy"
-              />
+              <img src="static/assets/project-1.jpg" alt="HE Coffee" loading="lazy" />
             </div>
             <div class="work__body">
               <div class="work-meta">
@@ -577,15 +567,11 @@
               <h3 class="h3">HE Coffee — Cafe Management App</h3>
             </div>
           </article>
-    
+
           <!-- Project 2: LearnLangs -->
           <article class="work card" data-blog-modal="project-learnlangs-detail">
             <div class="work__media">
-              <img
-                src="static/assets/project-2.jpg"
-                alt="LearnLangs"
-                loading="lazy"
-              />
+              <img src="static/assets/project-2.jpg" alt="LearnLangs" loading="lazy" />
             </div>
             <div class="work__body">
               <div class="work-meta">
@@ -600,11 +586,7 @@
           <!-- Project 3: typingtest -->
           <article class="work card" data-blog-modal="project-typing-detail">
             <div class="work__media">
-              <img
-                src="static/assets/project-3.jpg"
-                alt="typingtest"
-                loading="lazy"
-              />
+              <img src="static/assets/project-3.jpg" alt="typingtest" loading="lazy" />
             </div>
             <div class="work__body">
               <div class="work-meta">
@@ -616,7 +598,7 @@
             </div>
           </article>
 
-    
+
           <!-- (Optional) Thêm project khác ở đây với tên & stack riêng -->
           <!--
           <article class="work card"> ... </article>
@@ -627,47 +609,58 @@
 
 
 
-    
-      
-   
+
+
+
     <!-- =========================================
          Blog Section
          ========================================= -->
     <section id="blog" class="section blog">
       <div class="container">
         <header class="section__head">
-         
+
           <h2 class="h2">Latest Articles</h2>
-          
+
         </header>
-        
+
         <div class="blog__slider">
           <button class="blog__nav blog__nav--prev" aria-label="Previous articles">‹</button>
           <div class="blog__track">
 
+            <!-- Blog 9: Warren Buffett Mindset (Finance) -->
+            <article class="blog__card card" data-blog-modal="blog-buffett-detail">
+              <div class="blog__media">
+                <img src="static/assets/blog-buffett.jpg" alt="Warren Buffett Investment Mindset" loading="lazy" />
+              </div>
+              <div class="blog__body">
+                <div class="blog-meta">
+                  <span>Finance</span>
+                  <span class="dot">·</span>
+                  <span>8 min read</span>
+                </div>
+                <h3 class="h3">Market Truths Unveiled: 5 Life-Changing Mindsets from Warren Buffett</h3>
+              </div>
+            </article>
+
             <!-- Blog 1: Zero to One (Engineering/Strategy) -->
-           <article class="blog__card card" data-blog-modal="blog-zero-to-one-detail">
-             <div class="blog__media">
-               <img src="static/assets/zero_to_one_cover.png"
-                    alt="Zero to One - Peter Thiel"
-                    loading="lazy" />
-             </div>
-             <div class="blog__body">
-               <div class="blog-meta">
-                 <span>Engineering</span>
-                 <span class="dot">·</span>
-                 <span>6 min read</span>
-               </div>
-               <h3 class="h3">Zero to One: Don't Become an "Obsolete" Version of Someone Else</h3>
-             </div>
-           </article>
+            <article class="blog__card card" data-blog-modal="blog-zero-to-one-detail">
+              <div class="blog__media">
+                <img src="static/assets/zero_to_one_cover.png" alt="Zero to One - Peter Thiel" loading="lazy" />
+              </div>
+              <div class="blog__body">
+                <div class="blog-meta">
+                  <span>Engineering</span>
+                  <span class="dot">·</span>
+                  <span>6 min read</span>
+                </div>
+                <h3 class="h3">Zero to One: Don't Become an "Obsolete" Version of Someone Else</h3>
+              </div>
+            </article>
 
             <!-- Blog 2: Don't Blame Technology (Inspiration) -->
             <article class="blog__card card" data-blog-modal="blog-dont-blame-tech-detail">
               <div class="blog__media">
-                <img src="static/assets/dont_blame_tech_cover_realistic.png"
-                     alt="Customer disruption"
-                     loading="lazy" />
+                <img src="static/assets/dont_blame_tech_cover_realistic.png" alt="Customer disruption" loading="lazy" />
               </div>
               <div class="blog__body">
                 <div class="blog-meta">
@@ -682,9 +675,7 @@
             <!-- Blog 3: National Scientific Conference (News) -->
             <article class="blog__card card" data-blog-modal="blog-conference-detail">
               <div class="blog__media">
-                <img src="static/assets/hoithaoneu1.jpg"
-                     alt="Scientific Conference"
-                     loading="lazy" />
+                <img src="static/assets/hoithaoneu1.jpg" alt="Scientific Conference" loading="lazy" />
               </div>
               <div class="blog__body">
                 <div class="blog-meta">
@@ -695,96 +686,88 @@
                 <h3 class="h3">Honored to Attend and Participate in National Scientific Conference</h3>
               </div>
             </article>
-           <!-- Blog 4: Achievement (Engineering) -->
-           <article class="blog__card card" data-blog-modal="blog-achievement-detail">
-            <div class="blog__media">
-              <img src="static/assets/blog-achievement-1.jpg" 
-                   alt="Achievement Unlocked: Second Prize Winner" 
-                   loading="lazy" />
-            </div>
-            <div class="blog__body">
-              <div class="blog-meta">
-                <span>Engineering</span>
-                <span class="dot">·</span>
-                <span>3 min read</span>
+            <!-- Blog 4: Achievement (Engineering) -->
+            <article class="blog__card card" data-blog-modal="blog-achievement-detail">
+              <div class="blog__media">
+                <img src="static/assets/blog-achievement-1.jpg" alt="Achievement Unlocked: Second Prize Winner"
+                  loading="lazy" />
               </div>
-              <h3 class="h3">[Achievement Unlocked] Proud Winner of the Second Prize! 🥈</h3>
-            </div>
-           </article>
+              <div class="blog__body">
+                <div class="blog-meta">
+                  <span>Engineering</span>
+                  <span class="dot">·</span>
+                  <span>3 min read</span>
+                </div>
+                <h3 class="h3">[Achievement Unlocked] Proud Winner of the Second Prize! 🥈</h3>
+              </div>
+            </article>
 
-           <!-- Blog 5: Seminar (Research) -->
-           <article class="blog__card card" data-blog-modal="blog-seminar-detail">
-            <div class="blog__media">
-              <img src="static/assets/blog-1.jpg"
-                   alt="Specialized seminar"
-                   loading="lazy" />
-            </div>
-            <div class="blog__body">
-              <div class="blog-meta">
-                <span>Research</span>
-                <span class="dot">·</span>
-                <span>5 min read</span>
+            <!-- Blog 5: Seminar (Research) -->
+            <article class="blog__card card" data-blog-modal="blog-seminar-detail">
+              <div class="blog__media">
+                <img src="static/assets/blog-1.jpg" alt="Specialized seminar" loading="lazy" />
               </div>
-              <h3 class="h3">Seminar: Advanced Technology Applications in Biomedical Science</h3>
-            </div>
-           </article>
+              <div class="blog__body">
+                <div class="blog-meta">
+                  <span>Research</span>
+                  <span class="dot">·</span>
+                  <span>5 min read</span>
+                </div>
+                <h3 class="h3">Seminar: Advanced Technology Applications in Biomedical Science</h3>
+              </div>
+            </article>
 
-           <!-- Blog 6: Dr. Lin (Inspiration) -->
-           <article class="blog__card card" data-blog-modal="blog-dr-lin-detail">
-            <div class="blog__media">
-              <img src="static/assets/blog-2.1.jpg"
-                   alt="Immersing in AI with Dr. Lin"
-                   loading="lazy" />
-            </div>
-            <div class="blog__body">
-              <div class="blog-meta">
-                <span>Inspiration</span>
-                <span class="dot">·</span>
-                <span>6 min read</span>
+            <!-- Blog 6: Dr. Lin (Inspiration) -->
+            <article class="blog__card card" data-blog-modal="blog-dr-lin-detail">
+              <div class="blog__media">
+                <img src="static/assets/blog-2.1.jpg" alt="Immersing in AI with Dr. Lin" loading="lazy" />
               </div>
-              <h3 class="h3">From Student to Discussion Partner: Immersing in AI with Dr. Lin (FCU)</h3>
-            </div>
-           </article>
+              <div class="blog__body">
+                <div class="blog-meta">
+                  <span>Inspiration</span>
+                  <span class="dot">·</span>
+                  <span>6 min read</span>
+                </div>
+                <h3 class="h3">From Student to Discussion Partner: Immersing in AI with Dr. Lin (FCU)</h3>
+              </div>
+            </article>
 
-           <!-- Blog 7: MC Experience (Media) -->
-           <article class="blog__card card" data-blog-modal="blog-mc-experience-detail">
-            <div class="blog__media">
-              <img src="static/assets/landieuthen.jpg"
-                   alt="MC Experience"
-                   loading="lazy" />
-            </div>
-            <div class="blog__body">
-              <div class="blog-meta">
-                <span>Media</span>
-                <span class="dot">·</span>
-                <span>7 min read</span>
+            <!-- Blog 7: MC Experience (Media) -->
+            <article class="blog__card card" data-blog-modal="blog-mc-experience-detail">
+              <div class="blog__media">
+                <img src="static/assets/landieuthen.jpg" alt="MC Experience" loading="lazy" />
               </div>
-              <h3 class="h3">MC Experience at Thai Nguyen Newspaper and Television Broadcasting</h3>
-            </div>
-           </article>
+              <div class="blog__body">
+                <div class="blog-meta">
+                  <span>Media</span>
+                  <span class="dot">·</span>
+                  <span>7 min read</span>
+                </div>
+                <h3 class="h3">MC Experience at Thai Nguyen Newspaper and Television Broadcasting</h3>
+              </div>
+            </article>
 
-           <!-- Blog 8: English Club (Experience) -->
-           <article class="blog__card card" data-blog-modal="blog-english-club-detail">
-            <div class="blog__media">
-              <img src="static/assets/blog-1312.jpg"
-                   alt="English Club President"
-                   loading="lazy" />
-            </div>
-            <div class="blog__body">
-              <div class="blog-meta">
-                <span>Experience</span>
-                <span class="dot">·</span>
-                <span>5 min read</span>
+            <!-- Blog 8: English Club (Experience) -->
+            <article class="blog__card card" data-blog-modal="blog-english-club-detail">
+              <div class="blog__media">
+                <img src="static/assets/blog-1312.jpg" alt="English Club President" loading="lazy" />
               </div>
-              <h3 class="h3">My Journey as English Club President</h3>
-            </div>
-           </article>          </div>
+              <div class="blog__body">
+                <div class="blog-meta">
+                  <span>Experience</span>
+                  <span class="dot">·</span>
+                  <span>5 min read</span>
+                </div>
+                <h3 class="h3">My Journey as English Club President</h3>
+              </div>
+            </article>
+          </div>
           <button class="blog__nav blog__nav--next" aria-label="Next articles">›</button>
           <div class="blog__dots" role="tablist" aria-label="Blog slides"></div>
         </div>
       </div>
     </section>
-    
+
     <!-- =========================================
          Project Modals (Case Studies)
          ========================================= -->
@@ -803,11 +786,14 @@
               </p>
             </header>
             <div class="blog-article__content">
-              <p class="lead">How can we make a centuries-old game appeal to the TikTok generation? That was the core challenge behind Cờ Tướng GenZ.</p>
+              <p class="lead">How can we make a centuries-old game appeal to the TikTok generation? That was the core
+                challenge behind Cờ Tướng GenZ.</p>
               <figure class="blog-article__image">
                 <img src="static/assets/project co tuonggenz.png" alt="Cờ Tướng GenZ" />
               </figure>
-              <p>This project isn't just about the rules of chess; it's about the <strong>experience</strong>. By combining a vibrant GenZ aesthetic with smooth animations and a responsive interface, we've transformed the traditional Chinese Chess into something fresh and exciting.</p>
+              <p>This project isn't just about the rules of chess; it's about the <strong>experience</strong>. By
+                combining a vibrant GenZ aesthetic with smooth animations and a responsive interface, we've transformed
+                the traditional Chinese Chess into something fresh and exciting.</p>
               <h2>Key Features</h2>
               <ul>
                 <li>Modern UI/UX with neon accents.</li>
@@ -815,7 +801,8 @@
                 <li>Mobile-first responsive design.</li>
               </ul>
               <div style="margin-top: 4rem; text-align: center;">
-                <a href="https://cotuonggenz.vercel.app/" target="_blank" class="btn btn--primary" style="padding: 1rem 3rem; font-size: 1.2rem;">Experience Live Demo →</a>
+                <a href="https://cotuonggenz.vercel.app/" target="_blank" class="btn btn--primary"
+                  style="padding: 1rem 3rem; font-size: 1.2rem;">Experience Live Demo →</a>
               </div>
             </div>
           </article>
@@ -837,13 +824,17 @@
               </p>
             </header>
             <div class="blog-article__content">
-              <p class="lead">Mastering IELTS requires more than just books; it requires an interactive environment that tracks your progress and sharpens your skills.</p>
+              <p class="lead">Mastering IELTS requires more than just books; it requires an interactive environment that
+                tracks your progress and sharpens your skills.</p>
               <figure class="blog-article__image">
                 <img src="static/assets/project-ielts.jpg" alt="IELTS Pro" />
               </figure>
-              <p>IELTS Pro was designed to simplify the preparation process. From simulated listening tests to reading modules, every feature is optimized for student success. The platform uses Next.js for lightning-fast performance and a clean UI to keep learners focused on what matters.</p>
+              <p>IELTS Pro was designed to simplify the preparation process. From simulated listening tests to reading
+                modules, every feature is optimized for student success. The platform uses Next.js for lightning-fast
+                performance and a clean UI to keep learners focused on what matters.</p>
               <div style="margin-top: 4rem; text-align: center;">
-                <a href="https://ielts-pro-gules.vercel.app/" target="_blank" class="btn btn--primary" style="padding: 1rem 3rem; font-size: 1.2rem;">Start Learning Now →</a>
+                <a href="https://ielts-pro-gules.vercel.app/" target="_blank" class="btn btn--primary"
+                  style="padding: 1rem 3rem; font-size: 1.2rem;">Start Learning Now →</a>
               </div>
             </div>
           </article>
@@ -865,13 +856,17 @@
               </p>
             </header>
             <div class="blog-article__content">
-              <p class="lead">Tea is not just a drink; it's a culture. This web experience was built to celebrate that heritage in a modern digital space.</p>
+              <p class="lead">Tea is not just a drink; it's a culture. This web experience was built to celebrate that
+                heritage in a modern digital space.</p>
               <figure class="blog-article__image">
                 <img src="static/assets/project-icetea.jpg" alt="Ice Tea Culture" />
               </figure>
-              <p>The goal of Ice Tea Web was to create an atmosphere of tranquility. Through minimalist design, soft typography, and elegant imagery, the site invites visitors to explore premium tea varieties and the stories behind them.</p>
+              <p>The goal of Ice Tea Web was to create an atmosphere of tranquility. Through minimalist design, soft
+                typography, and elegant imagery, the site invites visitors to explore premium tea varieties and the
+                stories behind them.</p>
               <div style="margin-top: 4rem; text-align: center;">
-                <a href="https://icetea-web.vercel.app/" target="_blank" class="btn btn--primary" style="padding: 1rem 3rem; font-size: 1.2rem;">Explore the Culture →</a>
+                <a href="https://icetea-web.vercel.app/" target="_blank" class="btn btn--primary"
+                  style="padding: 1rem 3rem; font-size: 1.2rem;">Explore the Culture →</a>
               </div>
             </div>
           </article>
@@ -893,13 +888,17 @@
               </p>
             </header>
             <div class="blog-article__content">
-              <p class="lead">Why is financial literacy so hard to teach? Because it needs to be fun. This game makes managing money an adventure.</p>
+              <p class="lead">Why is financial literacy so hard to teach? Because it needs to be fun. This game makes
+                managing money an adventure.</p>
               <figure class="blog-article__image">
                 <img src="static/assets/project-cashflow.jpg" alt="Game Cash Flow" />
               </figure>
-              <p>Inspired by the classic Cashflow game but tailored specifically for the Vietnamese market, this project helps players understand investment, saving, and wealth management through a fun, interactive simulation.</p>
+              <p>Inspired by the classic Cashflow game but tailored specifically for the Vietnamese market, this project
+                helps players understand investment, saving, and wealth management through a fun, interactive
+                simulation.</p>
               <div style="margin-top: 4rem; text-align: center;">
-                <a href="https://game-cash-flow.vercel.app/" target="_blank" class="btn btn--primary" style="padding: 1rem 3rem; font-size: 1.2rem;">Play Game Now →</a>
+                <a href="https://game-cash-flow.vercel.app/" target="_blank" class="btn btn--primary"
+                  style="padding: 1rem 3rem; font-size: 1.2rem;">Play Game Now →</a>
               </div>
             </div>
           </article>
@@ -908,149 +907,281 @@
     </div>
 
     <!-- =========================================
-          Blog Modal Overlay: Zero to One
-          ========================================= -->    <div id="blog-zero-to-one-detail" class="blog-modal-overlay">
-     <div class="blog-modal">
-       <button class="blog-modal__close" aria-label="Close modal">×</button>
-       <div class="blog-modal__content">
-         <article class="blog-article">
-           <header class="blog-article__header">
-             <span class="tag">Business & Philosophy</span>
-             <h1 class="h1">Zero to One: Don't Become an "Obsolete" Version of Someone Else</h1>
-             <p class="blog-article__meta body-sm muted">
-               <time datetime="2026-03-01">March 01, 2026</time>
-               <span>By DavidHE | Book Review: Peter Thiel</span>
-             </p>
-           </header>
-
-           <div class="blog-article__content">
-             <p class="lead">
-               In the world of business and personal development, we are often spoon-fed a very safe mindset: Look at what others are doing successfully and do it again, but slightly better. Open a more beautifully decorated café, create a smoother app, or try to compete for 1% of a massive market.
-             </p>
-
-             <figure class="blog-article__image">
-               <img src="static/assets/zero_to_one_cover.png"
-                    alt="Zero to One - Peter Thiel philosophy"
-                    loading="lazy" />
-               <figcaption class="body-sm muted">Peter Thiel: "Competition is for losers."</figcaption>
-             </figure>
-
-             <p>
-               But after finishing <strong>"Zero to One"</strong> by <strong>Peter Thiel</strong>, I realized that mindset is actually a trap. Peter Thiel threw a splash of cold water on traditional business teachings by declaring: "Competition is for losers."
-             </p>
-
-             <h2 class="h2">The Paradox of Competition</h2>
-             <p>
-               We have been obsessed with competition since our school days. Grades, rankings, prestigious universities... it all trains us to become warriors excellent at defeating others to win identical rewards. The consequence is that when we enter the real world, startups also dive into tearing each other apart in bloody "red oceans," only for profits to be eroded to zero.
-             </p>
-
-             <p>
-               Reflecting on this, Thiel's philosophy of "Going from 0 to 1" is profoundly deep. Why dive into opening the 100th social network when you can create something that never existed before? True value does not lie in beating your competitors, but in reaching monopoly by solving a unique problem that no one else can. Monopoly, in a positive sense, is the reward for those who dare to innovate.
-             </p>
-
-             <h2 class="h2">Life is Not a Lottery</h2>
-             <p>
-               One of the chapters that made me think the most is <strong>"You are not a lottery ticket"</strong>. Nowadays, people often attribute the success of Bill Gates or Mark Zuckerberg to luck, circumstances, or "being at the right time." Our generation is suffering from "indefinite optimism"—believing the future will be better, but having no specific plan, only trying to accumulate many general skills to "play it safe."
-             </p>
-
-             <p>
-               Thiel reminds us: You cannot diversify your own life. You have only one life, one future. Applying "intelligent design" thinking instead of leaving it to the random "evolution" of circumstances is the only way to create quantum leaps.
-             </p>
-
-             <h2 class="h2">A Lesson for Each of Us</h2>
-             <p>
-               Even if you don't dream of building a billion-dollar startup, the philosophy of "Zero to One" still applies perfectly to building a personal brand and career. Don't try to be a "well-rounded" but mediocre employee. Find your own "secret"—a niche field, a specialized skill that few care about, then become the best and most unique in that area.
-             </p>
-
-             <blockquote class="quote">
-               "The path from 0 to 1 is a lonely one, going against the crowd. But as author Peter Thiel said, it's the only way we can not only make the future different but also make it better."
-             </blockquote>
-
-             <p>
-               The future doesn't just happen; it's waiting for us to create it. Everything great starts with a first step, going from a round zero to reach the unique number one.
-             </p>
-           </div>
-         </article>
-       </div>
-     </div>
-    </div>
-
-    <!-- =========================================
-         Blog Modal Overlay
-         ========================================= -->
-    <div id="blog-dont-blame-tech-detail" class="blog-modal-overlay">      <div class="blog-modal">
+          Blog Modal Overlay: Warren Buffett
+          ========================================= -->
+    <div id="blog-buffett-detail" class="blog-modal-overlay">
+      <div class="blog-modal">
         <button class="blog-modal__close" aria-label="Close modal">×</button>
         <div class="blog-modal__content">
           <article class="blog-article">
             <header class="blog-article__header">
-              <span class="tag">Business & Strategy</span>
-              <h1 class="h1">Title: Don't Blame Technology, Customers Are the Ones "Disrupting" Your Business Model!</h1>
+              <span class="tag">Finance & Wisdom</span>
+              <h1 class="h1">Market Truths Unveiled: 5 Life-Changing Mindsets from Warren Buffett to Make Your Money Work for You</h1>
               <p class="blog-article__meta body-sm muted">
-                <time datetime="2026-03-01">March 01, 2026</time>
+                <time datetime="2026-03-02">March 02, 2026</time>
+                <span>By DavidHE | Financial Wisdom Series</span>
               </p>
             </header>
-            
+
             <div class="blog-article__content">
               <p class="lead">
-                We live in an era where terms like "digital transformation," "AI," or "Blockchain" are ubiquitous. When an industry "giant" falls, financial articles immediately conclude: "They were too slow in adopting technology!" But is that really the truth? Nokia or Borders invested mountains of money into R&D and e-commerce, achieved countless innovation awards, yet still perished. Why?
+                Did you know that a single Class A share of Berkshire Hathaway, led by Warren Buffett, now costs over $600,000—equivalent to nearly 15 billion VND? Over the past 60 years, their return has reached a staggering 5.5 million percent.
               </p>
-              
+
+              <p>
+                The stock market is not a coin-toss game for gamblers. From the perspective of value investing, here are 5 "peak" mindsets from the Oracle of Omaha that can shatter illusions of quick wealth and help you build a real fortune.
+              </p>
+
               <figure class="blog-article__image">
-                <img src="static/assets/dont_blame_tech_cover_realistic.png" 
-                     alt="Customer comparing prices inside an electronics retail store" 
-                     loading="lazy" />
-                <figcaption class="body-sm muted">Are your customers skipping the checkout line to buy online while in your store?</figcaption>
+                <img src="static/assets/blog-buffett.jpg" alt="Warren Buffett Value Investing Philosophy" loading="lazy" />
+                <figcaption class="body-sm muted">"Price is what you pay, value is what you get."</figcaption>
               </figure>
-              
-              <h2 class="h2">The Real Enemy Is Not Your Competitor's Tech</h2>
-              
+
+              <h2 class="h2">1. Think Like a "Bargain-Hunting Housewife"</h2>
               <p>
-                The book <em>Unlocking the Customer Value Chain</em> by Thales S. Teixeira delivers a heavy blow to the conventional thinking of business leaders: The real enemy is not the competitor's technology, but the shift in customer behavior.
+                Warren Buffett has an iron rule: <strong>"Price is what you pay, value is what you get."</strong> Your mission is to buy stocks when their price is significantly lower than their intrinsic value.
               </p>
-              
               <p>
-                The concept of <strong>"Decoupling"</strong> (Separating the value chain) in the book truly made me stop and reflect. Think about our own shopping habits. How many times have you walked into a high-end electronics store, admired a curved-screen TV, listened to the enthusiastic sales consultant, and then... pulled out your phone to order that exact model on Shopee or Amazon because it was cheaper? 
+                It sounds easy, but 90% of investors do the opposite! When you go shopping for clothes or food and see a "Sale off" sign, you rush in. Yet in the stock market, when good stocks are being sold off at bargain prices, the crowd panics and sells at a loss; when prices skyrocket to the peak, they excitedly jump in. Stay sharp: The ultimate rule is to buy low and sell high!
               </p>
-              
+
+              <h2 class="h2">2. Stop the Overnight Wealth Illusion: "Patience is a Virtue"</h2>
               <p>
-                This behavior (known as <em>showrooming</em>) completely severs the "product discovery" phase from the "payment" phase that traditional retailers spent immense effort building.
+                Many enter the market with a "grab-and-go" mentality, wanting to force a business to yield double-digit profits in just a few days. That is not investing; that is gambling! Rushing to get rich only leads to mistakes or even bankruptcy.
               </p>
-              
-              <h2 class="h2">The Biggest Mistake of Legacy Companies</h2>
-              
               <p>
-                The greatest mistake long-standing companies make is designing their business based on the resources they possess, forcing the customer to play by their rules. They obsess over competitors (because competitors are few and easy to see), while forgetting to monitor millions of customers silently changing their preferences every day.
+                Buffett struck a decisive blow to this mindset with a witty but harsh analogy: <em>"No matter how great the talent or efforts, some things just take time. You can't produce a baby in one month by getting nine women pregnant."</em> 🔥 <strong>Practical Tip:</strong> If you're new, don't throw a massive amount of money in at once. Patiently test the waters with $20-$40 (500k-1M VND) every month for at least 3 to 4 years before increasing your capital.
               </p>
-              
+
+              <h2 class="h2">3. Don't Try to Jump a 7-Foot Bar; Step Over 10 8-Inch Steps!</h2>
               <p>
-                When customers realize they are spending too much "time" and "effort" (not just money), they will immediately leave when a small startup appears, offering a more convenient, decoupled option.
+                Do you think having a modest salary or not having a 160 IQ like Newton means you can't get rich? Wrong! In fact, even Newton once lost his fortune due to the madness of the stock market.
               </p>
-              
-              <h2 class="h2">The Core Lesson: Clear the Path</h2>
-              
               <p>
-                So, what is the core lesson here? Innovation is not about adding cumbersome technological features. Innovation means clearing the path, removing the friction in the customer's experience. Instead of getting angry and trying to "trap" consumers with complex contracts, businesses need the courage to "proactively decouple" themselves. 
+                Buffett points out: <strong>"You don't need to do extraordinary things to get extraordinary results."</strong> Instead of trying to jump a 7-foot bar and risking a broken leg, walk through 10 steps, each only 8 inches high, in a steady manner—slow but sure. Opportunity is for everyone; you just need to consistently do the simple things well.
               </p>
-              
+
+              <h2 class="h2">4. Master Your Emotions: When to be Greedy, When to be Fearful?</h2>
               <p>
-                Best Buy achieved this successfully when they stopped trying to be a pure retailer and pivoted to charging electronics brands a fee to turn their stores into premium exhibition spaces.
+                The classic mantra everyone knows: <em>"Be greedy when others are fearful and vice versa."</em> But the crowd usually gets it backwards!
               </p>
-              
-              <h2 class="h2">Finding Your Missing Link</h2>
-              
               <p>
-                You don't need to create an entirely new product to be successful. Sometimes, all you need to do is look at your industry's current value chain, find a loose link that is frustrating users, and provide a smoother solution.
+                You shouldn't blindly "buy the dip" just because a stock dropped for one session, nor should you panic-sell when the market just starts to recover. The secret lies in <strong>Valuation</strong>:
               </p>
-              
+              <ul>
+                <li><strong>Be greedy</strong> and accumulate stocks when others are in absolute panic, provided that the asset's valuation is extremely cheap.</li>
+                <li><strong>Be fearful</strong> and withdraw when others are overly euphoric, pushing valuations to ridiculously expensive levels.</li>
+              </ul>
+
+              <h2 class="h2">5. Risk Management: "Only When the Tide Goes Out..."</h2>
               <p>
-                So, in your industry, which "link" is costing your customers the most time and effort? That might just be the next goldmine waiting for you to uncover!
+                In an uptrend, everyone claims to be an expert because almost everything they buy turns a profit. But only when the market crashes (the tide goes out) do you find out who has actually been keeping their money. Unskilled "surfers" who ignore risk management will be swept away completely.
+              </p>
+              <p>
+                🔥 <strong>Practical Tip:</strong> During "harvest season" when the market is at its peak of euphoria, know when to take profits to protect your gains. Move some of that profit into gold, safe bonds, or bank deposits. Why? So that when the market crashes and stocks go on "clearance sale," you have the cash ready to go "shopping."
+              </p>
+
+              <blockquote class="quote">
+                "Investing is the only business where customers run out of the store when items go on sale."
+              </blockquote>
+
+              <h2 class="h2">CONCLUSION: DON'T WAIT TO BE RICH TO INVEST</h2>
+              <p>
+                If you rationalize that "My salary is only $200 a month, barely enough to live, how can I invest?", you will stay poor forever. Whether your income is high or low, discipline yourself to set aside a portion—even if it's just $5 or $10 a month—to start. Keep going, keep accumulating, and keep learning every day. Once you expand your knowledge, the most "insane" doors of opportunity will naturally open before your eyes!
               </p>
             </div>
           </article>
         </div>
       </div>
     </div>
-    
+
+    <!-- =========================================
+          Blog Modal Overlay: Zero to One
+          ========================================= -->
+    <div id="blog-zero-to-one-detail" class="blog-modal-overlay">
+      <div class="blog-modal">
+        <button class="blog-modal__close" aria-label="Close modal">×</button>
+        <div class="blog-modal__content">
+          <article class="blog-article">
+            <header class="blog-article__header">
+              <span class="tag">Business & Philosophy</span>
+              <h1 class="h1">Zero to One: Don't Become an "Obsolete" Version of Someone Else</h1>
+              <p class="blog-article__meta body-sm muted">
+                <time datetime="2026-03-01">March 01, 2026</time>
+                <span>By DavidHE | Book Review: Peter Thiel</span>
+              </p>
+            </header>
+
+            <div class="blog-article__content">
+              <p class="lead">
+                In the world of business and personal development, we are often spoon-fed a very safe mindset: Look at
+                what others are doing successfully and do it again, but slightly better. Open a more beautifully
+                decorated café, create a smoother app, or try to compete for 1% of a massive market.
+              </p>
+
+              <figure class="blog-article__image">
+                <img src="static/assets/zero_to_one_cover.png" alt="Zero to One - Peter Thiel philosophy"
+                  loading="lazy" />
+                <figcaption class="body-sm muted">Peter Thiel: "Competition is for losers."</figcaption>
+              </figure>
+
+              <p>
+                But after finishing <strong>"Zero to One"</strong> by <strong>Peter Thiel</strong>, I realized that
+                mindset is actually a trap. Peter Thiel threw a splash of cold water on traditional business teachings
+                by declaring: "Competition is for losers."
+              </p>
+
+              <h2 class="h2">The Paradox of Competition</h2>
+              <p>
+                We have been obsessed with competition since our school days. Grades, rankings, prestigious
+                universities... it all trains us to become warriors excellent at defeating others to win identical
+                rewards. The consequence is that when we enter the real world, startups also dive into tearing each
+                other apart in bloody "red oceans," only for profits to be eroded to zero.
+              </p>
+
+              <p>
+                Reflecting on this, Thiel's philosophy of "Going from 0 to 1" is profoundly deep. Why dive into opening
+                the 100th social network when you can create something that never existed before? True value does not
+                lie in beating your competitors, but in reaching monopoly by solving a unique problem that no one else
+                can. Monopoly, in a positive sense, is the reward for those who dare to innovate.
+              </p>
+
+              <h2 class="h2">Life is Not a Lottery</h2>
+              <p>
+                One of the chapters that made me think the most is <strong>"You are not a lottery ticket"</strong>.
+                Nowadays, people often attribute the success of Bill Gates or Mark Zuckerberg to luck, circumstances, or
+                "being at the right time." Our generation is suffering from "indefinite optimism"—believing the future
+                will be better, but having no specific plan, only trying to accumulate many general skills to "play it
+                safe."
+              </p>
+
+              <p>
+                Thiel reminds us: You cannot diversify your own life. You have only one life, one future. Applying
+                "intelligent design" thinking instead of leaving it to the random "evolution" of circumstances is the
+                only way to create quantum leaps.
+              </p>
+
+              <h2 class="h2">A Lesson for Each of Us</h2>
+              <p>
+                Even if you don't dream of building a billion-dollar startup, the philosophy of "Zero to One" still
+                applies perfectly to building a personal brand and career. Don't try to be a "well-rounded" but mediocre
+                employee. Find your own "secret"—a niche field, a specialized skill that few care about, then become the
+                best and most unique in that area.
+              </p>
+
+              <blockquote class="quote">
+                "The path from 0 to 1 is a lonely one, going against the crowd. But as author Peter Thiel said, it's the
+                only way we can not only make the future different but also make it better."
+              </blockquote>
+
+              <p>
+                The future doesn't just happen; it's waiting for us to create it. Everything great starts with a first
+                step, going from a round zero to reach the unique number one.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <!-- =========================================
+         Blog Modal Overlay
+         ========================================= -->
+    <div id="blog-dont-blame-tech-detail" class="blog-modal-overlay">
+      <div class="blog-modal">
+        <button class="blog-modal__close" aria-label="Close modal">×</button>
+        <div class="blog-modal__content">
+          <article class="blog-article">
+            <header class="blog-article__header">
+              <span class="tag">Business & Strategy</span>
+              <h1 class="h1">Title: Don't Blame Technology, Customers Are the Ones "Disrupting" Your Business Model!
+              </h1>
+              <p class="blog-article__meta body-sm muted">
+                <time datetime="2026-03-01">March 01, 2026</time>
+              </p>
+            </header>
+
+            <div class="blog-article__content">
+              <p class="lead">
+                We live in an era where terms like "digital transformation," "AI," or "Blockchain" are ubiquitous. When
+                an industry "giant" falls, financial articles immediately conclude: "They were too slow in adopting
+                technology!" But is that really the truth? Nokia or Borders invested mountains of money into R&D and
+                e-commerce, achieved countless innovation awards, yet still perished. Why?
+              </p>
+
+              <figure class="blog-article__image">
+                <img src="static/assets/dont_blame_tech_cover_realistic.png"
+                  alt="Customer comparing prices inside an electronics retail store" loading="lazy" />
+                <figcaption class="body-sm muted">Are your customers skipping the checkout line to buy online while in
+                  your store?</figcaption>
+              </figure>
+
+              <h2 class="h2">The Real Enemy Is Not Your Competitor's Tech</h2>
+
+              <p>
+                The book <em>Unlocking the Customer Value Chain</em> by Thales S. Teixeira delivers a heavy blow to the
+                conventional thinking of business leaders: The real enemy is not the competitor's technology, but the
+                shift in customer behavior.
+              </p>
+
+              <p>
+                The concept of <strong>"Decoupling"</strong> (Separating the value chain) in the book truly made me stop
+                and reflect. Think about our own shopping habits. How many times have you walked into a high-end
+                electronics store, admired a curved-screen TV, listened to the enthusiastic sales consultant, and
+                then... pulled out your phone to order that exact model on Shopee or Amazon because it was cheaper?
+              </p>
+
+              <p>
+                This behavior (known as <em>showrooming</em>) completely severs the "product discovery" phase from the
+                "payment" phase that traditional retailers spent immense effort building.
+              </p>
+
+              <h2 class="h2">The Biggest Mistake of Legacy Companies</h2>
+
+              <p>
+                The greatest mistake long-standing companies make is designing their business based on the resources
+                they possess, forcing the customer to play by their rules. They obsess over competitors (because
+                competitors are few and easy to see), while forgetting to monitor millions of customers silently
+                changing their preferences every day.
+              </p>
+
+              <p>
+                When customers realize they are spending too much "time" and "effort" (not just money), they will
+                immediately leave when a small startup appears, offering a more convenient, decoupled option.
+              </p>
+
+              <h2 class="h2">The Core Lesson: Clear the Path</h2>
+
+              <p>
+                So, what is the core lesson here? Innovation is not about adding cumbersome technological features.
+                Innovation means clearing the path, removing the friction in the customer's experience. Instead of
+                getting angry and trying to "trap" consumers with complex contracts, businesses need the courage to
+                "proactively decouple" themselves.
+              </p>
+
+              <p>
+                Best Buy achieved this successfully when they stopped trying to be a pure retailer and pivoted to
+                charging electronics brands a fee to turn their stores into premium exhibition spaces.
+              </p>
+
+              <h2 class="h2">Finding Your Missing Link</h2>
+
+              <p>
+                You don't need to create an entirely new product to be successful. Sometimes, all you need to do is look
+                at your industry's current value chain, find a loose link that is frustrating users, and provide a
+                smoother solution.
+              </p>
+
+              <p>
+                So, in your industry, which "link" is costing your customers the most time and effort? That might just
+                be the next goldmine waiting for you to uncover!
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+
     <div id="blog-seminar-detail" class="blog-modal-overlay">
       <div class="blog-modal">
         <button class="blog-modal__close" aria-label="Close modal">×</button>
@@ -1058,96 +1189,114 @@
           <article class="blog-article">
             <header class="blog-article__header">
               <span class="tag">Research & Technology</span>
-              <h1 class="h1"> Specialized Seminar: Advanced Technology Applications in Biomedical Science and Artificial Intelligence</h1>
+              <h1 class="h1"> Specialized Seminar: Advanced Technology Applications in Biomedical Science and Artificial
+                Intelligence</h1>
               <p class="blog-article__meta body-sm muted">
                 <time datetime="2024-09-22">September 22, 2024</time>
               </p>
             </header>
-            
+
             <div class="blog-article__content">
               <p class="lead">
-                On September 22, Thai Nguyen University of Information and Communication Technology (ICTU) successfully organized an important specialized seminar, marking academic and research collaboration with experts from the Department of Electronic Engineering and Computer Science at Hong Kong Metropolitan University (HKMU).
+                On September 22, Thai Nguyen University of Information and Communication Technology (ICTU) successfully
+                organized an important specialized seminar, marking academic and research collaboration with experts
+                from the Department of Electronic Engineering and Computer Science at Hong Kong Metropolitan University
+                (HKMU).
               </p>
-              
+
               <p>
-                The event attracted the enthusiastic participation of leadership, faculty, researchers, and students from ICTU, creating a vibrant and highly practical academic exchange atmosphere.
+                The event attracted the enthusiastic participation of leadership, faculty, researchers, and students
+                from ICTU, creating a vibrant and highly practical academic exchange atmosphere.
               </p>
-              
+
               <figure class="blog-article__image">
-                <img src="static/assets/blog-seminar-1.jpg" 
-                     alt="Specialized seminar at ICTU - Overview" 
-                     loading="lazy" />
-                <figcaption class="body-sm muted">The specialized seminar at ICTU with enthusiastic participation from faculty and students</figcaption>
+                <img src="static/assets/blog-seminar-1.jpg" alt="Specialized seminar at ICTU - Overview"
+                  loading="lazy" />
+                <figcaption class="body-sm muted">The specialized seminar at ICTU with enthusiastic participation from
+                  faculty and students</figcaption>
               </figure>
-              
+
               <h2 class="h2">✨ Core Content: The Intersection of Technology and Medicine</h2>
-              
+
               <p>
                 The seminar focused on two research areas that are among the world's top priorities:
               </p>
-              
-              <h3 class="h3">1. Advancing 3D Ultrasound Tools for Carotid Atherosclerosis: Transforming Clinical Trials with Novel Biomarkers and Automation</h3>
-              
+
+              <h3 class="h3">1. Advancing 3D Ultrasound Tools for Carotid Atherosclerosis: Transforming Clinical Trials
+                with Novel Biomarkers and Automation</h3>
+
               <p>
                 <strong>Speaker:</strong> Dr. Shirley CHEN, Senior Lecturer, HKMU.
               </p>
-              
+
               <figure class="blog-article__image">
-                <img src="static/assets/blog-seminar-2.jpg" 
-                     alt="Dr. Shirley Chen presenting on 3D Ultrasound" 
-                     loading="lazy" />
-                <figcaption class="body-sm muted">Dr. Shirley Chen presenting on advanced 3D Ultrasound technology</figcaption>
+                <img src="static/assets/blog-seminar-2.jpg" alt="Dr. Shirley Chen presenting on 3D Ultrasound"
+                  loading="lazy" />
+                <figcaption class="body-sm muted">Dr. Shirley Chen presenting on advanced 3D Ultrasound technology
+                </figcaption>
               </figure>
-              
+
               <p>
-                <strong>Key Highlights:</strong> Dr. Shirley Chen's presentation focused on integrating advanced 3D Ultrasound technology with Automation algorithms. This approach not only improves the accuracy and efficiency of medical imaging diagnostics but also provides novel biomarkers for evaluating and monitoring carotid atherosclerosis, thereby optimizing clinical trials.
+                <strong>Key Highlights:</strong> Dr. Shirley Chen's presentation focused on integrating advanced 3D
+                Ultrasound technology with Automation algorithms. This approach not only improves the accuracy and
+                efficiency of medical imaging diagnostics but also provides novel biomarkers for evaluating and
+                monitoring carotid atherosclerosis, thereby optimizing clinical trials.
               </p>
-              
+
               <h3 class="h3">2. Leveraging Quantum Machine Learning to Classify Biosignals for Disease Detection</h3>
-              
+
               <p>
                 <strong>Speaker:</strong> Assoc. Prof. Dr. Kevin HUNG King Fai, Head of Department, HKMU.
               </p>
-              
+
               <figure class="blog-article__image">
-                <img src="static/assets/blog-seminar-3.jpg" 
-                     alt="Assoc. Prof. Dr. Kevin Hung presenting on Quantum Machine Learning" 
-                     loading="lazy" />
-                <figcaption class="body-sm muted">Assoc. Prof. Dr. Kevin Hung introducing Quantum Machine Learning</figcaption>
+                <img src="static/assets/blog-seminar-3.jpg"
+                  alt="Assoc. Prof. Dr. Kevin Hung presenting on Quantum Machine Learning" loading="lazy" />
+                <figcaption class="body-sm muted">Assoc. Prof. Dr. Kevin Hung introducing Quantum Machine Learning
+                </figcaption>
               </figure>
-              
+
               <p>
-                <strong>Key Highlights:</strong> Prof. Kevin Hung introduced the breakthrough potential of Quantum Machine Learning (QML). QML, with its ability to process complex data on a large scale and at higher speeds than classical computers, is being applied to analyze biosignals. This research opens new pathways for early and accurate detection of various diseases, demonstrating the indispensable role of quantum physics and AI in modern medicine.
+                <strong>Key Highlights:</strong> Prof. Kevin Hung introduced the breakthrough potential of Quantum
+                Machine Learning (QML). QML, with its ability to process complex data on a large scale and at higher
+                speeds than classical computers, is being applied to analyze biosignals. This research opens new
+                pathways for early and accurate detection of various diseases, demonstrating the indispensable role of
+                quantum physics and AI in modern medicine.
               </p>
-              
+
               <figure class="blog-article__image">
-                <img src="static/assets/blog-seminar-4.jpg" 
-                     alt="Discussion and exchange scene at the seminar" 
-                     loading="lazy" />
+                <img src="static/assets/blog-seminar-4.jpg" alt="Discussion and exchange scene at the seminar"
+                  loading="lazy" />
                 <figcaption class="body-sm muted">Enjoying and learning directly from leading experts.</figcaption>
               </figure>
-              
+
               <h2 class="h2">🤝 The Importance of International Collaboration</h2>
-              
+
               <p>
-                The seminar served not only as a platform for sharing specialized knowledge but also as an opportunity to strengthen the collaborative relationship between ICTU and HKMU—a public university in Hong Kong renowned for its applied training and research programs.
+                The seminar served not only as a platform for sharing specialized knowledge but also as an opportunity
+                to strengthen the collaborative relationship between ICTU and HKMU—a public university in Hong Kong
+                renowned for its applied training and research programs.
               </p>
-              
+
               <p>
-                The event successfully facilitated international academic connections, creating an environment for Vietnamese researchers, faculty, and students to directly access world-leading technological trends in Information Technology and Biomedical Science. This provides a solid foundation for developing high-quality human resources capable of integration and contributing to the nation's scientific and technological development.
+                The event successfully facilitated international academic connections, creating an environment for
+                Vietnamese researchers, faculty, and students to directly access world-leading technological trends in
+                Information Technology and Biomedical Science. This provides a solid foundation for developing
+                high-quality human resources capable of integration and contributing to the nation's scientific and
+                technological development.
               </p>
               <figure class="blog-article__image">
-                <img src="static/assets/image_8cbd2178.jpg" 
-                     alt="Group photo of faculty, Dr. Lin, and students" 
-                     loading="lazy" />
-                <figcaption class="body-sm muted">The group photo captures the wonderful learning spirit and the tight academic cooperation between ICTU and HKMU.</figcaption>
+                <img src="static/assets/image_8cbd2178.jpg" alt="Group photo of faculty, Dr. Lin, and students"
+                  loading="lazy" />
+                <figcaption class="body-sm muted">The group photo captures the wonderful learning spirit and the tight
+                  academic cooperation between ICTU and HKMU.</figcaption>
               </figure>
             </div>
           </article>
         </div>
       </div>
     </div>
-    
+
     <!-- =========================================
          Blog Modal 3 - English Club President
          ========================================= -->
@@ -1165,114 +1314,159 @@
             </header>
             <div class="blog-article__content">
               <p class="lead">
-                This is a comprehensive article compiling the memories from my time as President of the English Club at ICTU. A journey filled with challenges, achievements, and unforgettable moments that shaped not just my leadership skills, but also my personal growth.
+                This is a comprehensive article compiling the memories from my time as President of the English Club at
+                ICTU. A journey filled with challenges, achievements, and unforgettable moments that shaped not just my
+                leadership skills, but also my personal growth.
               </p>
-              
+
               <h2 class="h2">1. Introduction - The Beginning</h2>
-              
+
               <p>
-                Stepping into the role as English Club President was both an honor and a significant responsibility. I remember the mix of excitement and nervousness that filled me during my first official meeting. Taking on this leadership position meant I would be responsible for organizing events, managing a diverse team, and representing our club at various competitions and activities.
+                Stepping into the role as English Club President was both an honor and a significant responsibility. I
+                remember the mix of excitement and nervousness that filled me during my first official meeting. Taking
+                on this leadership position meant I would be responsible for organizing events, managing a diverse team,
+                and representing our club at various competitions and activities.
               </p>
-                
+
               <p>
-                The first official meeting was a moment I'll never forget. Standing in front of the members, I felt the weight of expectations but also the thrill of new possibilities. It was the beginning of a journey that would teach me invaluable lessons about leadership, teamwork, and personal growth.
+                The first official meeting was a moment I'll never forget. Standing in front of the members, I felt the
+                weight of expectations but also the thrill of new possibilities. It was the beginning of a journey that
+                would teach me invaluable lessons about leadership, teamwork, and personal growth.
               </p>
-              
+
               <figure class="blog-article__image">
-                <img src="static/assets/blog-4.1.jpg" alt="First official meeting as English Club President" loading="lazy" />
+                <img src="static/assets/blog-4.1.jpg" alt="First official meeting as English Club President"
+                  loading="lazy" />
                 <figcaption class="body-sm muted">The Beginning Moment – Full of Passion and Expectation.</figcaption>
               </figure>
-              
+
               <h2 class="h2">2. Building the Foundation</h2>
-              
+
               <p>
-                The early days were all about building connections and establishing a strong foundation for the club. Our early club meetings focused on team bonding activities that brought members closer together. We organized fun games and interactive sessions that not only improved English skills but also created lasting friendships.
+                The early days were all about building connections and establishing a strong foundation for the club.
+                Our early club meetings focused on team bonding activities that brought members closer together. We
+                organized fun games and interactive sessions that not only improved English skills but also created
+                lasting friendships.
               </p>
-              
+
               <p>
-                Learning to lead and manage a diverse team was one of my first challenges. Each member brought unique perspectives and talents, and it was my responsibility to create an environment where everyone felt valued and motivated. Through these early activities, I began to understand the true meaning of collaborative leadership.
+                Learning to lead and manage a diverse team was one of my first challenges. Each member brought unique
+                perspectives and talents, and it was my responsibility to create an environment where everyone felt
+                valued and motivated. Through these early activities, I began to understand the true meaning of
+                collaborative leadership.
               </p>
-              
+
               <figure class="blog-article__image">
                 <img src="static/assets/blog-242.jpg" alt="Team bonding activities and club meetings" loading="lazy" />
-                <figcaption class="body-sm muted">Early club meetings with fun games and team bonding activities.</figcaption>
+                <figcaption class="body-sm muted">Early club meetings with fun games and team bonding activities.
+                </figcaption>
               </figure>
-              
+
               <h2 class="h2">3. Major Achievements & Competitions</h2>
-              
+
               <h3 class="h3">A. English Festival 2024-2025</h3>
-              
+
               <p>
-                One of the most memorable achievements was leading our team to compete at Thai Nguyen University. The English Festival 2024-2025 was a significant event that brought together English clubs from various universities. The competition was intense, but our team's dedication and preparation paid off.
+                One of the most memorable achievements was leading our team to compete at Thai Nguyen University. The
+                English Festival 2024-2025 was a significant event that brought together English clubs from various
+                universities. The competition was intense, but our team's dedication and preparation paid off.
               </p>
-              
+
               <p>
-                We won the consolation prize, receiving 1,500,000 VND. But more than the prize money, the pride of representing ICTU on the red carpet was an unforgettable experience. Standing there with my team, I felt immense pride in what we had accomplished together.
+                We won the consolation prize, receiving 1,500,000 VND. But more than the prize money, the pride of
+                representing ICTU on the red carpet was an unforgettable experience. Standing there with my team, I felt
+                immense pride in what we had accomplished together.
               </p>
               <figure class="blog-article__image">
-                <img src="static/assets/blog-443.1.jpg" alt="First official meeting as English Club President" loading="lazy" />
+                <img src="static/assets/blog-443.1.jpg" alt="First official meeting as English Club President"
+                  loading="lazy" />
                 <figcaption class="body-sm muted"></figcaption>
               </figure>
               <figure class="blog-article__image">
-                <img src="static/assets/blog-4423.1.jpg" alt="First official meeting as English Club President" loading="lazy" />
+                <img src="static/assets/blog-4423.1.jpg" alt="First official meeting as English Club President"
+                  loading="lazy" />
                 <figcaption class="body-sm muted"></figcaption>
               </figure>
               <figure class="blog-article__image">
-                <img src="static/assets/blog-44623.1.jpg" alt="First official meeting as English Club President" loading="lazy" />
+                <img src="static/assets/blog-44623.1.jpg" alt="First official meeting as English Club President"
+                  loading="lazy" />
                 <figcaption class="body-sm muted"></figcaption>
               </figure>
               <h3 class="h3">B. Awards & Recognition Ceremony (2023-2024)</h3>
-              
+
               <p>
-                The Awards & Recognition Ceremony for the 2023-2024 academic year was a moment of celebration for our entire team. Receiving awards for club excellence was a testament to the hard work and dedication of every member. Standing with the entire team as we were honored was a moment that reinforced the importance of collective effort.
+                The Awards & Recognition Ceremony for the 2023-2024 academic year was a moment of celebration for our
+                entire team. Receiving awards for club excellence was a testament to the hard work and dedication of
+                every member. Standing with the entire team as we were honored was a moment that reinforced the
+                importance of collective effort.
               </p>
               <figure class="blog-article__image">
-                <img src="static/assets/blog-4573.1.jpg" alt="First official meeting as English Club President" loading="lazy" />
+                <img src="static/assets/blog-4573.1.jpg" alt="First official meeting as English Club President"
+                  loading="lazy" />
                 <figcaption class="body-sm muted"></figcaption>
               </figure>
               <h3 class="h3">C. Olympic Tiếng Anh ICTU 2024</h3>
-              
+
               <p>
-                Organizing the Olympic Tiếng Anh ICTU 2024 was one of the largest responsibilities I undertook as President. This major English competition required months of planning, coordination, and teamwork. Seeing so many students participate and excel in the competition was incredibly rewarding. The event not only showcased the English skills of ICTU students but also strengthened the English learning community at our university.
+                Organizing the Olympic Tiếng Anh ICTU 2024 was one of the largest responsibilities I undertook as
+                President. This major English competition required months of planning, coordination, and teamwork.
+                Seeing so many students participate and excel in the competition was incredibly rewarding. The event not
+                only showcased the English skills of ICTU students but also strengthened the English learning community
+                at our university.
               </p>
               <figure class="blog-article__image">
-                <img src="static/assets/blog-457883.1.jpg" alt="First official meeting as English Club President" loading="lazy" />
+                <img src="static/assets/blog-457883.1.jpg" alt="First official meeting as English Club President"
+                  loading="lazy" />
                 <figcaption class="body-sm muted"></figcaption>
               </figure>
               <h3 class="h3">D. STAR Awards 2024</h3>
-              
+
               <p>
-                Another significant achievement was our participation in the STAR Awards 2024. We competed in the "Young Generation - Healthy Lifestyle for a Healthy Heart" category, which required us to create meaningful content about health and wellness. Once again, our team's efforts were recognized with another consolation prize win of 1,500,000 VND.
+                Another significant achievement was our participation in the STAR Awards 2024. We competed in the "Young
+                Generation - Healthy Lifestyle for a Healthy Heart" category, which required us to create meaningful
+                content about health and wellness. Once again, our team's efforts were recognized with another
+                consolation prize win of 1,500,000 VND.
               </p>
-              
+
               <p>
-                Presenting alongside talented teammates was an experience that taught me the value of collaboration and mutual support. Each team member contributed their unique strengths, creating a presentation that was both informative and engaging.
+                Presenting alongside talented teammates was an experience that taught me the value of collaboration and
+                mutual support. Each team member contributed their unique strengths, creating a presentation that was
+                both informative and engaging.
               </p>
               <figure class="blog-article__image">
-                <img src="static/assets/blog-45.883.1.jpg" alt="First official meeting as English Club President" loading="lazy" />
+                <img src="static/assets/blog-45.883.1.jpg" alt="First official meeting as English Club President"
+                  loading="lazy" />
                 <figcaption class="body-sm muted"></figcaption>
               </figure>
               <h3 class="h3">E. T.E.C Spell-Off Competition</h3>
-              
+
               <p>
-                The T.E.C Spell-Off Competition was a fun and challenging experience that tested our spelling skills and quick thinking. While it was a lighter competition compared to others, it provided valuable opportunities for members to practice and improve their English vocabulary in a competitive yet friendly environment.
+                The T.E.C Spell-Off Competition was a fun and challenging experience that tested our spelling skills and
+                quick thinking. While it was a lighter competition compared to others, it provided valuable
+                opportunities for members to practice and improve their English vocabulary in a competitive yet friendly
+                environment.
               </p>
-              
+
               <figure class="blog-article__image">
                 <img src="static/assets/blog-3.42.4.jpg" alt="Major competitions and achievements" loading="lazy" />
-                <figcaption class="body-sm muted">Major events and competitions – where we connected and shined.</figcaption>
+                <figcaption class="body-sm muted">Major events and competitions – where we connected and shined.
+                </figcaption>
               </figure>
-              
+
               <h2 class="h2">4. Special Events & Cultural Activities</h2>
-              
+
               <h3 class="h3">A. Colourful ICTU 2025</h3>
-              
+
               <p>
-                Colourful ICTU 2025 was one of the most vibrant events we organized. This cultural celebration brought together international guests and students from various backgrounds. We organized interactive games and meaningful exchanges that celebrated cultural diversity and created a vibrant, inclusive community.
+                Colourful ICTU 2025 was one of the most vibrant events we organized. This cultural celebration brought
+                together international guests and students from various backgrounds. We organized interactive games and
+                meaningful exchanges that celebrated cultural diversity and created a vibrant, inclusive community.
               </p>
-              
+
               <p>
-                The event was a beautiful representation of how language and culture can bring people together. Seeing students from different countries and backgrounds connect through English and shared activities was truly inspiring. It reinforced my belief in the power of cultural exchange and inclusive leadership.
+                The event was a beautiful representation of how language and culture can bring people together. Seeing
+                students from different countries and backgrounds connect through English and shared activities was
+                truly inspiring. It reinforced my belief in the power of cultural exchange and inclusive leadership.
               </p>
               <figure class="blog-article__image">
                 <img src="static/assets/blog-3.4232.4.jpg" alt="Major competitions and achievements" loading="lazy" />
@@ -1283,17 +1477,22 @@
                 <figcaption class="body-sm muted"></figcaption>
               </figure>
               <figure class="blog-article__image">
-                <img src="static/assets/blog-3.42443772.4.jpg" alt="Major competitions and achievements" loading="lazy" />
+                <img src="static/assets/blog-3.42443772.4.jpg" alt="Major competitions and achievements"
+                  loading="lazy" />
                 <figcaption class="body-sm muted"></figcaption>
               </figure>
               <h3 class="h3">B. Vietnamese Teachers' Day Celebration</h3>
-              
+
               <p>
-                The Vietnamese Teachers' Day Celebration was a heartfelt event where we honored our mentors and advisors. Organizing this celebration was particularly meaningful as it allowed us to express our gratitude to the teachers who had supported and guided us throughout our journey.
+                The Vietnamese Teachers' Day Celebration was a heartfelt event where we honored our mentors and
+                advisors. Organizing this celebration was particularly meaningful as it allowed us to express our
+                gratitude to the teachers who had supported and guided us throughout our journey.
               </p>
-              
+
               <p>
-                The gift-giving and appreciation activities created a warm atmosphere that strengthened the bond between students and teachers. It was a reminder that leadership is not just about organizing events, but also about fostering meaningful relationships and showing appreciation to those who support us.
+                The gift-giving and appreciation activities created a warm atmosphere that strengthened the bond between
+                students and teachers. It was a reminder that leadership is not just about organizing events, but also
+                about fostering meaningful relationships and showing appreciation to those who support us.
               </p>
               <figure class="blog-article__image">
                 <img src="static/assets/blog-6.42.4.jpg" alt="Major competitions and achievements" loading="lazy" />
@@ -1304,21 +1503,31 @@
                 <figcaption class="body-sm muted"></figcaption>
               </figure>
               <h2 class="h2">5. Growth & Lessons Learned</h2>
-              
+
               <p>
-                My time as English Club President was a period of tremendous personal and professional growth. One of the most significant improvements was in my public speaking skills. Leading meetings, presenting at competitions, and speaking at various events helped me become more confident and articulate in expressing my ideas.
+                My time as English Club President was a period of tremendous personal and professional growth. One of
+                the most significant improvements was in my public speaking skills. Leading meetings, presenting at
+                competitions, and speaking at various events helped me become more confident and articulate in
+                expressing my ideas.
               </p>
-              
+
               <p>
-                Event management and organization became second nature to me. From planning small weekly activities to organizing major competitions, I learned to balance multiple responsibilities, manage timelines, and coordinate with various stakeholders. These skills have proven invaluable in both my academic and professional life.
+                Event management and organization became second nature to me. From planning small weekly activities to
+                organizing major competitions, I learned to balance multiple responsibilities, manage timelines, and
+                coordinate with various stakeholders. These skills have proven invaluable in both my academic and
+                professional life.
               </p>
-              
+
               <p>
-                Perhaps the most important lesson was about teamwork and collaboration. Leading a diverse team taught me that the best results come from leveraging each member's unique strengths. I learned to listen, delegate effectively, and create an environment where everyone felt empowered to contribute.
+                Perhaps the most important lesson was about teamwork and collaboration. Leading a diverse team taught me
+                that the best results come from leveraging each member's unique strengths. I learned to listen, delegate
+                effectively, and create an environment where everyone felt empowered to contribute.
               </p>
-              
+
               <p>
-                Handling pressure and responsibility was another crucial skill I developed. There were moments of stress and uncertainty, but these challenges taught me resilience and problem-solving. I learned that leadership is not about having all the answers, but about finding solutions together with your team.
+                Handling pressure and responsibility was another crucial skill I developed. There were moments of stress
+                and uncertainty, but these challenges taught me resilience and problem-solving. I learned that
+                leadership is not about having all the answers, but about finding solutions together with your team.
               </p>
               <figure class="blog-article__image">
                 <img src="static/assets/blog-6.4.jpg" alt="Major competitions and achievements" loading="lazy" />
@@ -1329,17 +1538,24 @@
                 <figcaption class="body-sm muted"></figcaption>
               </figure>
               <h2 class="h2">6. Conclusion - Memories That Last</h2>
-              
+
               <p>
-                Looking back on my journey as English Club President, I am filled with gratitude for all the experiences, challenges, and achievements. The memories we created together – from the excitement of our first meeting to the pride of winning competitions, from organizing cultural events to celebrating with teachers – these are moments that will stay with me forever.
+                Looking back on my journey as English Club President, I am filled with gratitude for all the
+                experiences, challenges, and achievements. The memories we created together – from the excitement of our
+                first meeting to the pride of winning competitions, from organizing cultural events to celebrating with
+                teachers – these are moments that will stay with me forever.
               </p>
-              
+
               <p>
-                This journey was not just about leading a club; it was about personal transformation, building lasting friendships, and contributing to a community that values learning and growth. The skills I developed, the relationships I built, and the memories I created have shaped who I am today.
+                This journey was not just about leading a club; it was about personal transformation, building lasting
+                friendships, and contributing to a community that values learning and growth. The skills I developed,
+                the relationships I built, and the memories I created have shaped who I am today.
               </p>
-              
+
               <p>
-                To all the members, advisors, and supporters who were part of this journey – thank you. These memories are not just mine; they belong to all of us who shared in this incredible experience. The English Club will always hold a special place in my heart, and I am proud to have been part of its story.
+                To all the members, advisors, and supporters who were part of this journey – thank you. These memories
+                are not just mine; they belong to all of us who shared in this incredible experience. The English Club
+                will always hold a special place in my heart, and I am proud to have been part of its story.
               </p>
               <figure class="blog-article__image">
                 <img src="static/assets/blog-6.413.jpg" alt="Major competitions and achievements" loading="lazy" />
@@ -1350,7 +1566,7 @@
         </div>
       </div>
     </div>
-    
+
     <!-- =========================================
          Blog Modal 2 - Dr. Lin Article
          ========================================= -->
@@ -1366,75 +1582,87 @@
                 <time datetime="2025-07-17">Thai Nguyen, July 17, 2025</time>
               </p>
             </header>
-            
+
             <div class="blog-article__content">
               <p class="lead">
-                That afternoon at ICTU was truly a memorable milestone for me and my fellow technology enthusiasts. The specialized seminar, "Artificial Intelligence Research Experience Sharing: Embedded Devices and Image Processing," featuring Dr. Feng Cheng Lin from Feng Chia University (FCU), Taiwan, was not merely a lecture but a high-level dialogue about the future of AI.
+                That afternoon at ICTU was truly a memorable milestone for me and my fellow technology enthusiasts. The
+                specialized seminar, "Artificial Intelligence Research Experience Sharing: Embedded Devices and Image
+                Processing," featuring Dr. Feng Cheng Lin from Feng Chia University (FCU), Taiwan, was not merely a
+                lecture but a high-level dialogue about the future of AI.
               </p>
-              
+
               <p>
-                Dr. Lin conveyed in great detail the technical challenges of "embedding" complex AI models into devices with limited memory and power. This is precisely the point of convergence between theory and practical application that I and many engineering students are constantly seeking.
+                Dr. Lin conveyed in great detail the technical challenges of "embedding" complex AI models into devices
+                with limited memory and power. This is precisely the point of convergence between theory and practical
+                application that I and many engineering students are constantly seeking.
               </p>
-              
+
               <figure class="blog-article__image">
-                <img src="static/assets/image_8c6b84.jpg" 
-                     alt="Dr. Feng Cheng Lin passionately shares strategies for optimizing AI models" 
-                     loading="lazy" />
-                <figcaption class="body-sm muted">Dr. Feng Cheng Lin passionately shares strategies for optimizing AI models, opening new directions for smart devices.</figcaption>
+                <img src="static/assets/image_8c6b84.jpg"
+                  alt="Dr. Feng Cheng Lin passionately shares strategies for optimizing AI models" loading="lazy" />
+                <figcaption class="body-sm muted">Dr. Feng Cheng Lin passionately shares strategies for optimizing AI
+                  models, opening new directions for smart devices.</figcaption>
               </figure>
-              
+
               <h2 class="h2">💬 The Dialogue Moment: Moving Beyond Textbook Theory</h2>
-              
+
               <p>
-                The part I anticipated the most—and the part I actively participated in—was the Q&A session. After learning about the techniques of Model Pruning and Quantization, I took the initiative to pose a question about the feasibility of deploying specific image processing algorithms in a real-time environment.
+                The part I anticipated the most—and the part I actively participated in—was the Q&A session. After
+                learning about the techniques of Model Pruning and Quantization, I took the initiative to pose a
+                question about the feasibility of deploying specific image processing algorithms in a real-time
+                environment.
               </p>
-              
+
               <p>
-                For me, asking a question was not just about satisfying a personal curiosity; it was an opportunity to validate that what we are learning in school can be directly applied to the most cutting-edge research.
+                For me, asking a question was not just about satisfying a personal curiosity; it was an opportunity to
+                validate that what we are learning in school can be directly applied to the most cutting-edge research.
               </p>
-              
+
               <figure class="blog-article__image">
-                <img src="static/assets/image_8c6ba1.jpg" 
-                     alt="Student actively engaging in Q&A session" 
-                     loading="lazy" />
-                <figcaption class="body-sm muted">I myself am actively engaging in the Q&A, representing the deep interest of ICTU students in the practical application of AI. That was the moment we transitioned from learners to discussion partners.</figcaption>
+                <img src="static/assets/image_8c6ba1.jpg" alt="Student actively engaging in Q&A session"
+                  loading="lazy" />
+                <figcaption class="body-sm muted">I myself am actively engaging in the Q&A, representing the deep
+                  interest of ICTU students in the practical application of AI. That was the moment we transitioned from
+                  learners to discussion partners.</figcaption>
               </figure>
-              
+
               <h2 class="h2">🤝 Academic Connection and Personal Vision</h2>
-              
+
               <p>
-                Directly participating in this discussion has given me a profound insight into future research directions. This seminar is clear proof of the importance of international cooperation in education and research.
+                Directly participating in this discussion has given me a profound insight into future research
+                directions. This seminar is clear proof of the importance of international cooperation in education and
+                research.
               </p>
-              
+
               <figure class="blog-article__image">
-                <img src="static/assets/image_8cbd26.jpg" 
-                     alt="Photo with Dr. Lin" 
-                     loading="lazy" />
+                <img src="static/assets/image_8cbd26.jpg" alt="Photo with Dr. Lin" loading="lazy" />
                 <figcaption class="body-sm muted">Enjoying and learning directly from leading experts.</figcaption>
               </figure>
-              
+
               <p>
-                This is a valuable memory, a great motivation for me and my peers to continue striving in the field of AI.
+                This is a valuable memory, a great motivation for me and my peers to continue striving in the field of
+                AI.
               </p>
-              
+
               <p>
-                The seminar is not only a place for knowledge sharing but also a bridge for a generation of Vietnamese engineers ready to tackle global technological challenges.
+                The seminar is not only a place for knowledge sharing but also a bridge for a generation of Vietnamese
+                engineers ready to tackle global technological challenges.
               </p>
-              
+
               <figure class="blog-article__image">
-                <img src="static/assets/image_8cbd21.jpg" 
-                     alt="Group photo of faculty, Dr. Lin, and students" 
-                     loading="lazy" />
-                <figcaption class="body-sm muted">The group photo captures the wonderful learning spirit and the tight academic cooperation between ICTU and FCU.</figcaption>
+                <img src="static/assets/image_8cbd21.jpg" alt="Group photo of faculty, Dr. Lin, and students"
+                  loading="lazy" />
+                <figcaption class="body-sm muted">The group photo captures the wonderful learning spirit and the tight
+                  academic cooperation between ICTU and FCU.</figcaption>
               </figure>
-              
-              
+
+
             </div>
           </article>
         </div>
       </div>
     </div>
-    
+
     <!-- =========================================
          Blog Modal 4 - Achievement: Second Prize Winner
          ========================================= -->
@@ -1450,45 +1678,51 @@
                 <time datetime="2025-01-01">Competition: Developing AI-Integrated Applications in Education 2025</time>
               </p>
             </header>
-            
+
             <div class="blog-article__content">
               <p class="lead">
-                I am thrilled to share that my team and I have officially taken home the Second Prize at the finals of the "Developing AI-Integrated Applications in Education 2025" competition, hosted by the Faculty of Information Technology at ICTU.
+                I am thrilled to share that my team and I have officially taken home the Second Prize at the finals of
+                the "Developing AI-Integrated Applications in Education 2025" competition, hosted by the Faculty of
+                Information Technology at ICTU.
               </p>
-              
+
               <figure class="blog-article__image">
-                <img src="static/assets/blog-achievement-1.jpg" 
-                     alt="Close-up of the Giải Nhì placard" 
-                     loading="lazy" />
-                <figcaption class="body-sm muted">The Second Prize (Giải Nhì) award - A proud moment of recognition for our hard work.</figcaption>
+                <img src="static/assets/blog-achievement-1.jpg" alt="Close-up of the Giải Nhì placard" loading="lazy" />
+                <figcaption class="body-sm muted">The Second Prize (Giải Nhì) award - A proud moment of recognition for
+                  our hard work.</figcaption>
               </figure>
-              
+
               <p>
-                This journey has been incredible. Integrating Artificial Intelligence into education is more than just a technological trend; it's about creating practical solutions that truly enhance the teaching and learning experience. This award is a wonderful validation of our team's hard work and research over the past few months.
+                This journey has been incredible. Integrating Artificial Intelligence into education is more than just a
+                technological trend; it's about creating practical solutions that truly enhance the teaching and
+                learning experience. This award is a wonderful validation of our team's hard work and research over the
+                past few months.
               </p>
-              
+
               <figure class="blog-article__image">
-                <img src="static/assets/blog-achievement-2.jpg" 
-                     alt="Team photo holding certificate on stage" 
-                     loading="lazy" />
-                <figcaption class="body-sm muted">Celebrating our achievement on stage with the certificate - a moment of pride and accomplishment.</figcaption>
+                <img src="static/assets/blog-achievement-2.jpg" alt="Team photo holding certificate on stage"
+                  loading="lazy" />
+                <figcaption class="body-sm muted">Celebrating our achievement on stage with the certificate - a moment
+                  of pride and accomplishment.</figcaption>
               </figure>
-              
+
               <p>
-                I want to extend a huge thank you to the organizers for creating this intellectual playground, our mentors for their guidance, and especially my amazing teammates for their dedication. This achievement is a huge motivation for me to continue innovating in the EdTech space.
+                I want to extend a huge thank you to the organizers for creating this intellectual playground, our
+                mentors for their guidance, and especially my amazing teammates for their dedication. This achievement
+                is a huge motivation for me to continue innovating in the EdTech space.
               </p>
-              
+
               <figure class="blog-article__image">
-                <img src="static/assets/blog-achievement-3.jpg" 
-                     alt="Large group photo with all participants" 
-                     loading="lazy" />
-                <figcaption class="body-sm muted">Group photo with all participants, organizers, and mentors - celebrating innovation in AI and Education.</figcaption>
+                <img src="static/assets/blog-achievement-3.jpg" alt="Large group photo with all participants"
+                  loading="lazy" />
+                <figcaption class="body-sm muted">Group photo with all participants, organizers, and mentors -
+                  celebrating innovation in AI and Education.</figcaption>
               </figure>
-              
+
               <p>
                 Here's to the next milestone! 🚀
               </p>
-              
+
               <p class="blog-article__tags body-sm muted">
                 <strong>Tags:</strong> #IIT #DavidHE #AIinEducation #EdTech #ICTU #ArtificialIntelligence #Achievement
               </p>
@@ -1497,7 +1731,7 @@
         </div>
       </div>
     </div>
-    
+
     <!-- =========================================
          Blog Modal 5 - National Scientific Conference
          ========================================= -->
@@ -1511,57 +1745,65 @@
               <span class="tag">Research</span>
               <h1 class="h1">Honored to Attend and Participate in National Scientific Conference</h1>
               <p class="blog-article__meta body-sm muted">
-                <time datetime="2025-01-01">National Scientific Conference: "Multi-document Summarization Solutions using Pre-trained Language Models and Deep Learning and Applications in Education"</time>
+                <time datetime="2025-01-01">National Scientific Conference: "Multi-document Summarization Solutions
+                  using Pre-trained Language Models and Deep Learning and Applications in Education"</time>
               </p>
             </header>
-            
+
             <div class="blog-article__content">
               <p class="lead">
-                I was honored to be invited to attend and participate in the National Scientific Conference: "Multi-document Summarization Solutions using Pre-trained Language Models and Deep Learning and Applications in Education".
+                I was honored to be invited to attend and participate in the National Scientific Conference:
+                "Multi-document Summarization Solutions using Pre-trained Language Models and Deep Learning and
+                Applications in Education".
               </p>
-              
+
               <p>
-                The conference brought together researchers, academics, and professionals working on cutting-edge solutions in natural language processing, AI, and their applications in educational settings. It was an inspiring platform to learn about the latest developments in multi-document summarization techniques and their potential impact on education.
+                The conference brought together researchers, academics, and professionals working on cutting-edge
+                solutions in natural language processing, AI, and their applications in educational settings. It was an
+                inspiring platform to learn about the latest developments in multi-document summarization techniques and
+                their potential impact on education.
               </p>
-              
+
               <p>
-                During the event, I had the opportunity to engage with research related to digital technology in architectural reconstruction and simulation at the Cat Tien National Archaeological Site. This research explores how digital technologies can be applied to preserve and reconstruct cultural heritage, particularly ancient architectural structures.
+                During the event, I had the opportunity to engage with research related to digital technology in
+                architectural reconstruction and simulation at the Cat Tien National Archaeological Site. This research
+                explores how digital technologies can be applied to preserve and reconstruct cultural heritage,
+                particularly ancient architectural structures.
               </p>
-              
+
               <figure class="blog-article__image">
-                <img src="static/assets/hoithaoneu1.jpg" 
-                     alt="Photo with conference banner" 
-                     loading="lazy" />
-                <figcaption class="body-sm muted">Photo with the conference banner at the National Scientific Conference.</figcaption>
+                <img src="static/assets/hoithaoneu1.jpg" alt="Photo with conference banner" loading="lazy" />
+                <figcaption class="body-sm muted">Photo with the conference banner at the National Scientific
+                  Conference.</figcaption>
               </figure>
-              
+
               <p>
                 Here are some photos from the conference:
               </p>
-              
+
               <figure class="blog-article__image">
-                <img src="static/assets/hoithaoneu2.jpg" 
-                     alt="Group photo with conference delegates" 
-                     loading="lazy" />
+                <img src="static/assets/hoithaoneu2.jpg" alt="Group photo with conference delegates" loading="lazy" />
                 <figcaption class="body-sm muted">Group photo with conference delegates and participants.</figcaption>
               </figure>
-              
+
               <figure class="blog-article__image">
-                <img src="static/assets/pgshoithaoneu.jpg" 
-                     alt="Photo with supervising Associate Professor" 
-                     loading="lazy" />
-                <figcaption class="body-sm muted">Photo with my supervising Associate Professor at the conference.</figcaption>
+                <img src="static/assets/pgshoithaoneu.jpg" alt="Photo with supervising Associate Professor"
+                  loading="lazy" />
+                <figcaption class="body-sm muted">Photo with my supervising Associate Professor at the conference.
+                </figcaption>
               </figure>
-              
+
               <p>
-                I'm grateful to the organizers for creating this valuable platform for academic exchange and to all the participants for the insightful discussions. This experience has been inspiring and motivates me to continue exploring innovative applications of technology in various fields.
+                I'm grateful to the organizers for creating this valuable platform for academic exchange and to all the
+                participants for the insightful discussions. This experience has been inspiring and motivates me to
+                continue exploring innovative applications of technology in various fields.
               </p>
             </div>
           </article>
         </div>
       </div>
     </div>
-    
+
     <!-- =========================================
          Blog Modal 6 - MC Experience at Thai Nguyen Radio and Television
          ========================================= -->
@@ -1575,130 +1817,153 @@
               <span class="tag">Media</span>
               <h1 class="h1">MC Experience at Thai Nguyen Newspaper and Television Broadcasting</h1>
               <p class="blog-article__meta body-sm muted">
-                <time datetime="2025-01-01">Hosting programs for Thai Nguyen Newspaper and Television Broadcasting</time>
+                <time datetime="2025-01-01">Hosting programs for Thai Nguyen Newspaper and Television
+                  Broadcasting</time>
               </p>
             </header>
-            
+
             <div class="blog-article__content">
               <p class="lead">
-                I had the incredible opportunity to work as an MC for Thai Nguyen Newspaper and Television Broadcasting, where I embarked on a fascinating cultural journey exploring traditional Vietnamese heritage through various immersive experiences.
+                I had the incredible opportunity to work as an MC for Thai Nguyen Newspaper and Television Broadcasting,
+                where I embarked on a fascinating cultural journey exploring traditional Vietnamese heritage through
+                various immersive experiences.
               </p>
-              
+
               <h2 class="h2">Experiencing Traditional Then Music</h2>
-              
+
               <p>
-                One of the most memorable experiences was learning about and experiencing the traditional Then music. Then is a unique form of folk music from the northern mountainous regions of Vietnam, characterized by its distinctive stringed instruments and melodic storytelling. I had the privilege of meeting with traditional performers who shared their knowledge and passion for this beautiful art form.
+                One of the most memorable experiences was learning about and experiencing the traditional Then music.
+                Then is a unique form of folk music from the northern mountainous regions of Vietnam, characterized by
+                its distinctive stringed instruments and melodic storytelling. I had the privilege of meeting with
+                traditional performers who shared their knowledge and passion for this beautiful art form.
               </p>
-              
+
               <figure class="blog-article__image">
-                <img src="static/assets/landieuthen.jpg" 
-                     alt="Experiencing traditional Then music" 
-                     loading="lazy" />
-                <figcaption class="body-sm muted">Learning about traditional Then music with local performers and cultural experts.</figcaption>
+                <img src="static/assets/landieuthen.jpg" alt="Experiencing traditional Then music" loading="lazy" />
+                <figcaption class="body-sm muted">Learning about traditional Then music with local performers and
+                  cultural experts.</figcaption>
               </figure>
-              
+
               <figure class="blog-article__image">
-                <img src="static/assets/mctntv1.jpg" 
-                     alt="Then music performance at Thai Nguyen Radio and Television" 
-                     loading="lazy" />
-                <figcaption class="body-sm muted">Capturing the Then music performance during the MC program.</figcaption>
+                <img src="static/assets/mctntv1.jpg" alt="Then music performance at Thai Nguyen Radio and Television"
+                  loading="lazy" />
+                <figcaption class="body-sm muted">Capturing the Then music performance during the MC program.
+                </figcaption>
               </figure>
-              
+
               <figure class="blog-article__image">
-                <img src="static/assets/mctntv2.jpg" 
-                     alt="Traditional Then music cultural experience" 
-                     loading="lazy" />
-                <figcaption class="body-sm muted">Immersing in the traditional Then music cultural experience.</figcaption>
+                <img src="static/assets/mctntv2.jpg" alt="Traditional Then music cultural experience" loading="lazy" />
+                <figcaption class="body-sm muted">Immersing in the traditional Then music cultural experience.
+                </figcaption>
               </figure>
-              
+
               <p>
-                The performers, dressed in traditional attire, played their instruments with such skill and emotion, transporting us to a different time. It was a profound experience to witness this living cultural heritage and understand its significance in preserving Vietnamese traditions.
+                The performers, dressed in traditional attire, played their instruments with such skill and emotion,
+                transporting us to a different time. It was a profound experience to witness this living cultural
+                heritage and understand its significance in preserving Vietnamese traditions.
               </p>
-              
+
               <h2 class="h2">Exploring Tea Culture Space</h2>
-              
+
               <p>
-                Another highlight was experiencing the traditional tea culture space. Vietnam has a rich tea culture, and I had the chance to participate in a traditional tea ceremony in a beautifully designed wooden tea house. The setting was warm and inviting, with wooden paneling, traditional decorations, and shelves displaying various tea products.
+                Another highlight was experiencing the traditional tea culture space. Vietnam has a rich tea culture,
+                and I had the chance to participate in a traditional tea ceremony in a beautifully designed wooden tea
+                house. The setting was warm and inviting, with wooden paneling, traditional decorations, and shelves
+                displaying various tea products.
               </p>
-              
+
               <figure class="blog-article__image">
-                <img src="static/assets/trainghiemkhonggianvanhoatra.jpg" 
-                     alt="Traditional tea culture space experience" 
-                     loading="lazy" />
-                <figcaption class="body-sm muted">Exploring the traditional tea culture space with its beautiful wooden design and cultural atmosphere.</figcaption>
+                <img src="static/assets/trainghiemkhonggianvanhoatra.jpg" alt="Traditional tea culture space experience"
+                  loading="lazy" />
+                <figcaption class="body-sm muted">Exploring the traditional tea culture space with its beautiful wooden
+                  design and cultural atmosphere.</figcaption>
               </figure>
-              
+
               <p>
-                During the tea ceremony, I learned about different types of Vietnamese tea, the proper way to brew and serve tea, and the cultural significance behind each gesture. It was a meditative and educational experience that deepened my appreciation for Vietnamese tea culture and its role in social bonding and hospitality.
+                During the tea ceremony, I learned about different types of Vietnamese tea, the proper way to brew and
+                serve tea, and the cultural significance behind each gesture. It was a meditative and educational
+                experience that deepened my appreciation for Vietnamese tea culture and its role in social bonding and
+                hospitality.
               </p>
-              
+
               <figure class="blog-article__image">
-                <img src="static/assets/thuongthuctra.jpg" 
-                     alt="Enjoying traditional tea ceremony" 
-                     loading="lazy" />
-                <figcaption class="body-sm muted">Participating in a traditional tea ceremony and enjoying the authentic tea experience.</figcaption>
+                <img src="static/assets/thuongthuctra.jpg" alt="Enjoying traditional tea ceremony" loading="lazy" />
+                <figcaption class="body-sm muted">Participating in a traditional tea ceremony and enjoying the authentic
+                  tea experience.</figcaption>
               </figure>
-              
+
               <h2 class="h2">Making Traditional Mooncakes</h2>
-              
+
               <p>
-                One of the most hands-on and enjoyable experiences was learning to make traditional mooncakes. Mooncakes are an essential part of the Mid-Autumn Festival in Vietnam, and making them from scratch was both challenging and rewarding.
+                One of the most hands-on and enjoyable experiences was learning to make traditional mooncakes. Mooncakes
+                are an essential part of the Mid-Autumn Festival in Vietnam, and making them from scratch was both
+                challenging and rewarding.
               </p>
-              
+
               <figure class="blog-article__image">
-                <img src="static/assets/thuopngthuctravaanbanhtrungthu.jpg" 
-                     alt="Enjoying tea and making mooncakes" 
-                     loading="lazy" />
-                <figcaption class="body-sm muted">Combining the tea ceremony experience with traditional mooncake making.</figcaption>
+                <img src="static/assets/thuopngthuctravaanbanhtrungthu.jpg" alt="Enjoying tea and making mooncakes"
+                  loading="lazy" />
+                <figcaption class="body-sm muted">Combining the tea ceremony experience with traditional mooncake
+                  making.</figcaption>
               </figure>
-              
+
               <figure class="blog-article__image">
-                <img src="static/assets/trainghiemlambanhtrungthu.jpg" 
-                     alt="Learning to make traditional mooncakes" 
-                     loading="lazy" />
-                <figcaption class="body-sm muted">Hands-on experience learning to make traditional mooncakes.</figcaption>
+                <img src="static/assets/trainghiemlambanhtrungthu.jpg" alt="Learning to make traditional mooncakes"
+                  loading="lazy" />
+                <figcaption class="body-sm muted">Hands-on experience learning to make traditional mooncakes.
+                </figcaption>
               </figure>
-              
+
               <p>
-                Under the guidance of experienced artisans, I learned the intricate process of preparing the dough, creating the fillings, and shaping the mooncakes with traditional molds. The process required patience and precision, but the result was delicious mooncakes that carried both flavor and cultural meaning. It was wonderful to connect with this traditional craft and understand its importance in Vietnamese celebrations.
+                Under the guidance of experienced artisans, I learned the intricate process of preparing the dough,
+                creating the fillings, and shaping the mooncakes with traditional molds. The process required patience
+                and precision, but the result was delicious mooncakes that carried both flavor and cultural meaning. It
+                was wonderful to connect with this traditional craft and understand its importance in Vietnamese
+                celebrations.
               </p>
-              
+
               <h2 class="h2">Reflections on the Experience</h2>
-              
+
               <p>
-                Working as an MC for Thai Nguyen Newspaper and Television Broadcasting provided me with unique opportunities to explore and share Vietnamese culture. Each experience - from the melodic Then music to the serene tea ceremonies and the hands-on mooncake making - enriched my understanding of Vietnam's cultural heritage.
+                Working as an MC for Thai Nguyen Newspaper and Television Broadcasting provided me with unique
+                opportunities to explore and share Vietnamese culture. Each experience - from the melodic Then music to
+                the serene tea ceremonies and the hands-on mooncake making - enriched my understanding of Vietnam's
+                cultural heritage.
               </p>
-              
+
               <p>
-                These experiences reminded me of the importance of preserving and promoting traditional culture in the modern world. As an MC, I had the privilege of bringing these cultural treasures to a wider audience, helping to bridge the gap between tradition and contemporary media.
+                These experiences reminded me of the importance of preserving and promoting traditional culture in the
+                modern world. As an MC, I had the privilege of bringing these cultural treasures to a wider audience,
+                helping to bridge the gap between tradition and contemporary media.
               </p>
-              
+
               <p>
-                I'm grateful to Thai Nguyen Newspaper and Television Broadcasting for this incredible opportunity and to all the cultural experts, performers, and artisans who shared their knowledge and passion with me. This journey has been both professionally enriching and personally meaningful.
+                I'm grateful to Thai Nguyen Newspaper and Television Broadcasting for this incredible opportunity and to
+                all the cultural experts, performers, and artisans who shared their knowledge and passion with me. This
+                journey has been both professionally enriching and personally meaningful.
               </p>
-              
+
               <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--border-color, #e0e0e0);">
                 <p style="margin-bottom: 1rem; font-weight: 600;">Watch the programs directly:</p>
                 <div style="display: flex; gap: 1.5rem; align-items: center;">
-                  <a href="https://www.youtube.com/@B%C3%A1ov%C3%A0PTTHTh%C3%A1iNguy%C3%AAn" 
-                     target="_blank" 
-                     rel="noopener noreferrer"
-                     style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; color: #FF0000; font-size: 1rem; transition: transform 0.2s;"
-                     onmouseover="this.style.transform='scale(1.1)'"
-                     onmouseout="this.style.transform='scale(1)'">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                  <a href="https://www.youtube.com/@B%C3%A1ov%C3%A0PTTHTh%C3%A1iNguy%C3%AAn" target="_blank"
+                    rel="noopener noreferrer"
+                    style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; color: #FF0000; font-size: 1rem; transition: transform 0.2s;"
+                    onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
                     </svg>
                     <span>YouTube</span>
                   </a>
-                  <a href="https://www.facebook.com/tntvdigital/?locale=vi_VN" 
-                     target="_blank" 
-                     rel="noopener noreferrer"
-                     style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; color: #1877F2; font-size: 1rem; transition: transform 0.2s;"
-                     onmouseover="this.style.transform='scale(1.1)'"
-                     onmouseout="this.style.transform='scale(1)'">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                  <a href="https://www.facebook.com/tntvdigital/?locale=vi_VN" target="_blank" rel="noopener noreferrer"
+                    style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; color: #1877F2; font-size: 1rem; transition: transform 0.2s;"
+                    onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                     </svg>
                     <span>Facebook</span>
                   </a>
@@ -1709,12 +1974,12 @@
         </div>
       </div>
     </div>
-    
-   
 
 
 
-    
+
+
+
     <!-- =========================================
          Testimonials Section
          ========================================= -->
@@ -1726,18 +1991,18 @@
             Testimonials from clients, colleagues, and collaborators.
           </p>
         </header>
-        
+
         <div class="testimonials__carousel">
           <!-- Testimonials loaded via API -->
         </div>
-        
+
         <div class="testimonials__controls">
           <button class="testimonials__prev" aria-label="Previous testimonial">‹</button>
           <button class="testimonials__next" aria-label="Next testimonial">›</button>
         </div>
       </div>
     </section>
-    
+
     <!-- =========================================
          Timeline Section
          ========================================= -->
@@ -1749,38 +2014,38 @@
             Key milestones in my professional journey.
           </p>
         </header>
-        
+
         <div class="timeline">
           <article class="timeline__item">
             <div class="timeline__content card">
               <div class="timeline__date">2021 - Present</div>
               <h3 class="timeline__title">Full-Stack Developer</h3>
               <p class="timeline__description">
-                Building large-scale web applications with Python, .NET Core, and modern JavaScript frameworks. 
+                Building large-scale web applications with Python, .NET Core, and modern JavaScript frameworks.
                 Specializing in high-performance, scalable solutions.
               </p>
             </div>
             <div class="timeline__marker"></div>
           </article>
-          
+
           <article class="timeline__item">
             <div class="timeline__content card">
               <div class="timeline__date">2020 - 2021</div>
               <h3 class="timeline__title">Content Creator & Digital Media</h3>
               <p class="timeline__description">
-                Started creating digital content, building a personal brand on TikTok and other platforms. 
+                Started creating digital content, building a personal brand on TikTok and other platforms.
                 Gained experience in video production, scriptwriting, and audience engagement.
               </p>
             </div>
             <div class="timeline__marker"></div>
           </article>
-          
+
           <article class="timeline__item">
             <div class="timeline__content card">
               <div class="timeline__date">2019 - 2020</div>
               <h3 class="timeline__title">Education & Learning</h3>
               <p class="timeline__description">
-                Focused on learning full-stack development, mastering Python, JavaScript, and various web technologies. 
+                Focused on learning full-stack development, mastering Python, JavaScript, and various web technologies.
                 Built foundational projects and gained hands-on experience.
               </p>
             </div>
@@ -1789,7 +2054,7 @@
         </div>
       </div>
     </section>
-    
+
     <!-- =========================================
          Certifications Section
          ========================================= -->
@@ -1799,32 +2064,50 @@
           <h2 class="h2">Certifications & Achievements</h2>
           <p class="lead">Professional recognitions and notable milestones.</p>
         </header>
-        
+
         <div class="certifications__grid">
           <!-- Cert 1: Full-Stack -->
           <article class="certification card">
             <div class="certification__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
             </div>
             <h3 class="certification__name">Full-Stack Development</h3>
             <p class="certification__issuer">Professional Web Engineering</p>
             <p class="certification__date">2021 - Present</p>
           </article>
-          
+
           <!-- Cert 2: Content Creator -->
           <article class="certification card">
             <div class="certification__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 0 1 8 0"></path><path d="M4 18a9 9 0 0 1 8 0"></path><path d="M4 4a9 9 0 0 1 8 0"></path><path d="M12 4v14"></path><path d="M12 11h8"></path><path d="M12 18h8"></path><path d="M12 4h8"></path></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 11a9 9 0 0 1 8 0"></path>
+                <path d="M4 18a9 9 0 0 1 8 0"></path>
+                <path d="M4 4a9 9 0 0 1 8 0"></path>
+                <path d="M12 4v14"></path>
+                <path d="M12 11h8"></path>
+                <path d="M12 18h8"></path>
+                <path d="M12 4h8"></path>
+              </svg>
             </div>
             <h3 class="certification__name">Content Creator</h3>
             <p class="certification__issuer">TikTok & Social Presence</p>
             <p class="certification__date">10K+ Followers</p>
           </article>
-          
+
           <!-- Cert 3: MC -->
           <article class="certification card">
             <div class="certification__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" x2="12" y1="19" y2="22"></line></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path>
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                <line x1="12" x2="12" y1="19" y2="22"></line>
+              </svg>
             </div>
             <h3 class="certification__name">MC at TNTV</h3>
             <p class="certification__issuer">Thai Nguyen Television</p>
@@ -1833,7 +2116,7 @@
         </div>
       </div>
     </section>
-    
+
     <!-- =========================================
          Newsletter Section
          ========================================= -->
@@ -1845,89 +2128,68 @@
             Subscribe to my newsletter for the latest updates, articles, and insights.
           </p>
         </header>
-        
+
         <form id="newsletter-form" class="newsletter__form">
-          <input 
-            type="email" 
-            id="newsletter-email" 
-            class="newsletter__input" 
-            placeholder="Enter your email address" 
-            required 
-            aria-label="Email address" />
+          <input type="email" id="newsletter-email" class="newsletter__input" placeholder="Enter your email address"
+            required aria-label="Email address" />
           <button type="submit" class="btn btn--primary newsletter__button">
             Subscribe
           </button>
         </form>
       </div>
     </section>
-    
+
     <!-- =========================================
          Contact Section
          ========================================= -->
     <section id="contact" class="section contact">
       <div class="container">
         <header class="section__head">
-         
+
           <h2 class="h2">Get in Touch</h2>
           <p class="lead">
             Discuss your project and how I can contribute to its success.
           </p>
         </header>
-        
-        <form id="contact-form" class="card form" method="POST" action="https://formsubmit.co/davidhoangem@gmail.com" novalidate>
+
+        <form id="contact-form" class="card form" method="POST" action="https://formsubmit.co/davidhoangem@gmail.com"
+          novalidate>
           <div class="form__row">
             <div class="field">
               <label for="name">Your Name <span aria-label="required">*</span></label>
-              <input id="name" 
-                     name="name" 
-                     type="text" 
-                     placeholder="Enter your name" 
-                     required 
-                     aria-required="true" />
+              <input id="name" name="name" type="text" placeholder="Enter your name" required aria-required="true" />
             </div>
             <div class="field">
               <label for="email">Your Email <span aria-label="required">*</span></label>
-              <input id="email" 
-                     name="email" 
-                     type="email" 
-                     placeholder="your@email.com" 
-                     required 
-                     aria-required="true" />
+              <input id="email" name="email" type="email" placeholder="your@email.com" required aria-required="true" />
             </div>
           </div>
-          
+
           <div class="field">
             <label for="subject">Subject</label>
-            <input id="subject" 
-                   name="subject" 
-                   type="text" 
-                   placeholder="What's this about?" />
+            <input id="subject" name="subject" type="text" placeholder="What's this about?" />
           </div>
-          
+
           <div class="field">
             <label for="message">Your Message <span aria-label="required">*</span></label>
-            <textarea id="message" 
-                      name="message" 
-                      rows="6" 
-                      placeholder="Tell me about your project or inquiry..." 
-                      required 
-                      aria-required="true"></textarea>
+            <textarea id="message" name="message" rows="6" placeholder="Tell me about your project or inquiry..."
+              required aria-required="true"></textarea>
           </div>
-          
+
           <button type="submit" class="btn btn--primary">
             Send Message
           </button>
-          
+
           <p class="form__note body-sm muted">
-            Alternatively, email me directly at 
+            Alternatively, email me directly at
             <a href="mailto:davidhoangem@gmail.com" class="accent">davidhoangem@gmail.com</a>
           </p>
         </form>
       </div>
     </section>
-    
+
   </main>
-  
+
   <!-- =========================================
        Footer
        ========================================= -->
@@ -1937,39 +2199,33 @@
         <div class="brand brand--footer">
           <span class="brand__text">DavidHE</span>
         </div>
-        
+
         <p class="muted body-sm footer__copyright">
           © <span id="year">2024</span> DavidHE. All rights reserved.
         </p>
-        
+
         <ul class="social">
           <li>
-            <a href="https://github.com/davidhevn" 
-               aria-label="Visit GitHub profile"
-               target="_blank" 
-               rel="noopener noreferrer">
+            <a href="https://github.com/davidhevn" aria-label="Visit GitHub profile" target="_blank"
+              rel="noopener noreferrer">
               GitHub
             </a>
           </li>
           <li>
-            <a href="https://www.linkedin.com/in/davidhoangem-davidhe-88694a318/" 
-               aria-label="Visit LinkedIn profile"
-               target="_blank" 
-               rel="noopener noreferrer">
+            <a href="https://www.linkedin.com/in/davidhoangem-davidhe-88694a318/" aria-label="Visit LinkedIn profile"
+              target="_blank" rel="noopener noreferrer">
               LinkedIn
             </a>
           </li>
           <li>
-            <a href="https://www.tiktok.com/@davidhevn/"
-               aria-label="Visit TikTok profile" target="_blank" rel="noopener noreferrer" class="social__tiktok">
+            <a href="https://www.tiktok.com/@davidhevn/" aria-label="Visit TikTok profile" target="_blank"
+              rel="noopener noreferrer" class="social__tiktok">
               TikTok
             </a>
           </li>
           <li>
-            <a href="https://www.facebook.com/hoang.snguyens.589583/" 
-               aria-label="Visit Facebook profile"
-               target="_blank" 
-               rel="noopener noreferrer">
+            <a href="https://www.facebook.com/hoang.snguyens.589583/" aria-label="Visit Facebook profile"
+              target="_blank" rel="noopener noreferrer">
               Facebook
             </a>
           </li>
@@ -1977,14 +2233,14 @@
       </div>
     </div>
   </footer>
-  
+
   <!-- =========================================
        Scripts
        ========================================= -->
   <script src="static/js/enhanced.js" defer></script>
   <script>
     // Dark Mode Toggle
-    (function() {
+    (function () {
       const themeToggle = document.getElementById('theme-toggle');
       const themeIcon = document.getElementById('theme-icon');
       const html = document.documentElement;
@@ -2017,39 +2273,39 @@
         oscillator.frequency.linearRampToValueAtTime(140, audioCtx.currentTime + 0.12);
         oscillator.stop(audioCtx.currentTime + 0.28);
       }
-      
+
       // Get saved theme or default to light
       const savedTheme = localStorage.getItem('theme') || 'light';
       html.setAttribute('data-theme', savedTheme);
-      
+
       // Update icon based on current theme
       if (savedTheme === 'dark') {
         themeIcon.textContent = '☀️';
       } else {
         themeIcon.textContent = '🌙';
       }
-      
+
       // Toggle theme on button click
       themeToggle.addEventListener('click', () => {
         const currentTheme = html.getAttribute('data-theme');
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        
+
         html.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
-        
+
         // Update icon
         themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
         playToggleSound();
       });
     })();
-    
+
     // Language Translation with Globe Icon
-    (function() {
+    (function () {
       const languageToggle = document.getElementById('language-toggle');
       const languageMenu = document.getElementById('language-menu');
       const languageOptions = document.querySelectorAll('.language-option');
       const savedLanguage = localStorage.getItem('language') || 'en';
-      
+
       // Language code mapping
       const languageMap = {
         'en': 'en',
@@ -2071,7 +2327,7 @@
         'pl': 'pl',
         'tr': 'tr'
       };
-      
+
       // Set active language in menu
       function setActiveLanguage(langCode) {
         languageOptions.forEach(option => {
@@ -2081,19 +2337,19 @@
           }
         });
       }
-      
+
       // Function to change language - simplified and reliable
       function changeLanguage(langCode) {
         const googleLangCode = languageMap[langCode] || langCode;
-        
+
         // Save language preference
         localStorage.setItem('language', langCode);
-        
+
         // Set cookie for Google Translate immediately
         // Format: googtrans=/en/[target_language]
         const cookieName = 'googtrans';
         let cookieValue;
-        
+
         if (langCode === 'en') {
           // For English, clear the translation cookie
           cookieValue = '';
@@ -2105,38 +2361,38 @@
           expirationDate.setFullYear(expirationDate.getFullYear() + 1);
           document.cookie = cookieName + '=' + cookieValue + '; path=/; expires=' + expirationDate.toUTCString() + '; SameSite=Lax';
         }
-        
+
         // Reload page immediately to apply translation
         window.location.reload();
       }
-      
+
       // Toggle language menu
-      languageToggle.addEventListener('click', function(e) {
+      languageToggle.addEventListener('click', function (e) {
         e.stopPropagation();
         languageMenu.classList.toggle('active');
       });
-      
+
       // Close menu when clicking outside
-      document.addEventListener('click', function(e) {
+      document.addEventListener('click', function (e) {
         if (!languageToggle.contains(e.target) && !languageMenu.contains(e.target)) {
           languageMenu.classList.remove('active');
         }
       });
-      
+
       // Handle language selection
       languageOptions.forEach(option => {
-        option.addEventListener('click', function(e) {
+        option.addEventListener('click', function (e) {
           e.preventDefault();
           const selectedLang = this.getAttribute('data-lang');
           changeLanguage(selectedLang);
           languageMenu.classList.remove('active');
         });
       });
-      
+
       // Initialize with saved language
       function initializeLanguage() {
         setActiveLanguage(savedLanguage);
-        
+
         // Set cookie for Google Translate if language is not English
         // Google Translate will automatically apply translation based on cookie
         if (savedLanguage !== 'en') {
@@ -2145,11 +2401,11 @@
           const cookieValue = '/en/' + googleLangCode;
           const expirationDate = new Date();
           expirationDate.setFullYear(expirationDate.getFullYear() + 1);
-          
+
           // Check current cookie
           const currentCookie = document.cookie.match(/googtrans=([^;]+)/);
           const currentCookieValue = currentCookie ? currentCookie[1] : null;
-          
+
           // Only set cookie and reload if it's different
           if (currentCookieValue !== cookieValue) {
             document.cookie = cookieName + '=' + cookieValue + '; path=/; expires=' + expirationDate.toUTCString() + '; SameSite=Lax';
@@ -2170,7 +2426,7 @@
           }
         }
       }
-      
+
       // Initialize on DOM ready
       if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', initializeLanguage);
@@ -2178,9 +2434,9 @@
         initializeLanguage();
       }
     })();
-    
+
     // Hide Google Translate banner when it appears
-    (function() {
+    (function () {
       function hideGoogleTranslateBanner() {
         // Hide all possible Google Translate banner elements
         const selectors = [
@@ -2193,7 +2449,7 @@
           'iframe[src*="translate.googleapis.com"]',
           '.skiptranslate'
         ];
-        
+
         selectors.forEach(selector => {
           const elements = document.querySelectorAll(selector);
           elements.forEach(el => {
@@ -2207,7 +2463,7 @@
             el.style.left = '-9999px';
           });
         });
-        
+
         // Remove top margin/padding from body
         document.body.style.top = '0';
         document.body.style.marginTop = '0';
@@ -2215,59 +2471,59 @@
         document.documentElement.style.marginTop = '0';
         document.documentElement.style.paddingTop = '0';
       }
-      
+
       // Hide immediately
       hideGoogleTranslateBanner();
-      
+
       // Hide when DOM changes (when Google Translate adds banner)
       const observer = new MutationObserver(() => {
         hideGoogleTranslateBanner();
       });
-      
+
       observer.observe(document.body, {
         childList: true,
         subtree: true
       });
-      
+
       // Also hide on load
       window.addEventListener('load', hideGoogleTranslateBanner);
-      
+
       // Hide periodically to catch late-loading banners
       setInterval(hideGoogleTranslateBanner, 500);
     })();
-    
+
     // Set current year
     document.getElementById('year').textContent = new Date().getFullYear();
-    
+
     // Header scroll effect
     const header = document.getElementById('header');
     let lastScroll = 0;
-    
+
     window.addEventListener('scroll', () => {
       const currentScroll = window.pageYOffset;
-      
+
       if (currentScroll > 80) {
         header.classList.add('header--scrolled');
       } else {
         header.classList.remove('header--scrolled');
       }
-      
+
       lastScroll = currentScroll;
     });
-    
+
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
           e.preventDefault();
-          
+
           // Close mobile menu if open
           const navToggle = document.getElementById('nav-toggle');
           if (navToggle) {
             navToggle.checked = false;
           }
-          
+
           // Smooth scroll
           target.scrollIntoView({
             behavior: 'smooth',
@@ -2276,13 +2532,13 @@
         }
       });
     });
-    
+
     // Intersection Observer for fade-in animations
     const observerOptions = {
       threshold: 0.1,
       rootMargin: '0px 0px -50px 0px'
     };
-    
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -2291,7 +2547,7 @@
         }
       });
     }, observerOptions);
-    
+
     // Observe cards and sections
     document.querySelectorAll('.card, .section__head').forEach(el => {
       el.style.opacity = '0';
@@ -2299,11 +2555,11 @@
       el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
       observer.observe(el);
     });
-    
+
     // Blog Modal Functionality
-    (function() {
+    (function () {
       const blogModalLinks = document.querySelectorAll('[data-blog-modal]');
-      
+
       function openBlogModal(modalId) {
         const blogModalOverlay = document.getElementById(modalId);
         if (blogModalOverlay) {
@@ -2311,7 +2567,7 @@
           document.body.style.overflow = 'hidden';
         }
       }
-      
+
       function closeBlogModal(modalId) {
         const blogModalOverlay = document.getElementById(modalId);
         if (blogModalOverlay) {
@@ -2319,17 +2575,17 @@
           document.body.style.overflow = '';
         }
       }
-      
+
       function closeAllModals() {
         document.querySelectorAll('.blog-modal-overlay').forEach(modal => {
           modal.classList.remove('active');
         });
         document.body.style.overflow = '';
       }
-      
+
       // Open modal when clicking blog card links
       blogModalLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
+        link.addEventListener('click', function (e) {
           e.preventDefault();
           const modalId = this.getAttribute('data-blog-modal');
           if (modalId) {
@@ -2337,34 +2593,34 @@
           }
         });
       });
-      
+
       // Close modal when clicking close button
       document.querySelectorAll('.blog-modal__close').forEach(closeBtn => {
-        closeBtn.addEventListener('click', function() {
+        closeBtn.addEventListener('click', function () {
           const modalOverlay = this.closest('.blog-modal-overlay');
           if (modalOverlay) {
             closeBlogModal(modalOverlay.id);
           }
         });
       });
-      
+
       // Close modal when clicking overlay (but not the modal content)
       document.querySelectorAll('.blog-modal-overlay').forEach(overlay => {
-        overlay.addEventListener('click', function(e) {
+        overlay.addEventListener('click', function (e) {
           if (e.target === overlay) {
             closeBlogModal(overlay.id);
           }
         });
       });
-      
+
       // Close modal with Escape key
-      document.addEventListener('keydown', function(e) {
+      document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') {
           closeAllModals();
         }
       });
     })();
-    
+
     // Service Worker Registration (PWA)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
@@ -2379,4 +2635,5 @@
     }
   </script>
 </body>
+
 </html>
