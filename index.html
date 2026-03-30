@@ -627,6 +627,21 @@
           <button class="blog__nav blog__nav--prev" aria-label="Previous articles">‹</button>
           <div class="blog__track">
 
+            <!-- Blog 10: Clean Code Bible (Engineering/Master Guide) -->
+            <article class="blog__card card" data-blog-modal="blog-clean-code-bible-detail">
+              <div class="blog__media">
+                <img src="static/assets/blog-engineering.jpg" alt="The Clean Code Bible" loading="lazy" />
+              </div>
+              <div class="blog__body">
+                <div class="blog-meta">
+                  <span>Engineering</span>
+                  <span class="dot">·</span>
+                  <span>25 min read</span>
+                </div>
+                <h3 class="h3">The Clean Code Bible: The Definitive Guide to Engineering Excellence</h3>
+              </div>
+            </article>
+
             <!-- Blog 9: Warren Buffett Mindset (Finance) -->
             <article class="blog__card card" data-blog-modal="blog-buffett-detail">
               <div class="blog__media">
@@ -1985,6 +2000,100 @@
 
 
 
+
+    <!-- =========================================
+          Blog Modal Overlay: Clean Code Bible
+          ========================================= -->
+    <div id="blog-clean-code-bible-detail" class="blog-modal-overlay">
+      <div class="blog-modal">
+        <button class="blog-modal__close" aria-label="Close modal">×</button>
+        <div class="blog-modal__content">
+          <article class="blog-article">
+            <header class="blog-article__header">
+              <span class="tag">Engineering Excellence</span>
+              <h1 class="h1">The Clean Code Bible: The Definitive Guide to Engineering Excellence</h1>
+              <p class="blog-article__meta body-sm muted">
+                <time datetime="2026-03-30">March 30, 2026</time>
+                <span>By DavidHE | Inspired by Robert C. Martin</span>
+              </p>
+            </header>
+
+            <div class="blog-article__content">
+              <p class="lead">
+                In the world of software development, code is never just a set of instructions for a machine. It is a medium of communication between human beings. As Uncle Bob famously stated: "Clean code is code that has been taken care of."
+              </p>
+
+              <figure class="blog-article__image">
+                <img src="static/assets/blog-engineering.jpg" alt="Clean Code Engineering Excellence" loading="lazy" />
+                <figcaption class="body-sm muted">"Leave the campground cleaner than you found it." — The Boy Scout Rule</figcaption>
+              </figure>
+
+              <h2 class="h2">The Philosophy: Why Clean Code Matters?</h2>
+              <p>
+                Every year, billions of dollars are lost to "technical debt." When we rush to meet deadlines, we often leave a trail of "dirty" code. Productivity crashes, and the team becomes afraid to touch the codebase. Clean code is not just a preference; it is a professional requirement for sustainable software.
+              </p>
+
+              <h2 class="h2">1. Meaningful Names: The Art of Lexicon</h2>
+              <p>
+                Naming is the most frequent decision a developer makes. A name should answer why it exists, what it does, and how it is used.
+              </p>
+              <ul>
+                <li><strong>Use Intention-Revealing Names:</strong> `int elapsedTimeInDays;` is better than `int d;`.</li>
+                <li><strong>Avoid Disinformation:</strong> Don't use names like `accountList` unless it's actually a List.</li>
+                <li><strong>Danh từ cho Lớp, Động từ cho Hàm:</strong> `Customer` (Class) vs `save()` (Function).</li>
+              </ul>
+
+              <h2 class="h2">2. Functions: The Atomic Units of Logic</h2>
+              <p>
+                The first rule of functions: **They should be small.** The second rule: **They should be smaller than that.**
+              </p>
+              <ul>
+                <li><strong>Do One Thing:</strong> If a function handles validation AND database saving, it's doing too much.</li>
+                <li><strong>Stepdown Rule:</strong> Code should read like a top-down narrative.</li>
+                <li><strong>No Side Effects:</strong> Functions shouldn't secretly change system states.</li>
+              </ul>
+
+              <h2 class="h2">3. Comments: The Admission of Failure</h2>
+              <p>
+                "Don’t comment bad code—rewrite it." Comments are often used to compensate for our failure to express intent through code.
+              </p>
+              <blockquote>"The proper use of comments is to compensate for our failure to express ourself in code." — Uncle Bob</blockquote>
+
+              <h2 class="h2">4. Error Handling: Maintaining the Flow</h2>
+              <p>
+                Error handling is necessary, but it must not obscure logic.
+              </p>
+              <ul>
+                <li><strong>Use Exceptions over Return Codes:</strong> Throwing exceptions keeps the "happy path" clean.</li>
+                <li><strong>Don't Return Null:</strong> Returning `null` forces the caller into a maintenance burden of constant checks.</li>
+              </ul>
+
+              <h2 class="h2">5. The "S.I.N.G.L.E" Responsibility Principle (SRP)</h2>
+              <p>
+                A class should have one, and only one, **reason to change**. god-classes that do everything are the primary cause of architectural decay.
+              </p>
+
+              <div class="practical-tip-box" style="background: rgba(20, 184, 156, 0.08); border-left: 5px solid #14b89c; padding: 1.5rem; margin: 2rem 0; border-radius: 0 0.75rem 0.75rem 0;">
+                <p style="margin: 0; font-weight: 600; color: #14b89c;">🔥 The Master Key:</p>
+                <p style="margin-top: 0.5rem; line-height: 1.6;">Always follow the <strong>Boy Scout Rule</strong>: Leave the codebase cleaner than you found it. One small refactor today prevents a massive disaster tomorrow.</p>
+              </div>
+
+              <h2 class="h2">Conclusion: The Craft of Professionalism</h2>
+              <p>
+                Writing clean code is an ongoing discipline. It requires continuous refactoring, rigorous testing, and a deep sense of craftsmanship. Elevate your code from a mere set of instructions to a scalable, maintainable, and elegant piece of engineering.
+              </p>
+              
+              <p style="text-align: center; margin-top: 3rem;">
+                <a href="https://github.com/davidhevn/davidhevn.github.io/blob/main/CLEAN_CODE_BIBLE.md" target="_blank" class="btn btn--secondary" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                  Read Full 20k-word Bible on GitHub
+                </a>
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
 
     <!-- =========================================
          Testimonials Section
