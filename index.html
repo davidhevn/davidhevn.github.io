@@ -2096,7 +2096,7 @@
           <article class="blog-article">
             <header class="blog-article__header">
               <span class="tag">Engineering</span>
-              <h1 class="h1">Code sạch không chỉ dành cho senior: Một lập trình viên sau 3 năm "vật lộn" với codebase</h1>
+              <h1 class="h1">Clean Code Is Not Just for Seniors: 3 Years of Real-World Lessons</h1>
               <p class="blog-article__meta body-sm muted">
                 <time datetime="2026-04-16">April 16, 2026</time>
                 <span>By DavidHE | 3 years of software development experience</span>
@@ -2105,93 +2105,90 @@
 
             <div class="blog-article__content">
               <p class="lead">
-                Tôi từng mở lại file cũ của chính mình sau vài tháng và tự hỏi: "Ai viết thứ này vậy?".
-                Sau khi xem git blame, câu trả lời là: <strong>chính tôi</strong>. Bài viết này là bản tổng kết thực chiến về Clean Code sau 3 năm đi làm,
-                dành cho cả fresher lẫn senior đang muốn giảm bug, tăng tốc độ review và đỡ "đau tim" khi sửa production.
+                I once opened my own old code a few months later and thought: "Who wrote this mess?".
+                After checking git blame, the answer was: <strong>me</strong>. This article is a battle-tested summary of Clean Code after 3 years in the field,
+                for both fresh developers and seniors looking to reduce bugs, speed up reviews, and stop the production heartburn.
               </p>
 
               <figure class="blog-article__image">
                 <img src="static/assets/cleancodeblog.jpg" alt="Clean Code cover by DavidHE" loading="lazy" />
-                <figcaption class="body-sm muted">"Leave the campground cleaner than you found it." — Boy Scout Rule</figcaption>
+                <figcaption class="body-sm muted">"Leave the campground cleaner than you found it." – Boy Scout Rule</figcaption>
               </figure>
 
-              <h2 class="h2">1) Clean Code là gì, và vì sao đáng để đầu tư?</h2>
+              <h2 class="h2">1) What is Clean Code and why invest in it?</h2>
               <p>
-                Clean Code không phải "trang trí" cho đẹp mắt. Nó là cách viết để người khác (và chính bạn trong tương lai)
-                có thể đọc, sửa, mở rộng mà không phá hỏng hệ thống. Team chỉ chạy theo "code chạy được" thường nhanh ở 3-6 tháng đầu,
-                sau đó tốc độ giảm mạnh vì technical debt tích tụ.
+                Clean Code is not just decoration. It's writing code so that others (and your future self) can read, modify, and extend it without breaking the system. Teams that only chase "working code" move fast for the first 3–6 months, then hit a wall as technical debt accumulates.
               </p>
 
-              <h2 class="h2">2) 5 nguyên tắc giúp team thoát "mã nguồn thối"</h2>
-              <h3>2.1 Đặt tên có ý nghĩa</h3>
+              <h2 class="h2">2) 5 principles to escape the "rotten code" trap</h2>
+              <h3>2.1 Meaningful names</h3>
               <p>
-                Đặt tên biến/hàm rõ ràng là cải tiến rẻ nhất nhưng hiệu quả nhất.
-                `elapsedTimeInDays` luôn tốt hơn `d`, `getFlaggedCells()` tốt hơn `getThem()`.
+                Clear variable and function names are the cheapest yet most effective improvement.
+                `elapsedTimeInDays` always beats `d`; `getFlaggedCells()` is better than `getThem()`.
               </p>
               <ul>
-                <li>Tên lớp = danh từ (`Customer`, `InvoiceProcessor`).</li>
-                <li>Tên hàm = động từ (`calculateTotal()`, `saveOrder()`).</li>
-                <li>Hạn chế viết tắt mơ hồ và copy-paste naming.</li>
+                <li>Class names = nouns (`Customer`, `InvoiceProcessor`).</li>
+                <li>Function names = verbs (`calculateTotal()`, `saveOrder()`).</li>
+                <li>Avoid vague abbreviations and copy-paste naming patterns.</li>
               </ul>
 
-              <h3>2.2 Hàm nhỏ, một việc duy nhất</h3>
+              <h3>2.2 Small functions, single responsibility</h3>
               <p>
-                Một hàm dài 100-200 dòng làm nhiều việc là máy tạo bug. Tách thành các bước nhỏ để dễ đọc, dễ test, dễ debug.
+                A function 100–200 lines doing multiple jobs is a bug factory. Break it into small, focused steps for readability, testability, and quick debugging.
               </p>
               <ul>
-                <li>Hàm điều phối nên ngắn, mỗi bước gọi một hàm con rõ nghĩa.</li>
-                <li>Tách validation, calculate, persist, notify thành các unit riêng.</li>
-                <li>Giảm side-effect bất ngờ trong cùng một method.</li>
+                <li>Orchestration functions should be short; each step calls a meaningful sub-function.</li>
+                <li>Separate validation, calculation, persistence, and notification into distinct units.</li>
+                <li>Minimize unexpected side-effects within the same method.</li>
               </ul>
 
-              <h3>2.3 Comment đúng mục đích</h3>
+              <h3>2.3 Comments with purpose</h3>
               <p>
-                Comment không nên mô tả điều code đã thể hiện rõ. Comment tốt để giải thích <strong>tại sao</strong>, ràng buộc nghiệp vụ,
-                hoặc cảnh báo rủi ro khi thay đổi.
+                Comments should not describe what code already shows. Good comments explain <strong>why</strong>, document business constraints, or warn of risks when changing code.
               </p>
 
-              <h3>2.4 Xử lý lỗi rõ ràng</h3>
+              <h3>2.4 Clear error handling</h3>
               <p>
-                Ưu tiên exception thay vì mã lỗi mơ hồ; tránh trả về `null` cho collection.
-                API rõ ràng giúp caller khó bỏ sót lỗi hơn.
+                Prefer exceptions over cryptic error codes; avoid returning `null` for collections.
+                Clear APIs make it harder for callers to miss error handling.
               </p>
               <ul>
-                <li>Happy path phải dễ đọc.</li>
-                <li>Fail fast ở đầu hàm khi input không hợp lệ.</li>
+                <li>The happy path should be easy to read.</li>
+                <li>Fail fast at the top of a function when input is invalid.</li>
               </ul>
 
-              <h3>2.5 Test là lưới an toàn của refactor</h3>
+              <h3>2.5 Tests are the safety net for refactoring</h3>
               <p>
-                Không có test, refactor rất dễ phá hành vi cũ. Viết unit test theo vòng lặp Red → Green → Refactor giúp bạn thay đổi nhanh hơn về lâu dài.
+                Without tests, refactoring easily breaks existing behavior. Writing unit tests in Red → Green → Refactor cycles lets you change faster over time.
               </p>
 
               <div class="practical-tip-box" style="background: rgba(20, 184, 156, 0.08); border-left: 5px solid #14b89c; padding: 1.5rem; margin: 2rem 0; border-radius: 0 0.75rem 0.75rem 0;">
-                <p style="margin: 0; font-weight: 600; color: #14b89c;">🔥 Kinh nghiệm thực tế từ DavidHE:</p>
-                <p style="margin-top: 0.5rem; line-height: 1.6;">Đừng đợi "đại tu". Mỗi lần chạm vào code, cải thiện một thứ nhỏ:
-                  đổi tên biến, tách một hàm dài, thêm một test case. Sau vài sprint, codebase thay đổi rõ rệt.</p>
+                <p style="margin: 0; font-weight: 600; color: #14b89c;">🔥 Real-world insight from 3 years:</p>
+                <p style="margin-top: 0.5rem; line-height: 1.6;">Don't wait for "big refactor". Every time you touch code, improve one small thing:
+                  rename a variable, split a long function, add a test case. After a few sprints, your codebase transforms.</p>
               </div>
 
-              <h2 class="h2">3) Lộ trình áp dụng cho team SME</h2>
+              <h2 class="h2">3) Roadmap for small engineering teams</h2>
               <ul>
-                <li><strong>Tháng 1-2:</strong> Workshop + review guideline chung.</li>
-                <li><strong>Tháng 2-4:</strong> Áp linter/formatter + quality gate trên CI.</li>
-                <li><strong>Tháng 4-8:</strong> Pilot module với TDD + budget refactor mỗi sprint.</li>
-                <li><strong>Sau đó:</strong> Đưa code quality vào Definition of Done.</li>
+                <li><strong>Months 1–2:</strong> Workshop + shared review guidelines.</li>
+                <li><strong>Months 2–4:</strong> Linter/formatter + quality gates in CI.</li>
+                <li><strong>Months 4–8:</strong> Pilot module with TDD + refactor budget each sprint.</li>
+                <li><strong>Ongoing:</strong> Make code quality part of Definition of Done.</li>
               </ul>
 
-              <h2 class="h2">Kết luận</h2>
+              <h2 class="h2">Conclusion</h2>
               <p>
-                Clean Code không phải đích đến, mà là cách đi. Mỗi commit sạch hơn một chút sẽ giúp team bớt bug,
-                review nhanh hơn, onboarding dễ hơn và phát triển bền vững hơn.
+                Clean Code is not a destination but a journey. Every commit a bit cleaner helps your team cut bugs,
+                speed up reviews, ease onboarding, and build sustainably.
               </p>
 
               <p style="text-align: center; margin-top: 3rem; display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap;">
                 <a href="https://github.com/davidhevn/davidhevn.github.io/blob/main/CLEAN_CODE_BIBLE.md" target="_blank" class="btn btn--secondary" style="display: inline-flex; align-items: center; gap: 0.5rem;">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-                  Read Online Version
+                  Read Full Article on GitHub
                 </a>
                 <a href="https://www.oreilly.com/library/view/clean-code-a/9780136083238/" target="_blank" class="btn btn--primary">
-                  Read/Access Book (Legal)
+                  Read Clean Code Book
                 </a>
               </p>
             </div>
