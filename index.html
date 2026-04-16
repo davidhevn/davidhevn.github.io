@@ -493,6 +493,21 @@
         </header>
 
         <div class="grid grid--3">
+          <!-- Project 8: GoldenStock -->
+          <article class="work card" data-blog-modal="project-goldenstock-detail">
+            <div class="work__media">
+              <img src="static/assets/goldenstockblog.png" alt="GoldenStock" loading="lazy" />
+            </div>
+            <div class="work__body">
+              <div class="work-meta">
+                <span>FINTECH</span>
+                <span class="dot">·</span>
+                <span>Next.js, FastAPI, VNStock, Docker</span>
+              </div>
+              <h3 class="h3">GoldenStock — Stock Analytics Platform</h3>
+            </div>
+          </article>
+
           <!-- Project 7: Cờ Tướng GenZ -->
           <article class="work card" data-blog-modal="project-cotuong-detail">
             <div class="work__media">
@@ -914,6 +929,76 @@
               <div style="margin-top: 4rem; text-align: center;">
                 <a href="https://game-cash-flow.vercel.app/" target="_blank" class="btn btn--primary"
                   style="padding: 1rem 3rem; font-size: 1.2rem;">Play Game Now →</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. GoldenStock -->
+    <div id="project-goldenstock-detail" class="blog-modal-overlay">
+      <div class="blog-modal">
+        <button class="blog-modal__close" aria-label="Close modal">×</button>
+        <div class="blog-modal__content">
+          <article class="blog-article">
+            <header class="blog-article__header">
+              <span class="tag">Fintech & Data Platform</span>
+              <h1 class="h1">GoldenStock — Từ dashboard đẹp đến công cụ phân tích chứng khoán chạy production</h1>
+              <p class="blog-article__meta body-sm muted">
+                <span>Tech: Next.js 16, React 19, TypeScript, Highcharts, FastAPI, VNStock, ExcelJS, Docker</span>
+              </p>
+            </header>
+            <div class="blog-article__content">
+              <p class="lead">
+                GoldenStock được mình xây để giải quyết một nhu cầu rất thực dụng: mở ra là đọc được ngay sức khỏe doanh nghiệp,
+                định giá, dòng tiền và bối cảnh vĩ mô mà không phải nhảy qua nhiều nguồn dữ liệu rời rạc.
+              </p>
+              <figure class="blog-article__image">
+                <img src="static/assets/goldenstockblog.png" alt="GoldenStock dashboard" loading="lazy" />
+              </figure>
+
+              <h2>Mục tiêu sản phẩm</h2>
+              <ul>
+                <li>Trực quan cho người dùng cuối, tốc độ đọc nhanh.</li>
+                <li>Ổn định khi upstream chập chờn hoặc rate-limit.</li>
+                <li>Dễ mở rộng module mới và sẵn sàng deploy thực tế.</li>
+              </ul>
+
+              <h2>Bài toán kỹ thuật cốt lõi</h2>
+              <ol>
+                <li><strong>Schema dữ liệu không ổn định</strong> giữa nhiều endpoint.</li>
+                <li><strong>Bảo vệ token/API key</strong> để không lộ ở client.</li>
+                <li><strong>Upstream lỗi nhưng UI vẫn phải mượt</strong> và không “vỡ” dashboard.</li>
+              </ol>
+
+              <h2>Kiến trúc triển khai</h2>
+              <p><code>Browser → Next.js App → /api/vnstock proxy → FastAPI bridge → VNStock</code></p>
+              <p>
+                Mình tách 3 lớp rõ ràng: frontend để tối ưu trải nghiệm, proxy để giữ token server-side,
+                và FastAPI bridge để normalize dữ liệu, cache, fallback.
+              </p>
+
+              <h2>Những gì đã hoàn thành</h2>
+              <ul>
+                <li>Dashboard hợp nhất: Giá/Khối lượng, Doanh thu, LNST, biên lợi nhuận, ROE/ROA, định giá, dòng tiền.</li>
+                <li>News + Macro widget cùng màn hình (USD/VND, vàng, dầu, lãi suất).</li>
+                <li>Stock Screener theo sector/P-E/RS và export Excel ngay trên app.</li>
+                <li>Export đa chart nhiều sheet để phân tích offline.</li>
+                <li>Badge dữ liệu LIVE/FALLBACK để minh bạch trạng thái nguồn dữ liệu.</li>
+              </ul>
+
+              <h2>Kết quả</h2>
+              <ul>
+                <li>Hoàn thiện full flow từ UI tới data bridge.</li>
+                <li>Chịu lỗi tốt nhờ cache + synthetic fallback.</li>
+                <li>Dockerized và sẵn sàng cho production.</li>
+              </ul>
+
+              <div style="margin-top: 3rem; text-align: center; display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap;">
+                <a href="https://golden-stock.vercel.app/" target="_blank" class="btn btn--primary"
+                  style="padding: 1rem 2.2rem; font-size: 1.05rem;">Test GoldenStock Live →</a>
+                <a href="#work" class="btn btn--secondary" style="padding: 1rem 2.2rem; font-size: 1.05rem;">Back to Work</a>
               </div>
             </div>
           </article>
