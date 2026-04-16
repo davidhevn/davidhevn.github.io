@@ -1869,6 +1869,15 @@ html.translated-rtl {
   transform: scale(1.05);
 }
 
+/* Clean Code cover tuning: keep top title visible and reduce visual height */
+.blog__card--clean-code .blog__media {
+  aspect-ratio: 16 / 9;
+}
+
+.blog__card--clean-code img {
+  object-position: center top;
+}
+
 .blog__card .blog__body {
   position: static !important;
   padding: 0 !important;
@@ -1962,6 +1971,19 @@ html.translated-rtl {
 
 .blog__card:hover .read {
   gap: 0.75rem;
+}
+
+/* Modal cover tuning for Clean Code article */
+#blog-clean-code-bible-detail .blog-article__image {
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#blog-clean-code-bible-detail .blog-article__image img {
+  max-height: 520px;
+  object-fit: cover;
+  object-position: center top;
 }
 
 /* Hide Slider controls as we are now using a Grid */
