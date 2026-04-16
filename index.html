@@ -657,6 +657,21 @@
               </div>
             </article>
 
+            <!-- Blog: Power and Prediction (Strategy/Engineering) -->
+            <article class="blog__card card" data-blog-modal="blog-power-prediction-detail">
+              <div class="blog__media">
+                <img src="static/assets/powerandpridictionblog.png" alt="Power and Prediction: AI Economics by DavidHE" loading="lazy" />
+              </div>
+              <div class="blog__body">
+                <div class="blog-meta">
+                  <span>Strategy</span>
+                  <span class="dot">·</span>
+                  <span>25 min read</span>
+                </div>
+                <h3 class="h3">Why 89% of AI Investments Fail: Lessons from "Power and Prediction"</h3>
+              </div>
+            </article>
+
             <!-- Blog 9: Warren Buffett Mindset (Finance) -->
             <article class="blog__card card" data-blog-modal="blog-buffett-detail">
               <div class="blog__media">
@@ -2189,6 +2204,524 @@
                 </a>
                 <a href="https://www.oreilly.com/library/view/clean-code-a/9780136083238/" target="_blank" class="btn btn--primary">
                   Read Clean Code Book
+                </a>
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <!-- =========================================
+          Blog Modal: Power and Prediction
+          ========================================= -->
+    <div id="blog-power-prediction-detail" class="blog-modal-overlay">
+      <div class="blog-modal">
+        <button class="blog-modal__close" aria-label="Close modal">×</button>
+        <div class="blog-modal__content">
+          <article class="blog-article">
+            <header class="blog-article__header">
+              <span class="tag">Strategy</span>
+              <h1 class="h1">Why 89% of AI Investments Fail: A Developer's Guide to System Thinking</h1>
+              <p class="blog-article__meta body-sm muted">
+                <time datetime="2026-04-17">April 17, 2026</time>
+                <span>By DavidHE | 3 years of software development experience</span>
+              </p>
+            </header>
+
+            <div class="blog-article__content">
+              <p class="lead">
+                Hello, I'm a software developer. After many years of grinding with code, moving from bug to bug, I've realized one harsh truth: 
+                being good at technology doesn't guarantee creating value. You could write AI code that's 99.9% accurate, but when you throw it into a company, 
+                it creates nothing – or worse, breaks the entire system.
+              </p>
+
+              <p>
+                Sound familiar? It's exactly like writing a perfect string-processing function that, when integrated into a 20-year-old legacy codebase, 
+                unleashes dozens of bugs you've never seen.
+              </p>
+
+              <p>
+                I just finished the book "Power and Prediction: The Disruptive Economics of Artificial Intelligence" by professors from the University of Toronto. 
+                This book is like a "debugging manual" for corporate AI strategy. It explains why AI – hailed as "the new electricity" – is failing to generate 
+                the massive profits everyone predicted.
+              </p>
+
+              <p>
+                This blog post is my notes and translation from academic economics into the language of a dev who loves sharing. I'll keep the spirit of the book, 
+                but explain it through concepts we developers know: technical debt, refactoring, APIs, microservices, legacy systems, and the like.
+              </p>
+
+              <p style="background: rgba(20, 184, 156, 0.08); border-left: 5px solid #14b89c; padding: 1.5rem; margin: 2rem 0; border-radius: 0 0.75rem 0.75rem 0;">
+                <strong style="color: #14b89c;">Why should you read this?</strong><br/>
+                Because whether you're a dev, BA, PM, or CTO, misunderstanding AI's true nature will burn your budget on "point solutions" that go nowhere. 
+                I'll show you where the real gold mine actually is.
+              </p>
+
+              <h2 class="h2">Part 1: The AI Paradox – Like Code That Works Locally But Dies in Production</h2>
+
+              <h3>The "miraculous" promise vs. harsh reality</h3>
+              <p>
+                You've probably heard statements like: "AI is greater than electricity and fire" (Sundar Pichai) or "AI will generate $13 trillion in economic value" (McKinsey). Mind-blowing, right?
+              </p>
+
+              <p>
+                Then you saw AlphaGo defeat the world's #1 Go player. GPT-4 passed the US bar exam (top 10%). AI reads lung X-rays better than experienced doctors. The technology is amazing.
+              </p>
+
+              <p>
+                But here's the plot twist... According to McKinsey's 2021 survey, only 11% of companies said they saw clear financial benefits from AI investment. Everyone else? Stuck with proof-of-concepts, unscalable projects, or terrible ROI.
+              </p>
+
+              <p>
+                Sound familiar? Like when you write a brilliant AI script with 99% accuracy on Jupyter, then integrate it into production backend – and it crawls like a turtle, eats memory like a monster, or worse, crashes the database.
+              </p>
+
+              <p>
+                So: Why hasn't AI created more economic value?
+              </p>
+
+              <p>
+                Agrawal, Gans, and Goldfarb (call them AGG for short) identified a fundamental strategic mistake: Most companies are using AI as a "point solution" (patch), when true value comes from redesigning the entire system.
+              </p>
+
+              <p>
+                In dev terms: Don't just bolt an AI API onto legacy code and call it "digital transformation." You need to refactor the entire architecture – or even rewrite from scratch – for AI to unleash its real power.
+              </p>
+
+              <h3>The mystery of the unicorn from the backwoods</h3>
+              <p>
+                Here's an interesting story: The authors once predicted Canada's first AI unicorn would emerge from tech hubs like Montreal or Toronto, places with thriving AI ecosystems.
+              </p>
+
+              <p>
+                But it came from St. John's, Newfoundland – where AI probably exists only in science fiction. Company name: Verafin, specializing in financial fraud detection. In 2021, Nasdaq bought it for $2.75 billion.
+              </p>
+
+              <p>
+                Why? Because Verafin wasn't a "pure AI" company doing fancy magic tricks. They solved one specific problem that the existing system was ready for: detect fraudulent transactions. 
+                Banks already had rich data, standardized processes, and clear "fraud or not" decisions independent from other decisions (like credit approval or card review).
+              </p>
+
+              <p>
+                Verafin was a perfect point solution. And that's the "low-hanging fruit" to harvest.
+              </p>
+
+              <p>
+                <strong>Lesson 1:</strong> Don't dream of building an "omniscient AI system" right away. Find "independent" problems in your existing system where you can apply AI like a simple API without needing to rebuild everything.
+              </p>
+
+              <h2 class="h2">Part 2: "The Between Times" – The Awkward Era Between Proof-of-Concept and Production</h2>
+
+              <h3>A historical lesson: Three entrepreneurs in the age of electrification</h3>
+              <p>
+                To understand this "awkward era," AGG tell a powerful parable about electrification in the late 1800s.
+              </p>
+
+              <p>
+                <strong>Entrepreneur #1:</strong> Replaced steam engines with electric motors, but kept the old factory design. Machines still centered around one main drive shaft. Result: slight energy savings, minimal productivity gain. This is a "point solution."
+              </p>
+
+              <p>
+                <strong>Entrepreneur #2:</strong> Attached small electric motors directly to each machine. Now each can run independently at its own speed. Productivity jumps significantly. This is an "application solution."
+              </p>
+
+              <p>
+                <strong>Entrepreneur #3:</strong> Realized electricity decoupled energy source from location. Why keep machines around one central shaft? They completely redesigned the factory based on process logic and material flow. Productivity soared hundreds of percent. This is a "system solution."
+              </p>
+
+              <p>
+                But here's the critical detail: Between when electricity was invented (late 1880s) and when productivity actually boomed (1920s) was a 20–30 year lag. 
+                That's "The Between Times" – when the technology is ready, but organizations and processes aren't.
+              </p>
+
+              <p>
+                We're in "The Between Times" of AI right now. AI is technically mature enough. But infrastructure, processes, skills, and especially mindsets still lag.
+              </p>
+
+              <h3>Three levels of AI solutions: From scripts to full microservice architecture</h3>
+              <p>
+                Let me map these three levels to dev terminology so you get the picture.
+              </p>
+
+              <p>
+                <strong>1. Point Solution – "Write a small script handling one specific task"</strong>
+              </p>
+              <ul>
+                <li><strong>Trait:</strong> Improves one existing decision without (or with minimal) impact on others.</li>
+                <li><strong>Examples:</strong> Verafin detecting fraud, automated credit scoring, AI spell-checker.</li>
+                <li><strong>In code:</strong> Like writing an independent function <code>detect_fraud(transaction)</code> that returns True/False, unconnected to the bank's main transaction flow.</li>
+                <li><strong>Pros:</strong> Easy to build, low risk, can plug into legacy systems immediately.</li>
+                <li><strong>Cons:</strong> Value created isn't huge (10–20% improvement max).</li>
+              </ul>
+
+              <p>
+                <strong>2. Application Solution – "Create entirely new functionality"</strong>
+              </p>
+              <ul>
+                <li><strong>Trait:</strong> Creates new decisions previously impossible, but doesn't require surrounding system changes.</li>
+                <li><strong>Example:</strong> Amazon's "ship-before-you-click" – predicting what you'll buy and shipping to nearby warehouses before you order.</li>
+                <li><strong>In code:</strong> Like adding a new API endpoint <code>predict_next_purchase(user_id)</code> that returns product recommendations, calling into existing logistics systems.</li>
+                <li><strong>Pros:</strong> New experience, significant value boost.</li>
+                <li><strong>Cons:</strong> Still constrained by legacy architecture.</li>
+              </ul>
+
+              <p>
+                <strong>3. System Solution – "Refactor entire architecture"</strong>
+              </p>
+              <ul>
+                <li><strong>Trait:</strong> Simultaneously changes many interdependent decisions. You can't do it piecemeal.</li>
+                <li><strong>Examples:</strong> Redesigning a factory in the electricity era. Building an entirely digital-first bank without any paper legacy.</li>
+                <li><strong>In code:</strong> Like abandoning the "monolithic with central shaft" principle and transitioning to full microservices: message queues, event sourcing, CQRS, the works.</li>
+                <li><strong>Pros:</strong> Value is massive (10x multiplier possible).</li>
+                <li><strong>Cons:</strong> Extremely hard, requires cross-functional sync, easy to fail without proper systems thinking.</li>
+              </ul>
+
+              <p>
+                <strong>Lesson 2:</strong> Most companies are stuck at level 1 and 2, while level 3 is where sustainable competitive advantage lives.
+              </p>
+
+              <h2 class="h2">Part 3: Rules vs. Decisions – Hardcode or Calculate On-the-Fly?</h2>
+
+              <p>
+                In any organization, there are two ways to operate:
+              </p>
+
+              <ul>
+                <li><strong>Decision:</strong> Every time, gather info → analyze → judge. High cost per instance, optimal per case.</li>
+                <li><strong>Rule:</strong> Set a fixed rule upfront: "If A, then B." High upfront cost (thinking, debate, policy writing), but very cheap to apply.</li>
+              </ul>
+
+              <p>
+                In code: You can hardcode <code>if age &lt; 25: price = 1000 else: price = 500</code> (rule). Or call an AI model using hundreds of variables (decision).
+              </p>
+
+              <p>
+                Why do organizations love rules? Because the cost of decisions (data gathering, processing, analysis, accountability) is brutal.
+              </p>
+
+              <p>
+                <strong>AI changes this equation.</strong> When prediction cost drops near zero, organizations will shift from "apply rules" to "make data-driven decisions in real-time."
+              </p>
+
+              <p>
+                Classic example: Car insurance.
+              </p>
+              <ul>
+                <li><strong>Old rule:</strong> 25-year-olds pay premium X, 30-year-olds pay Y, based on group statistics.</li>
+                <li><strong>New decision:</strong> Track real driving behavior every minute via telematics. AI predicts individual risk. Premiums adjust in real-time.</li>
+              </ul>
+
+              <p>
+                But careful! Rules aren't just cost-savers. <strong>They're the "glue" holding the system together.</strong>
+              </p>
+
+              <h3>Rules as glue – Don't rip them out carelessly</h3>
+              <p>
+                The Pandora (music streaming) story is instructive. They had a rule: free users hear ads every 3 songs, 30 seconds each. Doesn't sound optimal. Why not use AI to insert ads when users are bored-est and most likely to click?
+              </p>
+
+              <p>
+                But that "rigid" rule was the glue binding:
+              </p>
+              <ul>
+                <li>Advertiser contracts (you buy X impressions, get X impressions – guaranteed).</li>
+                <li>User expectations (they know exactly when they'll be interrupted).</li>
+                <li>Freemium model (users know what they're paying to avoid).</li>
+              </ul>
+
+              <p>
+                Changing it isn't just a code change. It rewrites business models, contracts, and user behavior.
+              </p>
+
+              <p>
+                <strong>Lesson 3:</strong> Before using AI to replace rules, ask: "What else is this rule doing?" If the answer is anything other than "nothing else," you might break something critical without knowing.
+              </p>
+
+              <h3>Hidden uncertainty – The stuff not on your Jira board</h3>
+              <p>
+                Organizations build tons of "scaffolding" (buffers, queues, backup procedures) to cope with uncertainty:
+              </p>
+              <ul>
+                <li>Incheon airport has massive buffering systems for check-in delays, security, baggage handling.</li>
+                <li>Hedgerows in England mark boundaries but also block wind, prevent erosion, shelter livestock.</li>
+              </ul>
+
+              <p>
+                When you deploy AI, you might think you're "removing uncertainty" and thus can "cut the scaffolding." But if you don't understand the hidden functions, disaster strikes.
+              </p>
+
+              <p>
+                <strong>Example:</strong> Farmer removes hedgerows because AI forecasts weather more accurately (don't need wind protection). A freak storm hits. Crops destroyed. AI can't predict "freak."
+              </p>
+
+              <p>
+                <strong>Lesson 4:</strong> Use AI to reduce uncertainty, but don't greedily strip all scaffolding. Ask: "Why do we do this?" If "because we can't predict X," then X is AI's opportunity. 
+                If "because regulations require it" or "because multiple parties depend on it," tread carefully.
+              </p>
+
+              <h2 class="h2">Part 4: The Great Decoupling – AI Doesn't Replace You; It Separates Prediction from Judgment</h2>
+
+              <p>
+                This is probably the book's most important and most misunderstood part.
+              </p>
+
+              <h3>Prediction vs. Judgment – Like data vs. loss function</h3>
+              <p>
+                We often think AI will "make decisions for humans." Wrong. AI has no power. AI has no responsibility. AI has no value.
+              </p>
+
+              <p>
+                What AI does: <strong>Prediction.</strong> "What's the probability of outcome Y, given data Z?"
+              </p>
+
+              <p>
+                Everything else – <strong>Judgment</strong> – belongs to humans. "Given that probability, what should I do? What am I willing to trade off?"
+              </p>
+
+              <p>
+                Classic example: Michael Jordan and team owner Jerry Reinsdorf.
+              </p>
+              <ul>
+                <li><strong>Medical prediction:</strong> 10% chance of career-ending re-injury if Michael returns early.</li>
+                <li><strong>Michael's judgment:</strong> "The benefit of competing (I'm Jordan, I want to score, I want championships) outweighs 10% risk. I play."</li>
+                <li><strong>Reinsdorf's judgment:</strong> "Risk losing our biggest asset is too high. I veto."</li>
+              </ul>
+
+              <p>
+                Same prediction. Different judgments. AI can't bridge that gap – it's a values and risk appetite question.
+              </p>
+
+              <p>
+                In ML terms:
+              </p>
+              <ul>
+                <li><strong>Prediction</strong> = model output (probability).</li>
+                <li><strong>Judgment</strong> = loss function (how much you weigh Type 1 vs. Type 2 errors) + utility function (what outcome you prefer).</li>
+              </ul>
+
+              <p>
+                <strong>Before AI:</strong> Prediction and judgment were "baked into" one person (credit officer, doctor, lawyer). You couldn't separate them.
+              </p>
+
+              <p>
+                <strong>After AI:</strong> You can decouple. AI does prediction. Humans (or an algorithm) do judgment. Better: you can assign judgment to whoever judges best – not necessarily the predictor.
+              </p>
+
+              <p>
+                <strong>Example in banking:</strong> Traditionally, a loan officer both estimated default probability (prediction) and decided "approve or deny" (judgment). Now? An AI model gives the probability. 
+                A different algorithm (if simple) or a credit committee (if complex) makes the decision. This creates transparency and better risk control.
+              </p>
+
+              <h3>AI has no power – humanity's baseless fear</h3>
+              <p>
+                Many fear AI will seize power and dominate humans. AGG say: Nonsense. AI has no power. It's just a tool.
+              </p>
+
+              <p>
+                <strong>Power resides with:</strong> system designers, code writers, people setting optimization objectives.
+              </p>
+
+              <p>
+                <strong>Example:</strong> "AI Amazon fired workers automatically." People rage: "So heartless!" But really? AI followed the judgment that engineers and managers hardcoded: 
+                which KPIs matter (packing speed, break time), their weights, firing thresholds. AI just executed.
+              </p>
+
+              <p>
+                The problem isn't AI having power. It's power becoming <strong>diffused and murky.</strong> When an employee is fired by algorithm, who do they sue? 
+                The engineer? The manager? The CEO? This is a huge governance gap the book doesn't fully solve.
+              </p>
+
+              <h3>"New Judges" – Who's losing decision power?</h3>
+              <p>
+                Flint, Michigan provides a textbook case. Their water was contaminated with lead from old pipes. University of Michigan built an AI model predicting pipe locations with 80% accuracy. 
+                Excellent.
+              </p>
+
+              <p>
+                Initially, the city followed AI. Teams dug where AI pointed. 80% found lead pipes. Fantastic efficiency.
+              </p>
+
+              <p>
+                Then local politicians intervened: "Dig evenly across all neighborhoods – don't favor this area over that, or voters complain." Result: lead pipe discovery rate plummeted to 15%. Budget wasted.
+              </p>
+
+              <p>
+                AI didn't "decide." But it <strong>exposed the political judgment</strong> happening in real-time. Quantified the cost: "equal distribution" wastes 85% of resources vs. data-optimized.
+              </p>
+
+              <p>
+                Eventually, courts intervened and forced the city to follow AI recommendations. Budget allocation power shifted from politicians to algorithms. <strong>AI became the new judge.</strong>
+              </p>
+
+              <p>
+                The same is happening across industries:
+              </p>
+              <ul>
+                <li><strong>Google Maps/Waze:</strong> AI traffic routing strips city planners of flow control.</li>
+                <li><strong>Credit scoring:</strong> AI strips loan officers of approval authority.</li>
+                <li><strong>Hiring:</strong> AI CV screening strips recruiters of initial gatekeeping.</li>
+              </ul>
+
+              <p>
+                <strong>Strategic lesson:</strong> The strongest resistance to AI doesn't come from tech fears. It comes from people losing decision power. A radiologist won't resist AI because it diagnoses wrong – they resist because 20 years of hard-won expertise and authority are threatened. 
+                To deploy AI successfully, you must redesign roles, create new "high-judgment" positions for affected people.
+              </p>
+
+              <h2 class="h2">Part 5: System Design – Tight Coordination or Modular Decoupling?</h2>
+
+              <h3>The bullwhip effect in AI</h3>
+              <p>
+                Optimize one part of a system with AI, and you create new uncertainty elsewhere. Like the bullwhip effect in supply chains: a tiny fluctuation at the origin can explode into massive shocks downstream.
+              </p>
+
+              <p>
+                <strong>Example:</strong> You use AI to speed up order processing. Logistics can't keep pace → warehouses overloaded → shipments delayed. AI optimized locally, broke globally.
+              </p>
+
+              <p>
+                Two design strategies exist:
+              </p>
+
+              <p>
+                <strong>1. Tight Coordination – The "rowing crew" model</strong>
+              </p>
+              <ul>
+                <li>All parts must sync perfectly. Eight rowers + one coxswain in perfect rhythm.</li>
+                <li>Pros: Maximum efficiency, full AI potential.</li>
+                <li>Cons: "Brittle" system, breaks before shocks. Every small upgrade changes everything. High coordination costs.</li>
+              </ul>
+
+              <p>
+                <strong>2. Modularity – The "restaurant" model</strong>
+              </p>
+              <ul>
+                <li>Add buffers (queues, inventory) between modules. Kitchen and dining room operate at different rhythms. Order tickets are the buffer.</li>
+                <li>Pros: Flexible, expandable, shock-resistant.</li>
+                <li>Cons: Extra cost for buffers (inventory, wait time), non-optimal overall.</li>
+              </ul>
+
+              <p>
+                <strong>Amazon is a masterclass in modularity.</strong> They use AI to forecast demand and pre-position inventory near users. This creates a "buffer layer" of stock, 
+                decoupling buying decisions (long-term optimization) from delivery decisions (real-time reaction).
+              </p>
+
+              <p>
+                <strong>Lesson 5:</strong> No single strategy is "right." It depends on your cost structure and volatility. Good architects mix both at different layers.
+              </p>
+
+              <h2 class="h2">Part 6: The Blind Spots & Broader Debates</h2>
+
+              <h3>AI bias – Mirror, not monster</h3>
+              <p>
+                Media screams: "AI is racist! Sexist!" Standard solution: "Clean the data" or "add fairness constraints." AGG say: That's superficial.
+              </p>
+
+              <p>
+                Cite MIT economist Sendhil Mullainathan. He sent identical resumes with "white-sounding" vs. "Black-sounding" names. White names got 50% more callbacks. 
+                AI? No, that's human bias in hiring. AI can quantify it and force organizations to confront the ugly truth.
+              </p>
+
+              <p>
+                <strong>AGG's take:</strong> Bias isn't AI's fault. It's society's. AI is the mirror forcing us to see. Instead of "hiding" the mirror, fix the root problem.
+              </p>
+
+              <p>
+                (I'd note: This view is optimistic. In practice, powerful groups use lobbying to resist change, and some biases are subtle enough that AI itself can't detect them. But the principle is sound.)
+              </p>
+
+              <h3>The big gap: Public sector governance</h3>
+              <p>
+                The book mostly covers private enterprise. But the most consequential decisions live in public sectors: healthcare, education, transport, justice. 
+                There, market mechanisms (profit) don't coordinate everyone. You need <strong>government as system orchestrator.</strong>
+              </p>
+
+              <p>
+                Example: Electronic health records. Single hospitals gain little value from their own data. Real value emerges only with national integration. 
+                No hospital will pay for nation-wide interoperability alone – it's a collective action problem. Government must set standards, mandate sharing, protect privacy legally.
+              </p>
+
+              <p>
+                This governance gap is massive, and the book underaddresses it.
+              </p>
+
+              <h3>The leapfrog opportunity for developing nations</h3>
+              <p>
+                Here's a point for Vietnamese readers: Developing countries can "leapfrog" straight to system solutions.
+              </p>
+
+              <p>
+                <strong>Example:</strong> Fintech in Vietnam (Momo, VNPay, ZaloPay) was born digital. No legacy banking baggage. They integrated AI fraud detection, credit scoring, personalization into their foundation-level architecture. 
+                Compare to Western banks retro-fitting AI onto 30-year-old COBOL – they're stuck in "point solution" phase.
+              </p>
+
+              <p>
+                <strong>Opportunity:</strong> If you're building new systems in Vietnam, don't mimic the West's "old way." Think system-level AI from day one.
+              </p>
+
+              <p>
+                <strong>But there's a dark side:</strong> Many "scaffolding" in developing countries don't exist for economic reasons – they're political. Complex approval layers protect interests. 
+                When AI makes processes transparent, it threatens power structures. Deploying system-level AI demands not just technical vision but political will. That's the hardest part.
+              </p>
+
+              <h2 class="h2">Part 7: Conclusion & Message for Developers</h2>
+
+              <h3>Three iron-clad lessons</h3>
+              <ul>
+                <li><strong>Lesson 1:</strong> Don't confuse "point solution" with "system solution." Adding an AI API to legacy code isn't transformation – it's a band-aid. 
+                  Real value demands refactoring or rewrites. The discomfort is temporary. The advantage is massive.</li>
+                <li><strong>Lesson 2:</strong> AI decouples prediction from judgment. Use this to distribute decision-making to the best judges and create transparency. 
+                  But prepare for resistance from people losing power.</li>
+                <li><strong>Lesson 3:</strong> Understand system "glue" before cutting it with AI. Ask why rules exist. If it's coordination or hidden uncertainty, it might serve a purpose AI doesn't see.</li>
+              </ul>
+
+              <h3>What skills matter in the AI era? (For developers)</h3>
+              <p>
+                If AI does more "prediction," what's left for humans (especially developers)?
+              </p>
+
+              <p>
+                <strong>Three skill clusters emerge:</strong>
+              </p>
+              <ul>
+                <li><strong>Judgment:</strong> Valuing outcomes, trading off in murky ethical/social situations. AI can't do this. Humans – especially thoughtful ones – will.</li>
+                <li><strong>System design:</strong> Seeing organizations as networks of interdependent decisions. This is "software architecture" but at company scale. You need tech + process + people understanding.</li>
+                <li><strong>Change management:</strong> When AI reshuffles decision power, people resist. Ability to redesign roles, rebuild meaning, navigate power conflicts becomes crucial.</li>
+              </ul>
+
+              <p>
+                <strong>The real edge, next 10 years?</strong> It's not how well you code AI models (Google and Meta will beat you). It's not how much data you have (big tech already won). 
+                It's your ability to see systems, redesign them, and have the backbone to dismantled outdated "glue."
+              </p>
+
+              <p>
+                <strong>That's not just a CEO skill. That's a systems architect skill. That's a developer's skill.</strong>
+              </p>
+
+              <p>
+                Remember: Code is written by humans. Systems are designed by humans. Power is wielded by humans. AI is a tool. Its potency depends on whose hands hold the hammer.
+              </p>
+
+              <p>
+                Closing thought: <strong>Think systems. Don't think points.</strong>
+              </p>
+
+              <hr style="margin: 2rem 0; border: none; border-top: 1px solid rgba(255, 255, 255, 0.1);" />
+
+              <h3>References (if you want to dive deeper):</h3>
+              <ul>
+                <li><strong>Agrawal, Gans, Goldfarb (2018).</strong> <em>Prediction Machines</em> – First book, focuses on "AI cuts prediction costs."</li>
+                <li><strong>Agrawal, Gans, Goldfarb (2022).</strong> <em>Power and Prediction</em> – This one.</li>
+                <li><strong>David, P. A. (1990).</strong> "The Dynamo and the Computer" – About electrification's "Between Times."</li>
+                <li><strong>Mullainathan, S. (2018).</strong> "Bias in Algorithms" – Using AI to reveal human bias.</li>
+              </ul>
+
+              <p style="text-align: center; margin-top: 3rem; display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap;">
+                <a href="https://www.amazon.com/Power-Prediction-Disruptive-Economics-Artificial/dp/0813237386" target="_blank" class="btn btn--primary" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                  Get the Book on Amazon
+                </a>
+                <a href="https://www.oreilly.com/library/view/power-and-prediction/9780813237381/" target="_blank" class="btn btn--secondary" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                  Read on O'Reilly
                 </a>
               </p>
             </div>
