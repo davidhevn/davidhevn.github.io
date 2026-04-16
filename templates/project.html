@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{ project.title }} | DavidHE Portfolio</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+  <header class="header" id="header">
+    <div class="container header__bar">
+      <a class="brand" href="/" aria-label="Go to home">
+        <span class="brand__text">DavidHE</span>
+      </a>
+      <nav class="nav">
+        <ul class="nav__list">
+          <li><a href="/" class="nav__link">Home</a></li>
+          <li><a href="/work" class="nav__link">Work</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="section" style="padding-top: 7rem;">
+      <div class="container" style="max-width: 900px;">
+        <a href="/work" class="btn btn--secondary btn--sm" style="margin-bottom: 1rem; display: inline-block;">← Back to Work</a>
+
+        <article class="card" style="overflow: hidden;">
+          {% if project.image_url %}
+          <div style="max-height: 420px; overflow: hidden;">
+            <img src="{{ project.image_url }}" alt="{{ project.title }}" loading="lazy" style="width: 100%; height: auto; display: block;" />
+          </div>
+          {% endif %}
+
+          <div style="padding: 2rem;">
+            {% if project.category %}
+            <span class="tag" style="margin-bottom: 0.75rem; display: inline-flex;">{{ project.category }}</span>
+            {% endif %}
+
+            <h1 class="h1" style="margin-bottom: 0.75rem;">{{ project.title }}</h1>
+            {% if project.description %}
+            <p class="lead" style="margin-bottom: 1.25rem;">{{ project.description }}</p>
+            {% endif %}
+
+            {% if project.technologies %}
+            <ul class="tech" style="margin-bottom: 1.5rem;">
+              {% for tech in project.technologies.split(',') %}
+              <li>{{ tech.strip() }}</li>
+              {% endfor %}
+            </ul>
+            {% endif %}
+
+            <div class="actions" style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+              {% if project.live_url %}
+              <a href="{{ project.live_url }}" class="btn btn--primary" target="_blank" rel="noopener">Visit Live Demo</a>
+              {% endif %}
+              {% if project.github_url %}
+              <a href="{{ project.github_url }}" class="btn btn--secondary" target="_blank" rel="noopener">View on GitHub</a>
+              {% endif %}
+            </div>
+
+            <div class="muted" style="line-height: 1.85; font-size: 1.05rem;">
+              {{ project.content|safe }}
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="muted body-sm footer__copyright">
+        © {{ current_year }} DavidHE. All rights reserved.
+      </p>
+    </div>
+  </footer>
+</body>
+</html>

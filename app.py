@@ -80,9 +80,156 @@ class Testimonial(db.Model):
     featured = db.Column(db.Boolean, default=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
 
+
+def seed_default_projects():
+    """Seed default project entries used by the Work page."""
+    goldenstock_slug = "goldenstock-production-stock-analytics-platform"
+    goldenstock_content = """
+<h2>GoldenStock là gì?</h2>
+<p>
+GoldenStock là dự án mình phát triển để giải quyết một nhu cầu rất thực tế: <strong>đọc nhanh, hiểu sâu và ra quyết định sớm</strong>
+trên thị trường chứng khoán Việt Nam. Thay vì mở nhiều tab rời rạc (giá, báo cáo tài chính, định giá, dữ liệu vĩ mô),
+mình gom toàn bộ vào một hệ thống duy nhất với trải nghiệm trực quan và nhất quán.
+</p>
+
+<p>
+Mục tiêu không dừng ở việc “vẽ chart đẹp”. Mình định hướng GoldenStock như một sản phẩm có thể vận hành thật:
+ổn định khi upstream chập chờn, dễ mở rộng module mới, và triển khai production gọn gàng.
+</p>
+
+<h2>Bài toán kỹ thuật cốt lõi</h2>
+<p>Khi đi vào triển khai thực tế, mình gặp 3 thách thức lớn:</p>
+<ol>
+    <li><strong>Schema dữ liệu thiếu đồng nhất</strong> giữa các nguồn và endpoint.</li>
+    <li><strong>Bảo mật token/API key</strong> để không lộ thông tin nhạy cảm ở client.</li>
+    <li><strong>Độ ổn định của upstream</strong> (lỗi, timeout, rate-limit) nhưng UI vẫn phải mượt.</li>
+</ol>
+
+<p>
+Giải pháp là tách kiến trúc thành 3 lớp để mỗi lớp giải quyết đúng trách nhiệm:
+</p>
+<ul>
+    <li><strong>Frontend Next.js</strong> cho trải nghiệm người dùng và dashboard tương tác.</li>
+    <li><strong>API Proxy trong Next.js</strong> để giữ token ở server-side, kiểm soát request.</li>
+    <li><strong>FastAPI Bridge</strong> để tích hợp VNStock, chuẩn hóa dữ liệu, cache và fallback.</li>
+</ul>
+
+<h3>Luồng dữ liệu</h3>
+<p><code>Browser → Next.js App → /api/vnstock proxy → FastAPI bridge → VNStock</code></p>
+
+<h2>Những gì mình đã xây</h2>
+<h3>1) Dashboard phân tích hợp nhất</h3>
+<ul>
+    <li>Giá &amp; Khối lượng</li>
+    <li>Kết quả kinh doanh: Doanh thu, LNST, Biên lợi nhuận</li>
+    <li>ROE / ROA / Net Margin</li>
+    <li>Cơ cấu dòng tiền: Operating / Investing / Financing</li>
+    <li>Định giá P/E, P/B</li>
+    <li>Cổ tức &amp; trả thưởng</li>
+    <li>Dòng tiền khối ngoại và tự doanh</li>
+    <li>Thanh khoản và độ rộng thị trường</li>
+</ul>
+<p>
+Ngoài biểu đồ, mình bổ sung cụm KPI ở đầu trang để người dùng nắm nhanh bức tranh tổng quan chỉ trong vài giây.
+</p>
+
+<h3>2) News &amp; Macro trong cùng màn hình</h3>
+<ul>
+    <li>Feed tin tức theo từng mã cổ phiếu</li>
+    <li>Expand/Collapse nội dung bài viết</li>
+    <li>Widget macro: USD/VND, vàng, dầu, lãi suất</li>
+    <li>Tô màu tăng/giảm để đọc trạng thái thị trường tức thì</li>
+</ul>
+
+<h3>3) Stock Screener + Export báo cáo</h3>
+<p>
+Mình triển khai bộ lọc theo sector, khoảng P/E, khoảng RS và số lượng mã trả về. Sau khi lọc, người dùng có thể xuất Excel ngay để phục vụ phân tích offline hoặc chia sẻ nội bộ.
+</p>
+
+<h3>4) Export đa chart ra Excel</h3>
+<p>
+Không chỉ screener, dashboard chính cũng hỗ trợ xuất nhiều sheet theo từng chart đang bật. Mỗi sheet là một dataset độc lập để tiện truy vết lịch sử và phân tích sâu.
+</p>
+
+<h2>Các quyết định kỹ thuật quan trọng</h2>
+<h3>Chuẩn hóa dữ liệu ở adapter layer</h3>
+<p>
+Mình dùng schema validation + mapping để gom các field alias về một cấu trúc chuẩn trước khi đẩy lên UI.
+Kết quả là frontend không còn phụ thuộc vào “tính thất thường” của upstream.
+</p>
+
+<h3>Giữ toàn bộ token ở server-side</h3>
+<p>
+Client không gọi trực tiếp API nhạy cảm. Mọi request đi qua proxy/bridge giúp giảm rủi ro lộ key,
+đồng thời dễ log, retry và kiểm soát lỗi theo chuẩn nội bộ.
+</p>
+
+<h3>Ưu tiên trải nghiệm ngay cả khi lỗi</h3>
+<p>
+Thay vì để dashboard trắng khi upstream lỗi, hệ thống trả <strong>synthetic fallback data</strong> kèm badge trạng thái <strong>LIVE/FALLBACK</strong> theo từng nhóm dữ liệu.
+Người dùng vẫn thao tác bình thường trong khi đội kỹ thuật có thời gian xử lý phía sau.
+</p>
+
+<h2>Kết quả đạt được</h2>
+<ul>
+    <li>Hoàn thiện full flow từ UI đến data bridge</li>
+    <li>Dashboard vận hành ổn định với nhiều nhóm dữ liệu tài chính</li>
+    <li>Xuất dữ liệu Excel phục vụ phân tích offline</li>
+    <li>Dockerize để sẵn sàng triển khai production</li>
+    <li>Kiến trúc mở cho watchlist, alert, backtest trong các phase kế tiếp</li>
+</ul>
+
+<h2>Bài học rút ra</h2>
+<ol>
+    <li><strong>Thiết kế kiến trúc dữ liệu thực chiến</strong> luôn quan trọng hơn demo đẹp.</li>
+    <li><strong>Khả năng chịu lỗi</strong> là tiêu chuẩn bắt buộc với sản phẩm tài chính.</li>
+    <li><strong>Tư duy sản phẩm</strong> phải ưu tiên tốc độ đọc, độ tin cậy và hành vi người dùng.</li>
+</ol>
+
+<h2>Định hướng tiếp theo</h2>
+<ul>
+    <li>Watchlist và cảnh báo realtime</li>
+    <li>So sánh nhiều mã cùng lúc</li>
+    <li>Backtest chiến lược cơ bản</li>
+    <li>CI/CD + observability cho production</li>
+</ul>
+
+<hr />
+<p>
+<strong>Trải nghiệm GoldenStock:</strong>
+<a href="https://golden-stock.vercel.app/" target="_blank" rel="noopener">https://golden-stock.vercel.app/</a>
+</p>
+<p>
+Nếu bạn muốn, mình có thể chia sẻ thêm về cấu trúc adapter, chiến lược cache/fallback và checklist production mình đang dùng cho dự án này.
+</p>
+""".strip()
+
+    default_project = {
+        "title": "GoldenStock — Từ dashboard đẹp đến nền tảng phân tích chứng khoán sẵn sàng production",
+        "description": "Case study về cách mình xây GoldenStock: chuẩn hóa dữ liệu, bảo vệ token server-side, chịu lỗi tốt với fallback, và tối ưu trải nghiệm phân tích cho nhà đầu tư.",
+        "content": goldenstock_content,
+        "image_url": "/static/assets/goldenstockblog.png",
+        "technologies": "Next.js 16, React 19, TypeScript, Tailwind CSS, Highcharts, FastAPI, Python, VNStock, ExcelJS, Docker",
+        "github_url": "",
+        "live_url": "https://golden-stock.vercel.app/",
+        "category": "Fintech",
+        "featured": True,
+    }
+
+    project = Project.query.filter_by(slug=goldenstock_slug).first()
+    if project:
+        for key, value in default_project.items():
+            setattr(project, key, value)
+    else:
+        project = Project(slug=goldenstock_slug, **default_project)
+        db.session.add(project)
+
+    db.session.commit()
+
 # Create tables
 with app.app_context():
     db.create_all()
+    seed_default_projects()
 
 # Template context processor
 @app.context_processor
@@ -126,7 +273,7 @@ def blog():
     categories = db.session.query(BlogPost.category).filter_by(published=True).distinct().all()
     categories = [c[0] for c in categories if c[0]]
     
-    return render_template("blog.html", posts=posts, categories=categories, search=search, current_category=category)
+    return render_template("templates/blog.html", posts=posts, categories=categories, search=search, current_category=category)
 
 @app.route("/blog/<slug>")
 def blog_post(slug):
@@ -144,7 +291,7 @@ def blog_post(slug):
         )
     ).limit(3).all()
     
-    return render_template("blog_post.html", post=post, related=related)
+    return render_template("templates/blog_post.html", post=post, related=related)
 
 @app.route("/work")
 def work():
@@ -159,12 +306,12 @@ def work():
         if project.technologies:
             technologies.update([t.strip() for t in project.technologies.split(',')])
     
-    return render_template("work.html", projects=projects, technologies=sorted(technologies), current_category=category)
+    return render_template("templates/work.html", projects=projects, technologies=sorted(technologies), current_category=category)
 
 @app.route("/work/<slug>")
 def project(slug):
     project = Project.query.filter_by(slug=slug).first_or_404()
-    return render_template("project.html", project=project)
+    return render_template("templates/project.html", project=project)
 
 @app.route("/contact", methods=["POST"])
 def contact():
@@ -260,7 +407,7 @@ def search():
         )
     ).limit(10).all()
     
-    return render_template("search.html", query=query, blog_results=blog_results, project_results=project_results)
+    return render_template("templates/search.html", query=query, blog_results=blog_results, project_results=project_results)
 
 @app.route("/sitemap.xml")
 def sitemap():
@@ -294,7 +441,7 @@ def sitemap():
             'priority': '0.7'
         })
     
-    sitemap_xml = render_template('sitemap.xml', urls=urls)
+    sitemap_xml = render_template('templates/sitemap.xml', urls=urls)
     response = make_response(sitemap_xml)
     response.headers['Content-Type'] = 'application/xml'
     return response
@@ -303,7 +450,7 @@ def sitemap():
 def robots():
     """Generate robots.txt"""
     from flask import make_response
-    robots_txt = render_template('robots.txt', url_root=request.url_root.rstrip('/'))
+    robots_txt = render_template('templates/robots.txt', url_root=request.url_root.rstrip('/'))
     response = make_response(robots_txt)
     response.headers['Content-Type'] = 'text/plain'
     return response
@@ -325,7 +472,7 @@ def download_cv():
 
 @app.errorhandler(404)
 def not_found(error):
-    return render_template('404.html'), 404
+    return render_template('templates/404.html'), 404
 
 # API Routes for frontend
 @app.route("/api/testimonials")

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{ post.title }} | DavidHE Blog</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+  <header class="header" id="header">
+    <div class="container header__bar">
+      <a class="brand" href="/" aria-label="Go to home">
+        <span class="brand__text">DavidHE</span>
+      </a>
+      <nav class="nav">
+        <ul class="nav__list">
+          <li><a href="/" class="nav__link">Home</a></li>
+          <li><a href="/blog" class="nav__link">Blog</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="section" style="padding-top: 7rem;">
+      <div class="container" style="max-width: 900px;">
+        <a href="/blog" class="btn btn--secondary btn--sm" style="margin-bottom: 1rem; display: inline-block;">← Back to Blog</a>
+
+        <article class="card" style="overflow: hidden;">
+          {% if post.image_url %}
+          <div style="max-height: 420px; overflow: hidden;">
+            <img src="{{ post.image_url }}" alt="{{ post.title }}" loading="lazy" style="width: 100%; height: auto; display: block;" />
+          </div>
+          {% endif %}
+
+          <div style="padding: 2rem;">
+            {% if post.category %}
+            <span class="tag" style="margin-bottom: 0.75rem; display: inline-flex;">{{ post.category }}</span>
+            {% endif %}
+
+            <h1 class="h1" style="margin-bottom: 0.75rem;">{{ post.title }}</h1>
+            {% if post.excerpt %}
+            <p class="lead" style="margin-bottom: 1.25rem;">{{ post.excerpt }}</p>
+            {% endif %}
+
+            <p class="muted body-sm" style="margin-bottom: 1.25rem;">
+              Published {{ post.created_at.strftime('%d/%m/%Y') if post.created_at else '' }} · {{ post.views }} views
+            </p>
+
+            <div class="muted" style="line-height: 1.85; font-size: 1.05rem;">
+              {{ post.content|safe }}
+            </div>
+          </div>
+        </article>
+
+        {% if related %}
+        <section style="margin-top: 2rem;">
+          <h2 class="h3" style="margin-bottom: 1rem;">Related posts</h2>
+          <div class="grid grid--3">
+            {% for item in related %}
+            <article class="blog__card card">
+              <div class="blog__body">
+                <h3 class="h4">{{ item.title }}</h3>
+                <p class="excerpt">{{ item.excerpt or item.content[:120] + '...' }}</p>
+                <a class="read" href="/blog/{{ item.slug }}">Read Article →</a>
+              </div>
+            </article>
+            {% endfor %}
+          </div>
+        </section>
+        {% endif %}
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="muted body-sm footer__copyright">
+        © {{ current_year }} DavidHE. All rights reserved.
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
