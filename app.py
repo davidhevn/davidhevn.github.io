@@ -85,128 +85,125 @@ def seed_default_projects():
     """Seed default project entries used by the Work page."""
     goldenstock_slug = "goldenstock-production-stock-analytics-platform"
     goldenstock_content = """
-<h2>GoldenStock là gì?</h2>
+<h2>What is GoldenStock?</h2>
 <p>
-GoldenStock là dự án mình phát triển để giải quyết một nhu cầu rất thực tế: <strong>đọc nhanh, hiểu sâu và ra quyết định sớm</strong>
-trên thị trường chứng khoán Việt Nam. Thay vì mở nhiều tab rời rạc (giá, báo cáo tài chính, định giá, dữ liệu vĩ mô),
-mình gom toàn bộ vào một hệ thống duy nhất với trải nghiệm trực quan và nhất quán.
+GoldenStock was built to solve a practical need in the Vietnamese stock market: <strong>read faster, understand deeper, and act earlier</strong>.
+Instead of switching across disconnected sources for price, financial statements, valuation, and macro signals,
+the platform brings everything into one consistent and readable workspace.
 </p>
 
 <p>
-Mục tiêu không dừng ở việc “vẽ chart đẹp”. Mình định hướng GoldenStock như một sản phẩm có thể vận hành thật:
-ổn định khi upstream chập chờn, dễ mở rộng module mới, và triển khai production gọn gàng.
+The goal was never just to draw beautiful charts. GoldenStock is designed as a production-minded product:
+resilient under unstable upstream APIs, easy to extend with new modules, and ready for real-world deployment.
 </p>
 
-<h2>Bài toán kỹ thuật cốt lõi</h2>
-<p>Khi đi vào triển khai thực tế, mình gặp 3 thách thức lớn:</p>
+<h2>Core technical challenges</h2>
+<p>Building a real-time financial analytics app introduced three major challenges:</p>
 <ol>
-    <li><strong>Schema dữ liệu thiếu đồng nhất</strong> giữa các nguồn và endpoint.</li>
-    <li><strong>Bảo mật token/API key</strong> để không lộ thông tin nhạy cảm ở client.</li>
-    <li><strong>Độ ổn định của upstream</strong> (lỗi, timeout, rate-limit) nhưng UI vẫn phải mượt.</li>
+    <li><strong>Inconsistent data schemas</strong> across endpoints and providers.</li>
+    <li><strong>Secure token/API key handling</strong> with no client-side exposure.</li>
+    <li><strong>Upstream instability</strong> (timeouts, rate limits, intermittent errors) while preserving UX.</li>
 </ol>
 
-<p>
-Giải pháp là tách kiến trúc thành 3 lớp để mỗi lớp giải quyết đúng trách nhiệm:
-</p>
+<p>The architecture was split into three layers to isolate responsibilities:</p>
 <ul>
-    <li><strong>Frontend Next.js</strong> cho trải nghiệm người dùng và dashboard tương tác.</li>
-    <li><strong>API Proxy trong Next.js</strong> để giữ token ở server-side, kiểm soát request.</li>
-    <li><strong>FastAPI Bridge</strong> để tích hợp VNStock, chuẩn hóa dữ liệu, cache và fallback.</li>
+    <li><strong>Next.js Frontend</strong> for interactive dashboards and user experience.</li>
+    <li><strong>Next.js API Proxy</strong> for server-side token security and request control.</li>
+    <li><strong>FastAPI Bridge</strong> for VNStock integration, normalization, caching, and fallback.</li>
 </ul>
 
-<h3>Luồng dữ liệu</h3>
+<h3>Data flow</h3>
 <p><code>Browser → Next.js App → /api/vnstock proxy → FastAPI bridge → VNStock</code></p>
 
-<h2>Những gì mình đã xây</h2>
-<h3>1) Dashboard phân tích hợp nhất</h3>
+<h2>What has been delivered</h2>
+<h3>1) Unified analytics dashboard</h3>
 <ul>
-    <li>Giá &amp; Khối lượng</li>
-    <li>Kết quả kinh doanh: Doanh thu, LNST, Biên lợi nhuận</li>
+    <li>Price &amp; Volume</li>
+    <li>Business performance: Revenue, Net Income, Profit Margin</li>
     <li>ROE / ROA / Net Margin</li>
-    <li>Cơ cấu dòng tiền: Operating / Investing / Financing</li>
-    <li>Định giá P/E, P/B</li>
-    <li>Cổ tức &amp; trả thưởng</li>
-    <li>Dòng tiền khối ngoại và tự doanh</li>
-    <li>Thanh khoản và độ rộng thị trường</li>
+    <li>Cash flow structure: Operating / Investing / Financing</li>
+    <li>Valuation metrics: P/E, P/B</li>
+    <li>Dividend &amp; bonus history</li>
+    <li>Foreign and proprietary flow</li>
+    <li>Liquidity and market breadth</li>
 </ul>
 <p>
-Ngoài biểu đồ, mình bổ sung cụm KPI ở đầu trang để người dùng nắm nhanh bức tranh tổng quan chỉ trong vài giây.
+In addition to charts, a KPI summary block was added at the top so users can grasp the overall picture in seconds.
 </p>
 
-<h3>2) News &amp; Macro trong cùng màn hình</h3>
+<h3>2) News &amp; Macro on one screen</h3>
 <ul>
-    <li>Feed tin tức theo từng mã cổ phiếu</li>
-    <li>Expand/Collapse nội dung bài viết</li>
-    <li>Widget macro: USD/VND, vàng, dầu, lãi suất</li>
-    <li>Tô màu tăng/giảm để đọc trạng thái thị trường tức thì</li>
+    <li>Ticker-specific news feed</li>
+    <li>Expand/Collapse article reading</li>
+    <li>Macro widgets: USD/VND, gold, oil, interest rates</li>
+    <li>Color-coded movement signals for faster reading</li>
 </ul>
 
-<h3>3) Stock Screener + Export báo cáo</h3>
+<h3>3) Stock Screener + report export</h3>
 <p>
-Mình triển khai bộ lọc theo sector, khoảng P/E, khoảng RS và số lượng mã trả về. Sau khi lọc, người dùng có thể xuất Excel ngay để phục vụ phân tích offline hoặc chia sẻ nội bộ.
+The screener supports filtering by sector, P/E range, RS range, and ticker limits. Results can be exported directly to Excel for offline analysis and team reporting.
 </p>
 
-<h3>4) Export đa chart ra Excel</h3>
+<h3>4) Multi-chart Excel export</h3>
 <p>
-Không chỉ screener, dashboard chính cũng hỗ trợ xuất nhiều sheet theo từng chart đang bật. Mỗi sheet là một dataset độc lập để tiện truy vết lịch sử và phân tích sâu.
+Beyond the screener, the main dashboard supports multi-sheet export for all active charts. Each sheet maps to an independent dataset for deeper analysis and historical tracking.
 </p>
 
-<h2>Các quyết định kỹ thuật quan trọng</h2>
-<h3>Chuẩn hóa dữ liệu ở adapter layer</h3>
+<h2>Key engineering decisions</h2>
+<h3>Normalize data in an adapter layer</h3>
 <p>
-Mình dùng schema validation + mapping để gom các field alias về một cấu trúc chuẩn trước khi đẩy lên UI.
-Kết quả là frontend không còn phụ thuộc vào “tính thất thường” của upstream.
+Schema validation + field mapping were used to unify multiple aliases into one stable model before data reached the UI.
+This decouples frontend behavior from upstream format fluctuations.
 </p>
 
-<h3>Giữ toàn bộ token ở server-side</h3>
+<h3>Keep all tokens server-side</h3>
 <p>
-Client không gọi trực tiếp API nhạy cảm. Mọi request đi qua proxy/bridge giúp giảm rủi ro lộ key,
-đồng thời dễ log, retry và kiểm soát lỗi theo chuẩn nội bộ.
+Clients never call sensitive endpoints directly. Requests pass through proxy/bridge layers, reducing key exposure risk and improving logging, retry, and error governance.
 </p>
 
-<h3>Ưu tiên trải nghiệm ngay cả khi lỗi</h3>
+<h3>Prioritize UX under failure</h3>
 <p>
-Thay vì để dashboard trắng khi upstream lỗi, hệ thống trả <strong>synthetic fallback data</strong> kèm badge trạng thái <strong>LIVE/FALLBACK</strong> theo từng nhóm dữ liệu.
-Người dùng vẫn thao tác bình thường trong khi đội kỹ thuật có thời gian xử lý phía sau.
+Instead of breaking the dashboard when upstream fails, the system returns <strong>synthetic fallback data</strong> with clear <strong>LIVE/FALLBACK</strong> badges by data group.
+Users stay productive while backend issues are resolved.
 </p>
 
-<h2>Kết quả đạt được</h2>
+<h2>Results</h2>
 <ul>
-    <li>Hoàn thiện full flow từ UI đến data bridge</li>
-    <li>Dashboard vận hành ổn định với nhiều nhóm dữ liệu tài chính</li>
-    <li>Xuất dữ liệu Excel phục vụ phân tích offline</li>
-    <li>Dockerize để sẵn sàng triển khai production</li>
-    <li>Kiến trúc mở cho watchlist, alert, backtest trong các phase kế tiếp</li>
+    <li>Complete end-to-end flow from UI to data bridge</li>
+    <li>Stable operation across diverse financial datasets</li>
+    <li>Excel export for offline workflows</li>
+    <li>Dockerized and ready for production deployment</li>
+    <li>Open architecture for watchlist, alerts, and backtesting</li>
 </ul>
 
-<h2>Bài học rút ra</h2>
+<h2>Lessons learned</h2>
 <ol>
-    <li><strong>Thiết kế kiến trúc dữ liệu thực chiến</strong> luôn quan trọng hơn demo đẹp.</li>
-    <li><strong>Khả năng chịu lỗi</strong> là tiêu chuẩn bắt buộc với sản phẩm tài chính.</li>
-    <li><strong>Tư duy sản phẩm</strong> phải ưu tiên tốc độ đọc, độ tin cậy và hành vi người dùng.</li>
+    <li><strong>Real-world data architecture</strong> matters more than demo-only polish.</li>
+    <li><strong>Fault tolerance</strong> is mandatory for financial products.</li>
+    <li><strong>Product thinking</strong> must prioritize reading speed, trust, and workflow continuity.</li>
 </ol>
 
-<h2>Định hướng tiếp theo</h2>
+<h2>Next direction</h2>
 <ul>
-    <li>Watchlist và cảnh báo realtime</li>
-    <li>So sánh nhiều mã cùng lúc</li>
-    <li>Backtest chiến lược cơ bản</li>
-    <li>CI/CD + observability cho production</li>
+    <li>Watchlist and real-time alerts</li>
+    <li>Multi-ticker comparison</li>
+    <li>Basic strategy backtesting</li>
+    <li>CI/CD and observability for production</li>
 </ul>
 
 <hr />
 <p>
-<strong>Trải nghiệm GoldenStock:</strong>
+<strong>Try GoldenStock:</strong>
 <a href="https://golden-stock.vercel.app/" target="_blank" rel="noopener">https://golden-stock.vercel.app/</a>
 </p>
 <p>
-Nếu bạn muốn, mình có thể chia sẻ thêm về cấu trúc adapter, chiến lược cache/fallback và checklist production mình đang dùng cho dự án này.
+If needed, I can also share the adapter design, cache/fallback strategy, and the production readiness checklist used in this project.
 </p>
 """.strip()
 
     default_project = {
-        "title": "GoldenStock — Từ dashboard đẹp đến nền tảng phân tích chứng khoán sẵn sàng production",
-        "description": "Case study về cách mình xây GoldenStock: chuẩn hóa dữ liệu, bảo vệ token server-side, chịu lỗi tốt với fallback, và tối ưu trải nghiệm phân tích cho nhà đầu tư.",
+        "title": "GoldenStock — From a Beautiful Dashboard to a Production-Ready Stock Analytics Platform",
+        "description": "A case study on building GoldenStock with schema normalization, server-side token security, resilient fallback handling, and investor-focused UX.",
         "content": goldenstock_content,
         "image_url": "/static/assets/goldenstockblog.png",
         "technologies": "Next.js 16, React 19, TypeScript, Tailwind CSS, Highcharts, FastAPI, Python, VNStock, ExcelJS, Docker",
