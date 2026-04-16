@@ -1872,10 +1872,19 @@ html.translated-rtl {
 /* Clean Code cover tuning: keep top title visible and reduce visual height */
 .blog__card--clean-code .blog__media {
   aspect-ratio: 16 / 9;
+  background: #02030a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .blog__card--clean-code img {
-  object-position: center top;
+  object-fit: contain;
+  object-position: center;
+}
+
+.blog__card--clean-code:hover img {
+  transform: none;
 }
 
 .blog__card .blog__body {
