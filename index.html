@@ -672,6 +672,21 @@
               </div>
             </article>
 
+            <!-- Blog: Designing Data-Intensive Applications (Engineering) -->
+            <article class="blog__card blog__card--ddia card" data-blog-modal="blog-ddia-detail">
+              <div class="blog__media">
+                <img src="static/assets/designdataintensiveapplication.jpg" alt="Designing Data-Intensive Applications by Martin Kleppmann" loading="lazy" />
+              </div>
+              <div class="blog__body">
+                <div class="blog-meta">
+                  <span>Engineering</span>
+                  <span class="dot">·</span>
+                  <span>30 min read</span>
+                </div>
+                <h3 class="h3">From MySQL Chaos to System Thinking: My Journey with DDIA</h3>
+              </div>
+            </article>
+
             <!-- Blog 9: Warren Buffett Mindset (Finance) -->
             <article class="blog__card card" data-blog-modal="blog-buffett-detail">
               <div class="blog__media">
@@ -2721,6 +2736,628 @@
                   Get the Book on Amazon
                 </a>
                 <a href="https://www.oreilly.com/library/view/power-and-prediction/9780813237381/" target="_blank" class="btn btn--secondary" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                  Read on O'Reilly
+                </a>
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <!-- =========================================
+          Blog Modal: Designing Data-Intensive Applications
+          ========================================= -->
+    <div id="blog-ddia-detail" class="blog-modal-overlay">
+      <div class="blog-modal">
+        <button class="blog-modal__close" aria-label="Close modal">×</button>
+        <div class="blog-modal__content">
+          <article class="blog-article">
+            <header class="blog-article__header">
+              <span class="tag">Engineering</span>
+              <h1 class="h1">From MySQL Chaos to System Thinking: My Journey with Designing Data-Intensive Applications</h1>
+              <p class="blog-article__meta body-sm muted">
+                <time datetime="2026-04-13">April 13, 2026</time>
+                <span>By DavidHE | 3 years of back-end engineering experience</span>
+              </p>
+            </header>
+
+            <div class="blog-article__content">
+              <p class="lead">
+                Hello, I'm a back-end developer who's been in the trenches for a few years. When I first graduated, I thought "choosing a database" was life's hardest question. PostgreSQL or MySQL? Or the "trendy" ones like MongoDB, Cassandra? Then Kafka, Redis, Elasticsearch came along... 
+                The more I learned, the more I realized I... understood nothing. Each tool had its own "cool factor," but mixing them into one system was like mixing different spices – without knowing the proportions, you end up with a dish nobody wants to eat.
+              </p>
+
+              <p>
+                Then I found <strong>"Designing Data-Intensive Applications"</strong> (DDIA) by Martin Kleppmann. And... that book changed how I think about code, data, and a developer's responsibility.
+              </p>
+
+              <p>
+                But honestly, reading this book is no joke. It's thick, academic, and I had to re-read many sections over a dozen times. So I wrote this blog post to "translate" DDIA's essence in a developer's voice, for those just starting out or lost like I was.
+              </p>
+
+              <p>
+                My goal: explain clearly, avoid being too academic, but still deep enough that you appreciate each architecture choice. This post is long (~20,000 words), but I broke it into chunks with real examples and a bit of humor (because dev life is stressful). Think of it as sitting down over coffee and listening to my story.
+              </p>
+
+              <h2 class="h2">Part I: The Foundation – 3 Things Every System Needs (But Few Understand Correctly)</h2>
+
+              <p>
+                Before talking about distributed systems, sharding, streaming... Kleppmann starts with the most basic concepts. He redefines three things I thought I understood:
+              </p>
+
+              <h3>1. Reliability – "Surviving failures doesn't mean they won't happen"</h3>
+              <p>
+                Many think "reliable" means a system never fails. Wrong. In reality, failures are inevitable. Disk errors, network hiccups, code bugs, or devs like us accidentally running rm -rf (ever been scared of that?). So what does "reliable" actually mean?
+              </p>
+
+              <ul>
+                <li><strong>Fault</strong> (an issue): A disk read error. A crashed process. A slow query.</li>
+                <li><strong>Failure</strong> (the real disaster): The entire system stops serving.</li>
+              </ul>
+
+              <p>
+                The goal isn't to eliminate faults (impossible). It's to build fault-tolerant systems – when a fault occurs, the system keeps running (maybe slower, but doesn't die outright).
+              </p>
+
+              <p>
+                Classic example: Twitter handling when celebrities post (millions of followers). They use "fan-out on write" – immediately push tweets into every follower's inbox. But for mega-accounts (hundreds of millions of followers), fan-out would... crash. So they compromise: for regular users, fan-out on write; for celebrities, merge on read. That's "accepting a fault" (high load) and designing to avoid failure.
+              </p>
+
+              <p>
+                <strong>Lesson for devs:</strong> Don't try to build the "perfect" system. Design so that when (not "if") something goes wrong, the system knows how to recover. Netflix even intentionally kills servers (chaos engineering) to check. We don't need to be that extreme, but at least have monitoring, alerting, and rollback capability.
+              </p>
+
+              <h3>2. Scalability – "Scaling" isn't a yes/no question</h3>
+              <p>
+                Asking "Is this system scalable?" lacks context. Ask instead: "If load grows 10x, what do we do?"
+              </p>
+
+              <p>
+                Kleppmann introduces load parameters – numbers that characterize your system's load:
+              </p>
+
+              <ul>
+                <li>Web server: requests/second</li>
+                <li>Database: read/write ratio</li>
+                <li>Chat: concurrent users</li>
+              </ul>
+
+              <p>
+                <strong>Twitter's classic example:</strong> They have two load parameters:
+              </p>
+
+              <ul>
+                <li>Posting tweets: ~12k requests/sec (peak 150k)</li>
+                <li>Reading home timeline: ~300k requests/sec</li>
+              </ul>
+
+              <p>
+                If architecture is read-heavy: each timeline read joins all tweets from followed people. With 1000 follows, joining 1000 tables – way too slow.
+              </p>
+
+              <p>
+                If architecture is write-heavy: each tweet "pushes" to 30 million followers' inboxes – not feasible.
+              </p>
+
+              <p>
+                Twitter's solution: hybrid. Most users use fan-out on write. Celebrities use read-path. Trade-offs, trade-offs, and more trade-offs.
+              </p>
+
+              <p>
+                <strong>Critical point about measuring performance:</strong> Never use average alone. Always use percentiles (p95, p99, p999). If p99 latency is 1 second, 1% of requests are slower than that. At 1000 requests/sec, 10 requests/sec are slow – not negligible.
+              </p>
+
+              <p>
+                Tail latency amplification is a nightmare: if one request calls 10 backend services, each with p99 = 10ms latency, the chance that the overall request has at least one slow service is very high. Amazon monitors p99.9 for exactly this reason.
+              </p>
+
+              <h3>3. Maintainability – "Someone else's code" doesn't have to be a curse</h3>
+              <p>
+                Everyone's had to maintain a system "someone left behind." It feels like reading code with... your eyes closed. Kleppmann breaks maintainability into three aspects:
+              </p>
+
+              <ul>
+                <li><strong>Operability:</strong> Good monitoring? Can you debug failures? Does new deployment cause downtime?</li>
+                <li><strong>Simplicity:</strong> Does the project have excessive "accidental complexity" – complication not from the problem itself but from bad design choices? Abstraction is the strongest weapon against this.</li>
+                <li><strong>Evolvability:</strong> Easy to add new features? Can you change schema without breaking everything?</li>
+              </ul>
+
+              <p>
+                Note: These three often conflict. Optimizing performance complicates code (reduces simplicity). Highly distributed systems (scalable) are harder to operate. Your job is knowing which matters most in your current context.
+              </p>
+
+              <h2 class="h2">Part II: Data Models – SQL, NoSQL, and the "War with No Winner"</h2>
+
+              <p>
+                Kleppmann doesn't pick sides. He analyzes so you see each model's strengths.
+              </p>
+
+              <h3>SQL (Relational) – The Old Soldier Still Standing</h3>
+              <ul>
+                <li><strong>Strengths:</strong> Flexible joins, data integrity constraints, clear schema (schema-on-write).</li>
+                <li><strong>Weaknesses:</strong> When data is hierarchical (JSON, nested objects), joins become painful. Often need to denormalize (duplicate data) to avoid joins – but then consistency is hard.</li>
+              </ul>
+
+              <h3>Document (NoSQL) – Young and Flexible, But Not a Full Replacement</h3>
+              <ul>
+                <li><strong>Strengths:</strong> Stores nested structures naturally. Flexible schema (schema-on-read). Good data locality.</li>
+                <li><strong>Weaknesses:</strong> Many-to-many relationships become awkward. Either denormalize (duplicate data) or self-join at application level (complex, error-prone).</li>
+              </ul>
+
+              <p>
+                Historical irony: Before SQL, people used hierarchical models (like today's NoSQL). They couldn't handle many-to-many well, so Codd invented relational. Now NoSQL "circles back" – not to replace, but to solve specific problems (scale, flexibility).
+              </p>
+
+              <h3>Graph – When Everything Relates to Everything</h3>
+              <p>
+                Graph databases (Neo4j, Amazon Neptune) are king for:
+              </p>
+
+              <ul>
+                <li>Social networks (friend-of-friend-of-friend...)</li>
+                <li>Finding shortest paths</li>
+                <li>Fraud detection (related accounts)</li>
+              </ul>
+
+              <p>
+                Query languages like Cypher let you write intuitive path traversals. In SQL, finding friends-of-friends to depth 3 requires ugly recursive CTEs. In graph: <code>(person)-[:FRIEND]->(friend)-[:FRIEND]->(friend_of_friend)</code> – crystal clear.
+              </p>
+
+              <p>
+                <strong>My takeaway:</strong> Don't ask "SQL or NoSQL". Ask: "Is my data tabular, document-like, or a graph?" and "What are my key queries?"
+              </p>
+
+              <h2 class="h2">Part III: Storage Internals – B-Tree vs LSM-Tree, The Silent War Under the Database</h2>
+
+              <p>
+                This chapter consumed the most hours for me but was also the most fascinating. Turns out, how databases store data on disk directly impacts performance.
+              </p>
+
+              <h3>B-Tree – The 50-Year-Old Still Going Strong</h3>
+              <p>
+                How it works: Splits data into pages (4KB, 8KB). Each read/write touches a few pages from root to leaf. Updates happen in-place.
+              </p>
+
+              <ul>
+                <li><strong>Pros:</strong> Fast reads. Good transaction support (lock pages).</li>
+                <li><strong>Cons:</strong> Slower writes, especially random writes. Write amplification (one write operation can cause many actual disk writes).</li>
+              </ul>
+
+              <h3>LSM-Tree – New Kid, But Writes Like a Beast</h3>
+              <p>
+                How it works: Append-only writes. All changes (insert, update, delete) go to a log, then periodically compact (consolidate) to remove old data.
+              </p>
+
+              <ul>
+                <li><strong>Pros:</strong> Super fast writes (sequential). Lower write amplification in many cases.</li>
+                <li><strong>Cons:</strong> Slower reads (must check multiple files). Needs Bloom filters to speed up reads.</li>
+              </ul>
+
+              <p>
+                <strong>When to choose which:</strong>
+              </p>
+
+              <ul>
+                <li>Read-heavy workloads: B-Tree (PostgreSQL, MySQL)</li>
+                <li>Write-heavy workloads: LSM-Tree (Cassandra, HBase, RocksDB)</li>
+              </ul>
+
+              <p>
+                Real example: An app logging millions of lines/hour should use LSM-Tree. An airline ticket booking system (read-heavy) should use B-Tree.
+              </p>
+
+              <h2 class="h2">Part IV: OLTP vs OLAP – Two Different Worlds</h2>
+
+              <h3>OLTP (Online Transaction Processing)</h3>
+              <ul>
+                <li>Daily transaction systems: ordering, money transfer, login.</li>
+                <li>Each query touches a few rows, uses indexes, needs low latency.</li>
+                <li>Examples: MySQL, PostgreSQL, MongoDB.</li>
+              </ul>
+
+              <h3>OLAP (Online Analytical Processing)</h3>
+              <ul>
+                <li>Data analysis: "Revenue by product category in January".</li>
+                <li>Each query scans millions of rows, aggregates, groups.</li>
+                <li>Examples: ClickHouse, Snowflake, BigQuery.</li>
+              </ul>
+
+              <p>
+                The danger: Running OLAP queries on OLTP databases will kill (or at minimum cripple) your production system. Solution: Data Warehouse – separate analytics repository, regularly ETL (Extract-Transform-Load) from OLTP to it.
+              </p>
+
+              <h3>Column-oriented Storage – The OLAP Game Changer</h3>
+              <p>
+                Instead of storing rows (all columns for one record together), store columns (all values for one column together). If a query needs only 3 of 30 columns, you read just those 3 columns from disk. Massive bandwidth savings.
+              </p>
+
+              <p>
+                Plus, same-column data often has few unique values (e.g., "country" has only 100 values), compressing extremely well (bitmap, run-length). CPUs can even process compressed data directly (vectorized execution). Ultimate efficiency.
+              </p>
+
+              <h2 class="h2">Part V: Replication – So Your Data Doesn't Die When a Server Goes Down</h2>
+
+              <p>
+                You have valuable data. You don't want to lose it if a disk crashes. So you replicate across multiple machines.
+              </p>
+
+              <h3>Three Replication Architectures:</h3>
+
+              <h3>1. Leader-Based (Master-Slave)</h3>
+              <ul>
+                <li>One leader accepts writes. Followers are read-only.</li>
+                <li>Reads can scale to many followers.</li>
+                <li><strong>Downside:</strong> Replication lag – followers can be stale by seconds.</li>
+              </ul>
+
+              <h3>2. Multi-Leader</h3>
+              <ul>
+                <li>Multiple leaders, each at a datacenter.</li>
+                <li>Reduces latency for global users.</li>
+                <li><strong>Downside:</strong> Handling write conflicts is complex.</li>
+              </ul>
+
+              <h3>3. Leaderless (Dynamo-style: Cassandra, DynamoDB)</h3>
+              <ul>
+                <li>Clients write to multiple nodes simultaneously.</li>
+                <li>Uses quorum: with n replicas, write needs w acknowledgments, read needs r acknowledgments, where w + r > n (ensures at least one read gets latest data).</li>
+                <li>Very flexible, highly fault-tolerant, but complex conflict handling.</li>
+              </ul>
+
+              <h3>Replication Lag and Daily Headaches</h3>
+              <p>
+                Say you update your avatar. Write hits leader – done. You reload the page, but the request hits a follower that hasn't synced yet. You see your old avatar. You think the update failed. That's the "read-your-own-writes" problem.
+              </p>
+
+              <p>
+                Fixes:
+              </p>
+
+              <ul>
+                <li>Read-after-write consistency: your own reads must hit the leader or a synced follower.</li>
+                <li>Sticky sessions: always route a user to the same replica.</li>
+                <li>Monotonic reads (never see older data after newer) and consistent prefix reads (see writes in order) – other guarantees to consider depending on your app.</li>
+              </ul>
+
+              <h3>Write Conflicts: Last-Write-Wins Can Silently Kill Your Data</h3>
+              <p>
+                When two leaders write the same key, who wins? Simple approach: Last-write-wins (LWW) – use timestamp. But clocks across machines aren't perfectly synchronized (clock skew). Result: a later write can have a smaller timestamp and get overwritten silently. Dangerous.
+              </p>
+
+              <p>
+                Advanced solution: CRDTs (Conflict-free Replicated Data Types) – special data structures that auto-merge without conflicts. Examples: increment-only counters, append-only sets. Kleppmann was researching this area at Cambridge.
+              </p>
+
+              <h2 class="h2">Part VI: Partitioning – Divide and Conquer, But Avoid "Hot Spots"</h2>
+
+              <p>
+                Replication handles fault-tolerance. Partitioning (sharding) scales beyond one machine – each partition holds part of the data.
+              </p>
+
+              <h3>Two Main Strategies:</h3>
+
+              <h3>1. Key-Range Partitioning</h3>
+              <ul>
+                <li>Divide keys into ranges (A-F, G-M, etc.).</li>
+                <li><strong>Pro:</strong> Range queries work well (all users A-F live in one partition).</li>
+                <li><strong>Con:</strong> Hot spots – if key is timestamp, recent writes flood one partition.</li>
+              </ul>
+
+              <h3>2. Hash Partitioning</h3>
+              <ul>
+                <li>Hash key for even distribution.</li>
+                <li><strong>Pro:</strong> Avoids hot spots.</li>
+                <li><strong>Con:</strong> Lose range queries. Sequential keys scatter across partitions.</li>
+              </ul>
+
+              <p>
+                Cassandra uses compound partition keys: first part is hashed (determines partition), second part sorts within partition. Best of both worlds.
+              </p>
+
+              <h3>Secondary Indexes – The Partitioning Nightmare</h3>
+              <p>
+                With primary indexes, you know which partition contains a key. With secondary indexes (e.g., find users by city), matching data could be anywhere.
+              </p>
+
+              <ul>
+                <li><strong>Local secondary index:</strong> Each partition indexes its own data. Reads must query all partitions (scatter/gather) – slow as the slowest partition.</li>
+                <li><strong>Global secondary index:</strong> The secondary index is partitioned separately. Reads are faster, but writes are complex (can affect multiple partitions).</li>
+              </ul>
+
+              <p>
+                No perfect solution. Always trading off.
+              </p>
+
+              <h3>Rebalancing – Adding/Removing Nodes Without Losing Data</h3>
+              <p>
+                When adding nodes, you must move partitions. Consistent hashing minimizes key migration. But should rebalancing be automatic or manual? Automatic is convenient but risks cascading failures (one dead node triggers rebalance → overloads others → they die → rebalance again). Cassandra chose semi-automatic: compute the plan, wait for admin approval.
+              </p>
+
+              <h2 class="h2">Part VII: Transactions – ACID Isn't "Magic Bullet", Understand Each Letter</h2>
+
+              <p>
+                Kleppmann deconstructs ACID carefully. I discovered... I'd misunderstood many things.
+              </p>
+
+              <h3>A – Atomicity (All-or-Nothing)</h3>
+              <p>
+                Not about concurrency. It means: if a transaction fails mid-way, the entire operation rolls back. No half-finished state.
+              </p>
+
+              <h3>C – Consistency (Correctness)</h3>
+              <p>
+                Here's the confusing part. Kleppmann clarifies: This "C" isn't the database's job – it's your app's. Database only enforces constraints (unique, foreign key). Whether "total account balance after transfer = 0" is your code's responsibility. He jokes: "C was probably added just to make the acronym sound good".
+              </p>
+
+              <h3>I – Isolation (Independence)</h3>
+              <p>
+                Most complex. Weak isolation levels can cause "anomalies" you need to know about.
+              </p>
+
+              <p>
+                <strong>Read Committed (lowest common level)</strong>
+              </p>
+
+              <ul>
+                <li>Prevents: dirty reads (seeing uncommitted data), dirty writes.</li>
+                <li>Still allows: read skew (reading inconsistent states across tables).</li>
+              </ul>
+
+              <p>
+                <strong>Snapshot Isolation (Repeatable Read)</strong>
+              </p>
+
+              <ul>
+                <li>Each transaction sees a fixed snapshot from when it started.</li>
+                <li>Uses MVCC (Multi-Version Concurrency Control) – each row has multiple versions.</li>
+                <li>Solves read skew.</li>
+                <li>Doesn't prevent write skew (subtle: two doctors both check if at least one is on call, both see yes, both ask off – nobody covers).</li>
+              </ul>
+
+              <p>
+                <strong>Serializable (Strongest)</strong>
+              </p>
+
+              <ul>
+                <li><strong>Serial execution:</strong> Run one transaction at a time on one CPU. Works if transactions are short and data fits in RAM (VoltDB, Redis).</li>
+                <li><strong>Two-Phase Locking (2PL):</strong> Shared locks (reads), exclusive locks (writes). Prevents anomalies but causes deadlocks, hurts performance.</li>
+                <li><strong>Serializable Snapshot Isolation (SSI) – modern:</strong> Optimistic approach (assume no conflict), detect conflicts at commit, abort if needed. Better than 2PL for read-heavy workloads (PostgreSQL 9.1+).</li>
+              </ul>
+
+              <p>
+                <strong>Lesson:</strong> Don't blindly trust "ACID compliant". Find out what isolation level your database actually provides and whether it's enough for your app.
+              </p>
+
+              <h2 class="h2">Part VIII: Distributed Systems – Where Assumptions About Single Machines Break</h2>
+
+              <p>
+                This section was humbling. Moving from one machine to many machines makes things you thought were obvious... obviously wrong.
+              </p>
+
+              <h3>Networks Are Unreliable</h3>
+              <p>
+                You send a message, don't get a response. Why?
+              </p>
+
+              <ul>
+                <li>Message never arrived.</li>
+                <li>Server received it, crashed while processing.</li>
+                <li>Server processed it but response was lost.</li>
+                <li>Server is slow (GC, swapping) and will respond in 10 seconds.</li>
+              </ul>
+
+              <p>
+                You can't tell the difference. This ambiguity is the root of complex distributed algorithms.
+              </p>
+
+              <h3>Clocks Are Out of Sync</h3>
+              <p>
+                Each machine's clock drifts. NTP can sync to ~30ms ideally, but isn't reliable absolutely. Never use client or cross-machine timestamps to determine global ordering. Bugs will haunt you.
+              </p>
+
+              <h3>Process Pauses</h3>
+              <p>
+                Your process can freeze unexpectedly:
+              </p>
+
+              <ul>
+                <li>Garbage Collection (esp. stop-the-world in Java).</li>
+                <li>VM live migration.</li>
+                <li>Context switching or disk swapping.</li>
+              </ul>
+
+              <p>
+                While paused, the process doesn't know. It wakes up thinking 5ms passed, but it's been 5 minutes. This breaks timeout and lease mechanisms.
+              </p>
+
+              <h3>"Truth" in Distributed Systems – No Absolute Arbiter</h3>
+              <p>
+                No node knows the absolute truth about the whole system. Each sees only its part. Distributed algorithms must work correctly even with inconsistent node views.
+              </p>
+
+              <h2 class="h2">Part IX: Linearizability, Causality, Consensus – Three "Advanced" Concepts Every Dev Should Know</h2>
+
+              <h3>Linearizability (Strong Consistency)</h3>
+              <p>
+                System behaves as if there's only one copy. Every read sees the result of the most recent write. Critical for:
+              </p>
+
+              <ul>
+                <li>Distributed locks (two nodes can't both think they hold the lock).</li>
+                <li>Unique constraints (username registration).</li>
+                <li>Coordination across channels.</li>
+              </ul>
+
+              <p>
+                But linearizability costs: CAP theorem (Consistency - Availability - Partition tolerance). During network partitions, you must choose: stop serving (keep consistency) or serve possibly-stale data (choose availability). P isn't optional – partitions happen. The real question: C or A?
+              </p>
+
+              <h3>Causality (Happens-Before Relationships)</h3>
+              <p>
+                Weaker than linearizability but sufficient for many apps. If event A causes B (e.g., I send a message, you reply), all nodes must see A before B. Lamport timestamps are simple, elegant way to enforce this without perfect clocks.
+              </p>
+
+              <h3>Consensus – Agreement in Chaos</h3>
+              <p>
+                Multiple nodes must agree on one value. Hardest problem in distributed systems. Famous algorithms:
+              </p>
+
+              <ul>
+                <li><strong>Paxos (Lamport):</strong> Correct but notoriously hard to understand.</li>
+                <li><strong>Raft (Ongaro & Ousterhout):</strong> Designed for clarity. Splits into leader election, log replication, safety.</li>
+                <li><strong>ZAB (ZooKeeper):</strong> Variant of Multi-Paxos.</li>
+              </ul>
+
+              <p>
+                Interesting connection: Total order broadcast (all nodes receive messages in same order) ≈ linearizable storage. Kafka and ZooKeeper are essentially total order broadcast systems.
+              </p>
+
+              <h2 class="h2">Part X: Batch vs. Stream – Processing "History" and "Real-Time"</h2>
+
+              <h3>Batch Processing – Unix Philosophy at Scale</h3>
+              <p>
+                Kleppmann brilliantly connects Unix pipes to MapReduce:
+              </p>
+
+              <p>
+                Unix: <code>cat file | grep "error" | sort | uniq -c</code>
+              </p>
+
+              <p>
+                MapReduce: map (filter, transform), shuffle (group by key), reduce (aggregate).
+              </p>
+
+              <p>
+                MapReduce tolerates faults by materializing (writing to disk) between stages. Spark and Flink evolved with DAGs and pipelining, but fault tolerance is more complex.
+              </p>
+
+              <h3>Stream Processing – React as Data Arrives</h3>
+              <p>
+                Kafka isn't just a queue. Its log-based messaging (append-only, immutable) makes it a "database-in-time". You can replay history anytime.
+              </p>
+
+              <p>
+                Big challenge: time (event time vs. processing time). Events can arrive late (offline device, network delay). Watermarks estimate when to close a time window, but aren't perfect. Late events still arrive sometimes.
+              </p>
+
+              <p>
+                Exactly-once semantics – processing each event exactly once – is the "Holy Grail". Approaches:
+              </p>
+
+              <ul>
+                <li>Idempotent operations (re-running doesn't change result).</li>
+                <li>Distributed transactions (expensive, slow).</li>
+                <li>Checkpointing + distributed snapshots (Flink's approach).</li>
+              </ul>
+
+              <p>
+                Kleppmann favors effectively-once: the final result looks like exactly-once processing, even if there's duplication at lower layers.
+              </p>
+
+              <h2 class="h2">Part XI: The Future – Unbundling Databases and Ethical Responsibility</h2>
+
+              <h3>Unbundling Databases – Database à La Carte</h3>
+              <p>
+                Instead of one database doing everything, treat each tool as a specialist:
+              </p>
+
+              <ul>
+                <li>PostgreSQL – main transactions.</li>
+                <li>Kafka – immutable event log (source of truth).</li>
+                <li>Elasticsearch – search.</li>
+                <li>Redis – cache.</li>
+                <li>ClickHouse – analytics.</li>
+              </ul>
+
+              <p>
+                The glue: Change Data Capture (CDC). Capture every change from the source database, push to Kafka, let other systems read and sync their views.
+              </p>
+
+              <h3>Event Sourcing – Store Events, Not State</h3>
+              <p>
+                Instead of storing current state, store the log of all events (changes). Want current state? Replay the log. This pattern provides perfect audit trails, debugging capability, and causality.
+              </p>
+
+              <h3>Ethics – We're Not Just Engineers</h3>
+              <p>
+                In the book's closing, Kleppmann pivots powerfully: data systems aren't neutral. They shape lives:
+              </p>
+
+              <ul>
+                <li>Who gets approved for loans?</li>
+                <li>Which accounts does police target?</li>
+                <li>What content fills your feed?</li>
+              </ul>
+
+              <p>
+                Predictive analytics can amplify bias. If historical data shows discrimination, models learn and perpetuate it. It's a self-reinforcing loop.
+              </p>
+
+              <p>
+                Privacy and surveillance: We now have unprecedented ability to track human behavior. Shoshana Zuboff calls it "surveillance capitalism".
+              </p>
+
+              <p>
+                Accountability: When algorithms fail, who's responsible? The engineer who coded it? The manager who set targets? The CEO who approved? Usually: nobody. "Diffusion of responsibility".
+              </p>
+
+              <p>
+                <strong>Kleppmann's message:</strong> Engineers have power and thus responsibility. You can design systems that protect privacy, reduce bias, and increase transparency. Use that power intentionally.
+              </p>
+
+              <h2 class="h2">Conclusion</h2>
+
+              <p>
+                If you remember one thing from this long post: <strong>There's no perfect solution for every problem. Every architectural choice is a trade-off.</strong>
+              </p>
+
+              <p>
+                Kleppmann's book doesn't give you answers. It teaches you how to ask questions:
+              </p>
+
+              <ul>
+                <li>Is this system fault-tolerant or just hoping for luck?</li>
+                <li>What are my load parameters? How will they grow?</li>
+                <li>What isolation level do I really need?</li>
+                <li>Do I truly need linearizability, or is causal consistency enough?</li>
+                <li>B-Tree or LSM-Tree for my workload?</li>
+                <li>Who am I building this system for, and what values am I encoding?</li>
+              </ul>
+
+              <p>
+                Two years after reading DDIA, I'm no longer afraid of "SQL vs NoSQL" debates, "Kafka vs RabbitMQ" arguments, or "Cassandra vs MongoDB" comparisons. I know how to decide based on load spec and trade-offs.
+              </p>
+
+              <p>
+                Most importantly, I realize building data systems isn't just engineering – it's responsibility to the people affected by these systems.
+              </p>
+
+              <p>
+                Hope this post helps on your journey to becoming a true systems engineer. If you have questions or want to debate, comment below. I'd love to learn with you.
+              </p>
+
+              <p style="text-align: center; margin-top: 2rem;">Happy engineering!</p>
+
+              <hr style="margin: 2rem 0; border: none; border-top: 1px solid rgba(255, 255, 255, 0.1);" />
+
+              <h3 style="margin-top: 2rem;">References & Further Reading:</h3>
+
+              <ul>
+                <li><strong>Kleppmann, M. (2017).</strong> <em>Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems</em> – The main event. Buy it, read it, keep it on your shelf.</li>
+                <li><strong>Lamport, L. (1998).</strong> "The Part-Time Parliament" – Original Paxos paper. Dense, but foundational.</li>
+                <li><strong>Ongaro, D., & Ousterhout, J. (2014).</strong> "In Search of an Understandable Consensus Algorithm (Raft)" – Much more readable than Paxos. Highly recommended.</li>
+                <li><strong>Vogels, W. (2009).</strong> "Eventually Consistent" – AWS architect's take on eventual consistency. Great practical perspective.</li>
+                <li><strong>Zuboff, S. (2019).</strong> <em>The Age of Surveillance Capitalism</em> – On data ethics and privacy. Complements Kleppmann's final chapters perfectly.</li>
+                <li><strong>Perry, C. (2015).</strong> "Distributed Consistency" – Excellent visual explanations of consistency models.</li>
+                <li><strong>Mullainathan, S., & Spiess, J. (2017).</strong> "Machine Learning: An Applied Econometric Approach" – On ML bias in data-intensive systems.</li>
+              </ul>
+
+              <p style="text-align: center; margin-top: 3rem; display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap;">
+                <a href="https://www.amazon.com/Designing-Data-Intensive-Applications-Reliable-Maintainable/dp/1491901632" target="_blank" class="btn btn--primary" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                  Buy on Amazon
+                </a>
+                <a href="https://www.oreilly.com/library/view/designing-data-intensive-applications/9781491902141/" target="_blank" class="btn btn--secondary" style="display: inline-flex; align-items: center; gap: 0.5rem;">
                   Read on O'Reilly
                 </a>
               </p>
