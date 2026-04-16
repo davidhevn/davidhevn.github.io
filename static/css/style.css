@@ -1887,6 +1887,24 @@ html.translated-rtl {
   transform: none;
 }
 
+/* Power and Prediction cover tuning: display full image without crop */
+.blog__card--power-prediction .blog__media {
+  aspect-ratio: 16 / 9;
+  background: #0a1628;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blog__card--power-prediction img {
+  object-fit: contain;
+  object-position: center;
+}
+
+.blog__card--power-prediction:hover img {
+  transform: none;
+}
+
 .blog__card .blog__body {
   position: static !important;
   padding: 0 !important;
