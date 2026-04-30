@@ -657,6 +657,21 @@
           <button class="blog__nav blog__nav--prev" aria-label="Previous articles">‹</button>
           <div class="blog__track">
 
+            <!-- Blog: 5 Whys (Data Analytics) -->
+            <article class="blog__card blog__card--5-whys card" data-blog-modal="blog-5-whys-detail">
+              <div class="blog__media">
+                <img src="static/assets/asking5times.jpg" alt="The 5 Whys - Root Cause Analysis" loading="lazy" />
+              </div>
+              <div class="blog__body">
+                <div class="blog-meta">
+                  <span>Data Analytics</span>
+                  <span class="dot">·</span>
+                  <span>5 min read</span>
+                </div>
+                <h3 class="h3">Kỹ thuật 5 Whys: Bí quyết tìm ra "Gốc rễ" vấn đề trong Phân tích dữ liệu</h3>
+              </div>
+            </article>
+
             <!-- Blog: Big Data Fundamentals (Data Analytics) -->
             <article class="blog__card blog__card--big-data card" data-blog-modal="blog-big-data-fundamentals-detail">
               <div class="blog__media">
@@ -3775,6 +3790,75 @@
                 <a href="https://www.oreilly.com/library/view/designing-data-intensive-applications/9781491902141/" target="_blank" class="btn btn--secondary" style="display: inline-flex; align-items: center; gap: 0.5rem;">
                   Read on O'Reilly
                 </a>
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <!-- =========================================
+          Blog Modal: 5 Whys Root Cause Analysis
+          ========================================= -->
+    <div id="blog-5-whys-detail" class="blog-modal-overlay">
+      <div class="blog-modal">
+        <button class="blog-modal__close" aria-label="Close modal">×</button>
+        <div class="blog-modal__content">
+          <article class="blog-article">
+            <header class="blog-article__header">
+              <span class="tag">Data Analytics</span>
+              <h1 class="h1">Kỹ thuật 5 Whys: Bí quyết tìm ra "Gốc rễ" vấn đề trong Phân tích dữ liệu</h1>
+              <p class="blog-article__meta body-sm muted">
+                <time datetime="2026-04-30">April 30, 2026</time>
+                <span>By DavidHE | Data Analytics Specialist</span>
+              </p>
+            </header>
+
+            <div class="blog-article__content">
+              <p class="lead">
+                Gần đây, chắc hẳn bạn đã nhận ra rằng các giải pháp kinh doanh hầu như luôn đòi hỏi sự tỉ mỉ của một "thám tử dữ liệu". Đây chính là lúc tư duy phản biện giúp các chuyên gia dữ liệu đặt ra những câu hỏi đúng để đi đến giải pháp tối ưu.
+              </p>
+
+              <figure class="blog-article__image">
+                <img src="static/assets/asking5times.jpg" alt="The 5 Whys technique" loading="lazy" />
+                <figcaption class="body-sm muted">"If you don't ask the right questions, you don't get the right answers." – Edward Hodnett</figcaption>
+              </figure>
+
+              <p>Một câu hỏi kinh điển luôn được đặt ra là: <strong>“Nguyên nhân gốc rễ của vấn đề này là gì?”</strong>. Nguyên nhân gốc rễ (Root cause) chính là lý do cốt lõi khiến một vấn đề phát sinh. Bằng cách xác định và loại bỏ nguyên nhân này, chúng ta không chỉ khắc phục được sự cố trước mắt mà còn ngăn chặn nó tái diễn trong tương lai.</p>
+
+              <h2 class="h2">Kỹ thuật "5 Whys" là gì?</h2>
+              <p>
+                5 Whys là một kỹ thuật đơn giản nhưng cực kỳ hiệu quả để xác định nguyên nhân gốc rễ. Cách thực hiện rất đơn giản: Bạn chỉ cần liên tục đặt câu hỏi "Tại sao?" cho đến khi câu trả lời cuối cùng tự lộ diện. Thông thường, câu trả lời nằm ở lần hỏi thứ 5, nhưng đôi khi bạn cần hỏi nhiều hơn hoặc ít hơn tùy vào độ phức tạp của vấn đề.
+              </p>
+
+              <div class="practical-tip-box" style="background: rgba(20, 184, 156, 0.08); border-left: 5px solid #14b89c; padding: 1.5rem; margin: 2rem 0; border-radius: 0 0.75rem 0.75rem 0;">
+                <p style="margin: 0; font-weight: 600; color: #14b89c;">💡 Mẹo nhỏ:</p>
+                <p style="margin-top: 0.5rem; line-height: 1.6;">Đừng chỉ dừng lại ở những câu trả lời hời hợt. Hãy đào sâu vào quy trình và con người để tìm ra nút thắt thực sự.</p>
+              </div>
+
+              <h2 class="h2">Ví dụ 1: Cải thiện dịch vụ khách hàng</h2>
+              <p>Một cửa hàng tạp hóa trực tuyến nhận được rất nhiều khiếu nại về chất lượng giao hàng. Một chuyên gia phân tích dữ liệu đã bắt đầu hành trình tìm kiếm câu trả lời:</p>
+              <ul>
+                <li><strong>Tại sao #1:</strong> "Khách hàng phàn nàn về việc giao hàng kém chất lượng. Tại sao?" -> Sản phẩm bị hư hỏng khi đến nơi.</li>
+                <li><strong>Tại sao #2:</strong> "Sản phẩm bị hư hỏng khi giao. Tại sao?" -> Khách hàng phản hồi sản phẩm không được đóng gói đúng cách.</li>
+                <li><strong>Tại sao #3:</strong> "Sản phẩm không được đóng gói đúng cách. Tại sao?" -> Nhân viên đóng gói không được đào tạo bài bản về quy trình.</li>
+                <li><strong>Tại sao #4:</strong> "Nhân viên không được đào tạo bài bản. Tại sao?" -> 35% nhân viên là người mới, chưa kịp đào tạo đã phải làm việc ngay để kịp tiến độ.</li>
+                <li><strong>Tại sao #5:</strong> "Nhân viên mới chưa hoàn thành đào tạo. Tại sao?" -> <strong>Root cause:</strong> Bộ phận nhân sự đang cập nhật chương trình mới nên tạm dừng hệ thống cũ, chỉ đưa hướng dẫn sơ sài cho người mới.</li>
+              </ul>
+
+              <h2 class="h2">Ví dụ 2: Nâng cao quản lý chất lượng</h2>
+              <p>Một công ty sản xuất máy bơm thủy lợi ghi nhận tỷ lệ sản phẩm lỗi tăng đột biến:</p>
+              <ul>
+                <li><strong>Tại sao #1:</strong> "Tỷ lệ máy bơm lỗi tăng lên. Tại sao?" -> Máy móc không được hiệu chuẩn chính xác.</li>
+                <li><strong>Tại sao #2:</strong> "Máy móc không được hiệu chuẩn chính xác. Tại sao?" -> Máy bị sai lệch từ chu kỳ bảo trì gần nhất.</li>
+                <li><strong>Tại sao #3:</strong> "Máy bị sai lệch trong bảo trì. Tại sao?" -> Phương pháp hiệu chuẩn hiện tại không còn phù hợp.</li>
+                <li><strong>Tại sao #4:</strong> "Phương pháp hiệu chuẩn không phù hợp. Tại sao?" -> Công ty mới nâng cấp phần mềm, làm thay đổi cách thức hiệu chuẩn mà kỹ sư không biết.</li>
+                <li><strong>Tại sao #5:</strong> "Kỹ sư không biết về sự thay đổi phần mềm. Tại sao?" -> <strong>Root cause:</strong> Đội ngũ lắp đặt phần mềm đã quên bàn giao tài liệu hướng dẫn hiệu chuẩn mới cho đội vận hành.</li>
+              </ul>
+
+              <h2 class="h2">Lời kết</h2>
+              <p>
+                5 Whys là công cụ mạnh mẽ giúp bạn nhìn nhận vấn đề từ nhiều góc độ. Đừng bao giờ hài lòng với những câu trả lời ở bề nổi. Hãy tiếp tục hỏi "Tại sao?" cho đến khi bạn chạm đến sự thật!
               </p>
             </div>
           </article>
