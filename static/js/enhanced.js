@@ -320,6 +320,12 @@ class Toast {
       description: 'Minimalist typing trainer inspired by Monkeytype',
       url: '#work',
       tags: ['typingtest', 'typing', 'practice']
+    },
+    {
+      title: 'GoldenStock — Stock Analytics Platform',
+      description: 'Production-ready Vietnamese stock analytics dashboard',
+      url: '#work',
+      tags: ['goldenstock', 'stock', 'fintech', 'dashboard']
     }
   ];
   

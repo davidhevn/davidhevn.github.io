@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>David Hoang Em — CV</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --accent: #14b89c;
+            --bg: #000;
+            --card: #0a0a0a;
+            --text: #fff;
+            --sub: #9ca3af;
+            --border: rgba(255, 255, 255, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            padding: 24px 16px;
+            line-height: 1.5;
+            font-size: 14px;
+        }
+
+        .cv {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        /* Header */
+        .head {
+            padding: 32px 36px 24px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .head-left h1 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+        }
+
+        .head-left p {
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-top: 4px;
+        }
+
+        .head-right {
+            text-align: right;
+            font-size: 0.78rem;
+            color: var(--sub);
+            line-height: 1.9;
+        }
+
+        .head-right a {
+            color: var(--sub);
+            text-decoration: none;
+        }
+
+        /* Body */
+        .body {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            padding: 0;
+        }
+
+        .side {
+            padding: 28px 24px 28px 36px;
+            border-right: 1px solid var(--border);
+        }
+
+        .main {
+            padding: 28px 36px 28px 24px;
+        }
+
+        /* Section */
+        .sec {
+            margin-bottom: 20px;
+        }
+
+        .sec:last-child {
+            margin-bottom: 0;
+        }
+
+        .sec-t {
+            font-size: 0.6rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        /* Skills */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            margin-bottom: 10px;
+        }
+
+        .tag {
+            font-size: 0.65rem;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 100px;
+            background: rgba(20, 184, 156, 0.08);
+            color: var(--accent);
+            border: 1px solid rgba(20, 184, 156, 0.15);
+        }
+
+        .sk-label {
+            font-size: 0.72rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        /* Edu & Lang */
+        .edu-name {
+            font-size: 0.82rem;
+            font-weight: 700;
+        }
+
+        .edu-sub {
+            font-size: 0.72rem;
+            color: var(--sub);
+        }
+
+        .lang {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.78rem;
+            color: var(--sub);
+            padding: 2px 0;
+        }
+
+        /* Experience */
+        .exp {
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .exp:last-child {
+            border: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .exp-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .exp-role {
+            font-size: 0.88rem;
+            font-weight: 700;
+        }
+
+        .exp-date {
+            font-size: 0.7rem;
+            color: var(--sub);
+            font-weight: 600;
+        }
+
+        .exp-co {
+            font-size: 0.78rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .exp ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .exp li {
+            font-size: 0.78rem;
+            color: #d1d5db;
+            padding-left: 12px;
+            position: relative;
+            margin-bottom: 2px;
+        }
+
+        .exp li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-size: 0.65rem;
+        }
+
+        .exp .tags {
+            margin-top: 6px;
+        }
+
+        /* Projects - compact grid */
+        .proj-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .proj {
+            padding: 10px 12px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+
+        .proj-name {
+            font-size: 0.78rem;
+            font-weight: 700;
+        }
+
+        .proj-desc {
+            font-size: 0.68rem;
+            color: var(--sub);
+            margin-top: 2px;
+        }
+
+        /* Buttons */
+        .actions {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 8px;
+            z-index: 99;
+        }
+
+        .actions a {
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.82rem;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-print {
+            background: var(--accent);
+            color: #000;
+        }
+
+        .btn-back {
+            background: rgba(255, 255, 255, 0.06);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* PRINT - Clean 1 page */
+        @media print {
+            @page {
+                size: A4;
+                margin: 14mm 12mm;
+            }
+
+            body {
+                padding: 0;
+                background: #fff;
+                color: #111;
+                font-size: 11pt;
+            }
+
+            .cv {
+                border: none;
+                border-radius: 0;
+                background: #fff;
+                box-shadow: none;
+                max-width: 100%;
+            }
+
+            .head {
+                padding: 24px 28px 18px;
+            }
+
+            .head-left h1 {
+                color: #111;
+                font-size: 1.6rem;
+            }
+
+            .head-left p {
+                color: var(--accent);
+            }
+
+            .head-right,
+            .head-right a {
+                color: #555;
+            }
+
+            .side {
+                border-right: 1px solid #e5e5e5;
+                padding: 20px 18px 20px 28px;
+            }
+
+            .main {
+                padding: 20px 28px 20px 18px;
+            }
+
+            .sec-t {
+                color: var(--accent);
+            }
+
+            .tag {
+                background: #f0fdfa;
+                color: #0d9488;
+                border-color: #a7f3d0;
+            }
+
+            .exp-co {
+                color: #0d9488;
+            }
+
+            .edu-name,
+            .exp-role,
+            .proj-name,
+            .sk-label {
+                color: #111;
+            }
+
+            .edu-sub,
+            .exp li,
+            .proj-desc,
+            .lang {
+                color: #444;
+            }
+
+            .exp-date {
+                color: #777;
+            }
+
+            .exp {
+                border-bottom-color: #eee;
+            }
+
+            .proj {
+                border-color: #e5e5e5;
+            }
+
+            .exp li::before {
+                color: var(--accent);
+            }
+
+            .actions {
+                display: none;
+            }
+
+            .exp,
+            .proj {
+                break-inside: avoid;
+            }
+        }
+
+        @media (max-width:640px) {
+            .head {
+                flex-direction: column;
+            }
+
+            .head-right {
+                text-align: left;
+                margin-top: 8px;
+            }
+
+            .body {
+                grid-template-columns: 1fr;
+            }
+
+            .side {
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .proj-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cv">
+        <!-- HEADER -->
+        <div class="head">
+            <div class="head-left">
+                <h1>DAVID HOANG EM</h1>
+                <p>Full-Stack Developer & Project Manager</p>
+            </div>
+            <div class="head-right">
+                <div>📧 <a href="mailto:davidhoangem@gmail.com">davidhoangem@gmail.com</a></div>
+                <div>🌐 <a href="https://davidhevn.github.io">davidhevn.github.io</a></div>
+                <div>💻 <a href="https://github.com/davidhevn">github.com/davidhevn</a></div>
+                <div>📍 Thai Nguyen, Vietnam</div>
+            </div>
+        </div>
+
+        <div class="body">
+            <!-- SIDEBAR -->
+            <div class="side">
+                <div class="sec">
+                    <div class="sec-t">Skills</div>
+                    <div class="sk-label">Frontend</div>
+                    <div class="tags"><span class="tag">React</span><span class="tag">Next.js</span><span
+                            class="tag">Blazor</span><span class="tag">Tailwind</span><span
+                            class="tag">TypeScript</span></div>
+                    <div class="sk-label">Backend</div>
+                    <div class="tags"><span class="tag">Python/Flask</span><span class="tag">.NET Core</span><span
+                            class="tag">Node.js</span><span class="tag">REST API</span></div>
+                    <div class="sk-label">DB & DevOps</div>
+                    <div class="tags"><span class="tag">PostgreSQL</span><span class="tag">Prisma</span><span
+                            class="tag">Docker</span><span class="tag">Git</span><span class="tag">Vercel</span></div>
+                    <div class="sk-label">AI Tools</div>
+                    <div class="tags"><span class="tag">Cursor</span><span class="tag">Copilot</span><span
+                            class="tag">Claude</span><span class="tag">Gemini</span></div>
+                </div>
+
+                <div class="sec">
+                    <div class="sec-t">Education</div>
+                    <div class="edu-name">ICTU</div>
+                    <div class="edu-sub">B.S. Information Technology</div>
+                    <div class="edu-sub">2022 — Present (Year 4)</div>
+                </div>
+
+                <div class="sec">
+                    <div class="sec-t">Languages</div>
+                    <div class="lang"><span>Vietnamese</span><span>Native</span></div>
+                    <div class="lang"><span>English</span><span>Working</span></div>
+                </div>
+
+                <div class="sec">
+                    <div class="sec-t">Achievements</div>
+                    <div class="edu-sub">🥈 2nd Prize — National Scientific Conference</div>
+                    <div class="edu-sub" style="margin-top:4px;">🎤 Speaker — AI & Biomedical Seminar, ICTU</div>
+                </div>
+            </div>
+
+            <!-- MAIN -->
+            <div class="main">
+                <div class="sec">
+                    <div class="sec-t">Experience</div>
+
+                    <div class="exp">
+                        <div class="exp-top">
+                            <div class="exp-role">Full-Stack Developer</div>
+                            <div class="exp-date">2022 — Present</div>
+                        </div>
+                        <div class="exp-co">Freelance · Remote</div>
+                        <ul>
+                            <li>Shipped 7+ web apps end-to-end (React, Next.js, .NET, Flask)</li>
+                            <li>Cut dev time ~40% with AI tools (Cursor, Copilot)</li>
+                            <li>Deployed & maintained production systems on Vercel/Render</li>
+                        </ul>
+                    </div>
+
+                    <div class="exp">
+                        <div class="exp-top">
+                            <div class="exp-role">Content Creator</div>
+                            <div class="exp-date">2023 — Present</div>
+                        </div>
+                        <div class="exp-co">TikTok & Social Media · 10K+ followers</div>
+                        <ul>
+                            <li>Built personal tech brand with high engagement</li>
+                            <li>Created educational content on dev tools & AI</li>
+                        </ul>
+                    </div>
+
+                    <div class="exp">
+                        <div class="exp-top">
+                            <div class="exp-role">MC & TV Host</div>
+                            <div class="exp-date">2023 — Present</div>
+                        </div>
+                        <div class="exp-co">TNTV — Thai Nguyen Television</div>
+                        <ul>
+                            <li>Hosted live programs, managed production workflows</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="sec">
+                    <div class="sec-t">Projects</div>
+                    <div class="proj-grid">
+                        <div class="proj">
+                            <div class="proj-name">Cờ Tướng GenZ</div>
+                            <div class="proj-desc">Chinese Chess with AI opponent — React, Next.js</div>
+                        </div>
+                        <div class="proj">
+                            <div class="proj-name">IELTS Pro</div>
+                            <div class="proj-desc">IELTS learning platform — React, Tailwind</div>
+                        </div>
+                        <div class="proj">
+                            <div class="proj-name">HE Coffee</div>
+                            <div class="proj-desc">Cafe management POS — Python, Flask, SQL</div>
+                        </div>
+                        <div class="proj">
+                            <div class="proj-name">LearnLangs</div>
+                            <div class="proj-desc">AI language learning app — C#, .NET, Blazor</div>
+                        </div>
+                        <div class="proj">
+                            <div class="proj-name">Ice Tea Community</div>
+                            <div class="proj-desc">Real-time IT chat platform — React, WebRTC</div>
+                        </div>
+                        <div class="proj">
+                            <div class="proj-name">Game Dòng Tiền VN</div>
+                            <div class="proj-desc">Financial literacy game — Phaser, JavaScript</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="actions">
+        <a href="index.html" class="btn-back">← Portfolio</a>
+        <a href="javascript:window.print()" class="btn-print">📄 Save PDF</a>
+    </div>
+</body>
+
+</html>

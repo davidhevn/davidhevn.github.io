@@ -3,85 +3,31 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Work | DavidHE Portfolio</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  <title>Redirecting to Work</title>
+  <meta http-equiv="refresh" content="0; url=/#work" />
+  <style>
+    body {
+      font-family: Inter, Arial, sans-serif;
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: #000;
+      color: #fff;
+    }
+
+    a {
+      color: #14b89c;
+      text-decoration: none;
+      font-weight: 600;
+    }
+  </style>
 </head>
 <body>
-  <header class="header" id="header">
-    <div class="container header__bar">
-      <a class="brand" href="/" aria-label="Go to home">
-        <span class="brand__text">DavidHE</span>
-      </a>
-      <nav class="nav">
-        <ul class="nav__list">
-          <li><a href="/" class="nav__link">Home</a></li>
-          <li><a href="/work" class="nav__link">Work</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-  
-  <main id="main">
-    <section class="section portfolio">
-      <div class="container">
-        <header class="section__head">
-          <h1 class="h1">My Work</h1>
-          <p class="lead">Projects and case studies</p>
-        </header>
-        
-        <!-- Filter -->
-        {% if technologies %}
-        <div class="tags" style="justify-content: center; margin-bottom: 2rem;">
-          <a href="/work" class="tag {% if not current_category %}tag--active{% endif %}">All</a>
-          {% for tech in technologies %}
-          <a href="/work?category={{ tech }}" class="tag {% if current_category == tech %}tag--active{% endif %}">{{ tech }}</a>
-          {% endfor %}
-        </div>
-        {% endif %}
-        
-        <!-- Projects -->
-        <div class="grid grid--3">
-          {% for project in projects %}
-          <article class="work card">
-            <div class="work__media">
-              <img src="{{ project.image_url or url_for('static', filename='assets/project-1.jpg') }}"
-                   alt="{{ project.title }}"
-                   loading="lazy" />
-            </div>
-            <div class="work__body">
-              <h3 class="h3">{{ project.title }}</h3>
-              <p class="muted">{{ project.description or project.content[:150] + '...' }}</p>
-              {% if project.technologies %}
-              <ul class="tech">
-                {% for tech in project.technologies.split(',') %}
-                <li>{{ tech.strip() }}</li>
-                {% endfor %}
-              </ul>
-              {% endif %}
-              <div class="actions" style="margin-top: 1rem; display: flex; gap: 0.5rem;">
-                {% if project.live_url %}
-                <a href="{{ project.live_url }}" class="btn btn--sm btn--primary" target="_blank" rel="noopener">Live Demo</a>
-                {% endif %}
-                {% if project.github_url %}
-                <a href="{{ project.github_url }}" class="btn btn--sm btn--secondary" target="_blank" rel="noopener">GitHub</a>
-                {% endif %}
-                <a href="/work/{{ project.slug }}" class="btn btn--sm btn--secondary">Case Study</a>
-              </div>
-            </div>
-          </article>
-          {% endfor %}
-        </div>
-      </div>
-    </section>
-  </main>
-  
-  <footer class="footer">
-    <div class="container">
-      <p class="muted body-sm footer__copyright">
-        © {{ current_year }} DavidHE. All rights reserved.
-      </p>
-    </div>
-  </footer>
+  <p>Redirecting to Work section... <a href="/#work">Go now</a></p>
+  <script>
+    window.location.replace('/#work');
+  </script>
 </body>
 </html>
 
