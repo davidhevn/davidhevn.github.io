@@ -1,97 +1,204 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Blog | DavidHE Portfolio</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  <title>Blog | DavidHE</title>
+  <meta name="description" content="Blog của DavidHE - Chia sẻ kiến thức, kinh nghiệm về lập trình và công nghệ." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet" />
+
+  <!-- Feather Icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/blog-redesign.css') }}" />
 </head>
-<body>
-  <header class="header" id="header">
-    <div class="container header__bar">
-      <a class="brand" href="/" aria-label="Go to home">
-        <span class="brand__text">DavidHE</span>
-      </a>
-      <nav class="nav">
-        <ul class="nav__list">
-          <li><a href="/" class="nav__link">Home</a></li>
-          <li><a href="/blog" class="nav__link">Blog</a></li>
-        </ul>
+
+<body class="blog-page">
+
+  <!-- Header -->
+  <header class="blog-header">
+    <div class="blog-header__bar">
+      <nav class="blog-nav">
+        <a href="/" class="blog-nav__link">Trang chủ</a>
+        <a href="/blog" class="blog-nav__link blog-nav__link--active">Blog</a>
       </nav>
+
+      <a href="/" class="blog-logo">DavidHE</a>
+
+      <div class="blog-header__actions">
+        <button class="blog-header__btn" aria-label="Menu"><i data-feather="menu"></i></button>
+        <button class="blog-header__btn" aria-label="Search"><i data-feather="search"></i></button>
+      </div>
     </div>
   </header>
-  
-  <main id="main">
-    <section class="section blog">
-      <div class="container">
-        <header class="section__head">
-          <h1 class="h1">Blog</h1>
-          <p class="lead">Latest articles and insights</p>
-        </header>
-        
-        <!-- Search -->
-        <div class="search">
-          <form method="GET" action="/blog">
-            <input type="search" name="search" class="search__input" placeholder="Search articles..." value="{{ search }}" />
-            <button type="submit" class="search__button">🔍</button>
-          </form>
-        </div>
-        
-        <!-- Categories -->
-        {% if categories %}
-        <div class="tags" style="justify-content: center; margin-bottom: 2rem;">
-          <a href="/blog" class="tag {% if not current_category %}tag--active{% endif %}">All</a>
-          {% for category in categories %}
-          <a href="/blog?category={{ category }}" class="tag {% if current_category == category %}tag--active{% endif %}">{{ category }}</a>
-          {% endfor %}
-        </div>
-        {% endif %}
-        
-        <!-- Blog Posts -->
-        <div class="grid grid--3">
-          {% for post in posts.items %}
-          <article class="blog__card card">
-            <img src="{{ post.image_url or url_for('static', filename='assets/blog-1.jpg') }}" 
-                 alt="{{ post.title }}" 
-                 loading="lazy" />
-            <div class="blog__body">
-              {% if post.category %}
-              <span class="tag">{{ post.category }}</span>
-              {% endif %}
-              <h3 class="h3">{{ post.title }}</h3>
-              <p class="excerpt">{{ post.excerpt or post.content[:150] + '...' }}</p>
-              <a class="read" href="/blog/{{ post.slug }}">
-                Read Article
-                <span aria-hidden="true">→</span>
-              </a>
-            </div>
-          </article>
-          {% endfor %}
-        </div>
-        
-        <!-- Pagination -->
-        {% if posts.pages > 1 %}
-        <div class="pagination">
-          {% if posts.has_prev %}
-          <a href="/blog?page={{ posts.prev_num }}{% if search %}&search={{ search }}{% endif %}{% if current_category %}&category={{ current_category }}{% endif %}" class="btn btn--secondary">Previous</a>
-          {% endif %}
-          <span>Page {{ posts.page }} of {{ posts.pages }}</span>
-          {% if posts.has_next %}
-          <a href="/blog?page={{ posts.next_num }}{% if search %}&search={{ search }}{% endif %}{% if current_category %}&category={{ current_category }}{% endif %}" class="btn btn--secondary">Next</a>
-          {% endif %}
-        </div>
-        {% endif %}
-      </div>
-    </section>
-  </main>
-  
-  <footer class="footer">
-    <div class="container">
-      <p class="muted body-sm footer__copyright">
-        © {{ current_year }} DavidHE. All rights reserved.
-      </p>
-    </div>
-  </footer>
-</body>
-</html>
 
+  <!-- Main Content -->
+  <main>
+    <div class="blog-container">
+      <div class="blog-layout">
+        <!-- Main Column - Article List -->
+        <div class="blog-main">
+          <div class="blog-list">
+            {% for post in posts.items %}
+            <article class="blog-post">
+              {% if post.image_url %}
+              <a href="/blog/{{ post.slug }}">
+                <img class="blog-post__image" src="{{ post.image_url }}" alt="{{ post.title }}" loading="lazy" />
+              </a>
+              {% endif %}
+
+              <h2 class="blog-post__title">
+                <a href="/blog/{{ post.slug }}">{{ post.title }}</a>
+              </h2>
+
+              <div class="blog-post__meta">
+                <span class="blog-post__meta-icon"><i data-feather="folder"
+                    style="width: 14px; height: 14px;"></i></span>
+                {% if post.category %}
+                <a href="/blog?category={{ post.category }}" class="blog-post__category">{{ post.category }}</a>
+                {% endif %}
+                <span>{{ post.created_at.strftime('%d/%m/%Y') if post.created_at else '' }}</span>
+                <span class="blog-post__author">
+                  <img class="blog-post__author-avatar" src="{{ url_for('static', filename='assets/david-photo.jpg') }}"
+                    alt="DavidHE" />
+                  DavidHE
+                </span>
+              </div>
+
+              <p class="blog-post__excerpt">
+                {{ post.excerpt or post.content[:250] + '...' }}
+              </p>
+
+              <div class="blog-post__actions">
+                <a href="/blog/{{ post.slug }}" class="blog-post__read-more">Đọc tiếp</a>
+                <div class="blog-post__share">
+                  <a href="#" class="blog-post__share-btn" title="Share"><i data-feather="share-2"></i></a>
+                  <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.url_root }}blog/{{ post.slug }}"
+                    target="_blank" class="blog-post__share-btn" title="Facebook"><i data-feather="facebook"></i></a>
+                  <a href="https://twitter.com/intent/tweet?url={{ request.url_root }}blog/{{ post.slug }}"
+                    target="_blank" class="blog-post__share-btn" title="Twitter"><i data-feather="twitter"></i></a>
+                </div>
+              </div>
+            </article>
+            {% else %}
+            <p style="color: var(--blog-text-muted); text-align: center; padding: 48px 0;">
+              Chưa có bài viết nào.
+            </p>
+            {% endfor %}
+          </div>
+
+          <!-- Pagination -->
+          {% if posts.pages > 1 %}
+          <div style="display: flex; justify-content: center; gap: 16px; margin-top: 48px;">
+            {% if posts.has_prev %}
+            <a href="/blog?page={{ posts.prev_num }}{% if search %}&search={{ search }}{% endif %}{% if current_category %}&category={{ current_category }}{% endif %}"
+              class="blog-post__read-more">← Trước</a>
+            {% endif %}
+            <span style="color: var(--blog-text-muted); padding: 10px;">Trang {{ posts.page }} / {{ posts.pages
+              }}</span>
+            {% if posts.has_next %}
+            <a href="/blog?page={{ posts.next_num }}{% if search %}&search={{ search }}{% endif %}{% if current_category %}&category={{ current_category }}{% endif %}"
+              class="blog-post__read-more">Sau →</a>
+            {% endif %}
+          </div>
+          {% endif %}
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="blog-sidebar">
+          <!-- Search Widget -->
+          <div class="sidebar-widget">
+            <form class="sidebar-search" method="GET" action="/blog">
+              <input type="search" name="search" class="sidebar-search__input" placeholder="Search ..."
+                value="{{ search }}" />
+              <button type="submit" class="sidebar-search__btn"><i data-feather="search"></i></button>
+            </form>
+          </div>
+
+          <!-- Featured Posts -->
+          <div class="sidebar-widget">
+            <h3 class="sidebar-widget__title">Bài viết nổi bật</h3>
+            <div class="featured-posts">
+              {% for featured in featured_posts[:5] if featured_posts %}
+              <a href="/blog/{{ featured.slug }}" class="featured-post">
+                <img class="featured-post__image"
+                  src="{{ featured.image_url or url_for('static', filename='assets/blog-default.jpg') }}"
+                  alt="{{ featured.title }}" />
+                <div class="featured-post__content">
+                  <div class="featured-post__title">{{ featured.title }}</div>
+                  <div class="featured-post__date">{{ featured.created_at.strftime('%d/%m/%Y') if featured.created_at
+                    else '' }}</div>
+                </div>
+              </a>
+              {% else %}
+              <!-- Demo featured posts -->
+              <a href="#" class="featured-post">
+                <img class="featured-post__image" src="{{ url_for('static', filename='assets/blog-1.jpg') }}"
+                  alt="Featured post" />
+                <div class="featured-post__content">
+                  <div class="featured-post__title">Bài viết mẫu về công nghệ</div>
+                  <div class="featured-post__date">01/01/2025</div>
+                </div>
+              </a>
+              {% endfor %}
+            </div>
+          </div>
+
+          <!-- Categories -->
+          <div class="sidebar-widget">
+            <h3 class="sidebar-widget__title">Danh mục</h3>
+            <ul class="categories-list">
+              {% for category in categories %}
+              <li>
+                <a href="/blog?category={{ category }}">{{ category }}</a>
+              </li>
+              {% else %}
+              <li><a href="#">Công nghệ</a></li>
+              <li><a href="#">Lập trình</a></li>
+              <li><a href="#">Đời sống</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+
+          <!-- Tags Cloud -->
+          <div class="sidebar-widget">
+            <h3 class="sidebar-widget__title">Thẻ</h3>
+            <div class="tags-cloud">
+              {% for tag in tags %}
+              <a href="/blog?tag={{ tag }}" class="tags-cloud__tag">{{ tag }}</a>
+              {% else %}
+              <a href="#" class="tags-cloud__tag">Python</a>
+              <a href="#" class="tags-cloud__tag">JavaScript</a>
+              <a href="#" class="tags-cloud__tag">Web Dev</a>
+              <a href="#" class="tags-cloud__tag">AI</a>
+              <a href="#" class="tags-cloud__tag">Tutorial</a>
+              {% endfor %}
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer style="padding: 48px 24px; text-align: center; border-top: 1px solid var(--blog-border); margin-top: 48px;">
+    <p style="color: var(--blog-text-muted); font-size: 0.875rem;">
+      © {{ current_year }} DavidHE. All rights reserved.
+    </p>
+  </footer>
+
+  <!-- Initialize Feather Icons -->
+  <script>
+    feather.replace({ width: 18, height: 18 });
+  </script>
+</body>
+
+</html>

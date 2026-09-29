@@ -1,0 +1,626 @@
+/* =========================================
+   ThangTek Theme for DavidHE Portfolio
+   Dark Theme with Blue Accent
+   Phase 1: Foundation & Variables
+   ========================================= */
+
+/* =========================================
+   1. CSS Variables - Dark Theme
+   ========================================= */
+:root {
+    /* ─────────────────────────────────────
+     Background Colors
+     ───────────────────────────────────── */
+    --tt-bg-primary: #1a1a1a;
+    /* Main background */
+    --tt-bg-secondary: #222222;
+    /* Cards, sections */
+    --tt-bg-elevated: #2a2a2a;
+    /* Hover states, modals */
+    --tt-bg-card: #1f1f1f;
+    /* Card backgrounds */
+
+    /* ─────────────────────────────────────
+     Text Colors
+     ───────────────────────────────────── */
+    --tt-text-primary: #e5e5e5;
+    /* Headings, important text */
+    --tt-text-secondary: #a0a0a0;
+    /* Body text, descriptions */
+    --tt-text-muted: #666666;
+    /* Meta info, labels */
+    --tt-text-dim: #4a4a4a;
+    /* Very subtle text */
+
+    /* ─────────────────────────────────────
+     Accent Colors
+     ───────────────────────────────────── */
+    --tt-accent-blue: #6ab0f3;
+    /* Primary accent (ThangTek style) */
+    --tt-accent-blue-hover: #5a9fd9;
+    /* Hover state */
+    --tt-accent-blue-light: rgba(106, 176, 243, 0.1);
+    /* Backgrounds */
+    --tt-accent-blue-border: rgba(106, 176, 243, 0.3);
+    /* Borders */
+
+    /* Keep mint as secondary/brand color */
+    --tt-accent-mint: #14b8a6;
+    /* Brand identity */
+    --tt-accent-mint-hover: #12a594;
+    /* Hover */
+
+    /* ─────────────────────────────────────
+     Border Colors
+     ───────────────────────────────────── */
+    --tt-border-subtle: #333333;
+    /* Subtle dividers */
+    --tt-border-default: #404040;
+    /* Default borders */
+    --tt-border-strong: #555555;
+    /* Strong emphasis */
+
+    /* ─────────────────────────────────────
+     Shadow System
+     ───────────────────────────────────── */
+    --tt-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --tt-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+    --tt-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+    --tt-shadow-blue: 0 8px 24px rgba(106, 176, 243, 0.15);
+    --tt-shadow-blue-hover: 0 12px 32px rgba(106, 176, 243, 0.2);
+
+    /* ─────────────────────────────────────
+     Spacing (inherit from existing)
+     ───────────────────────────────────── */
+    --tt-space-xs: 8px;
+    --tt-space-sm: 12px;
+    --tt-space-md: 16px;
+    --tt-space-lg: 24px;
+    --tt-space-xl: 32px;
+    --tt-space-2xl: 48px;
+
+    /* ─────────────────────────────────────
+     Border Radius
+     ───────────────────────────────────── */
+    --tt-radius-sm: 8px;
+    --tt-radius-md: 12px;
+    --tt-radius-lg: 16px;
+    --tt-radius-pill: 999px;
+
+    /* ─────────────────────────────────────
+     Transitions
+     ───────────────────────────────────── */
+    --tt-transition-fast: 0.15s ease;
+    --tt-transition-base: 0.2s ease;
+    --tt-transition-slow: 0.3s ease;
+}
+
+/* =========================================
+   2. Global Overrides - Dark Theme Base
+   ========================================= */
+
+body {
+    background: var(--tt-bg-primary);
+    color: var(--tt-text-secondary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* =========================================
+   3. Typography Adjustments
+   ========================================= */
+
+/* Headings - lighter for dark theme */
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--tt-text-primary);
+    font-weight: 600;
+    /* Slightly lighter than 700 */
+    letter-spacing: -0.02em;
+}
+
+/* Body text */
+p,
+.body-lg,
+.body-sm {
+    color: var(--tt-text-secondary);
+}
+
+/* Muted text */
+.muted {
+    color: var(--tt-text-muted);
+}
+
+/* Lead text */
+.lead {
+    color: var(--tt-text-secondary);
+}
+
+/* =========================================
+   4. Link Styles - Blue Accent
+   ========================================= */
+
+a {
+    color: var(--tt-accent-blue);
+    transition: color var(--tt-transition-base);
+}
+
+a:hover {
+    color: var(--tt-accent-blue-hover);
+}
+
+/* =========================================
+   5. Card Components - Dark Theme
+   ========================================= */
+
+.card {
+    background: var(--tt-bg-secondary);
+    border: 1px solid var(--tt-border-subtle);
+    border-radius: var(--tt-radius-md);
+    box-shadow: var(--tt-shadow-sm);
+    transition: transform var(--tt-transition-slow),
+        box-shadow var(--tt-transition-slow),
+        border-color var(--tt-transition-base);
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    border-color: var(--tt-accent-blue);
+    box-shadow: var(--tt-shadow-blue);
+}
+
+/* =========================================
+   6. Button Overrides
+   ========================================= */
+
+/* Primary button - Keep mint for brand */
+.btn--primary {
+    background: var(--tt-accent-mint);
+    color: white;
+    border: none;
+    transition: background var(--tt-transition-base),
+        transform var(--tt-transition-fast);
+}
+
+.btn--primary:hover {
+    background: var(--tt-accent-mint-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--tt-shadow-md);
+}
+
+/* Secondary button - Blue accent */
+.btn--secondary {
+    background: transparent;
+    border: 1px solid var(--tt-accent-blue);
+    color: var(--tt-accent-blue);
+    transition: all var(--tt-transition-base);
+}
+
+.btn--secondary:hover {
+    background: var(--tt-accent-blue-light);
+    border-color: var(--tt-accent-blue-hover);
+    color: var(--tt-accent-blue-hover);
+}
+
+/* Ghost button - Minimal style */
+.btn--ghost {
+    background: transparent;
+    border: 1px solid var(--tt-border-default);
+    color: var(--tt-text-secondary);
+    transition: all var(--tt-transition-base);
+}
+
+.btn--ghost:hover {
+    border-color: var(--tt-text-primary);
+    color: var(--tt-text-primary);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* Large button size - For prominent CTAs */
+.btn--large {
+    padding: 16px 32px;
+    font-size: 1.0625rem;
+    font-weight: 600;
+}
+
+/* Hero section - Increase h1 size for impact */
+.hero .h1 {
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.hero .lead {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    max-width: 600px;
+}
+
+/* CTA button spacing */
+.hero .cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+
+/* =========================================
+   7. Header/Navigation - Dark Theme
+   ========================================= */
+
+.header {
+    background: rgba(26, 26, 26, 0.9);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--tt-border-subtle);
+}
+
+.brand__text {
+    color: var(--tt-text-primary);
+}
+
+.nav__link {
+    color: var(--tt-text-secondary);
+    transition: color var(--tt-transition-base);
+}
+
+.nav__link:hover,
+.nav__link--active {
+    color: var(--tt-accent-blue);
+}
+
+.nav__cta {
+    background: var(--tt-accent-blue);
+    color: white;
+    border-radius: 6px;
+}
+
+.nav__cta:hover {
+    background: var(--tt-accent-blue-hover);
+    color: white;
+}
+
+/* Mobile nav toggle */
+.nav__toggle:checked~.nav {
+    background: var(--tt-bg-secondary);
+    border-left: 1px solid var(--tt-border-subtle);
+}
+
+/* =========================================
+   8. Hero Section
+   ========================================= */
+
+.hero {
+    background: var(--tt-bg-primary);
+}
+
+.eyebrow {
+    color: var(--tt-accent-blue);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.875rem;
+}
+
+.accent {
+    background: linear-gradient(135deg, var(--tt-accent-blue), var(--tt-accent-mint));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Chips/Pills */
+.chip {
+    background: var(--tt-accent-blue-light);
+    border: 1px solid var(--tt-accent-blue-border);
+    color: var(--tt-accent-blue);
+    padding: 6px 14px;
+    border-radius: var(--tt-radius-pill);
+    font-size: 0.875rem;
+    transition: all var(--tt-transition-base);
+}
+
+.chip:hover {
+    background: rgba(106, 176, 243, 0.15);
+    border-color: var(--tt-accent-blue);
+}
+
+/* Stats */
+.stat {
+    background: var(--tt-bg-secondary);
+    border: 1px solid var(--tt-border-subtle);
+    padding: 1.5rem;
+    border-radius: var(--tt-radius-md);
+}
+
+.stat__num {
+    color: var(--tt-text-primary);
+}
+
+.stat__label {
+    color: var(--tt-text-muted);
+}
+
+/* =========================================
+   9. Section Backgrounds - Alternating
+   ========================================= */
+
+.section:nth-child(odd) {
+    background: var(--tt-bg-primary);
+}
+
+.section:nth-child(even) {
+    background: var(--tt-bg-secondary);
+}
+
+/* Specific sections */
+.about {
+    background: var(--tt-bg-secondary);
+}
+
+.hobbies {
+    background: var(--tt-bg-primary);
+}
+
+.skills {
+    background: var(--tt-bg-primary);
+}
+
+.portfolio {
+    background: var(--tt-bg-secondary);
+}
+
+.blog {
+    background: var(--tt-bg-primary);
+}
+
+.testimonials {
+    background: var(--tt-bg-secondary);
+}
+
+.contact {
+    background: var(--tt-bg-primary);
+}
+
+/* =========================================
+   10. Tags - ThangTek Style
+   ========================================= */
+
+.tag {
+    background: transparent;
+    border: 1px solid var(--tt-border-default);
+    color: var(--tt-text-secondary);
+    padding: 6px 14px;
+    border-radius: var(--tt-radius-pill);
+    font-size: 0.8125rem;
+    transition: all var(--tt-transition-base);
+}
+
+.tag:hover {
+    border-color: var(--tt-accent-blue);
+    color: var(--tt-accent-blue);
+    background: var(--tt-accent-blue-light);
+}
+
+/* =========================================
+   11. Form Elements - Dark Theme
+   ========================================= */
+
+input[type="text"],
+input[type="email"],
+input[type="search"],
+textarea,
+select {
+    background: var(--tt-bg-card);
+    border: 1px solid var(--tt-border-subtle);
+    color: var(--tt-text-primary);
+    padding: 12px 16px;
+    border-radius: var(--tt-radius-sm);
+    transition: border-color var(--tt-transition-base),
+        box-shadow var(--tt-transition-base);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--tt-text-muted);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: var(--tt-accent-blue);
+    box-shadow: 0 0 0 3px var(--tt-accent-blue-light);
+}
+
+/* =========================================
+   12. Skills Section - Badges
+   ========================================= */
+
+.badges li {
+    background: var(--tt-accent-blue-light);
+    border: 1px solid var(--tt-accent-blue-border);
+    color: var(--tt-text-secondary);
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 0.8125rem;
+    transition: all var(--tt-transition-base);
+}
+
+.badges li:hover {
+    background: rgba(106, 176, 243, 0.15);
+    color: var(--tt-accent-blue);
+}
+
+/* =========================================
+   13. Portfolio/Work Section
+   ========================================= */
+
+.work {
+    background: var(--tt-bg-card);
+    border: 1px solid var(--tt-border-subtle);
+    overflow: hidden;
+}
+
+.work:hover {
+    border-color: var(--tt-accent-blue);
+}
+
+.work__media img {
+    transition: transform var(--tt-transition-slow);
+}
+
+.work:hover .work__media img {
+    transform: scale(1.05);
+}
+
+/* Tech tags */
+.tech li {
+    background: var(--tt-accent-blue-light);
+    border: 1px solid var(--tt-accent-blue-border);
+    color: var(--tt-accent-blue);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+}
+
+/* =========================================
+   14. Theme Toggle (if exists)
+   ========================================= */
+
+.theme-toggle__button {
+    background: var(--tt-bg-secondary);
+    border: 1px solid var(--tt-border-subtle);
+}
+
+.theme-toggle__slider {
+    background: var(--tt-accent-blue);
+}
+
+/* =========================================
+   15. Search Component
+   ========================================= */
+
+.search__input {
+    background: var(--tt-bg-secondary);
+    border: 1px solid var(--tt-border-subtle);
+    color: var(--tt-text-primary);
+}
+
+.search__input:focus {
+    border-color: var(--tt-accent-blue);
+}
+
+.search__dropdown {
+    background: var(--tt-bg-elevated);
+    border: 1px solid var(--tt-border-default);
+    box-shadow: var(--tt-shadow-lg);
+}
+
+.search__results li:hover {
+    background: var(--tt-bg-secondary);
+}
+
+/* =========================================
+   16. Language Selector
+   ========================================= */
+
+.language-menu {
+    background: var(--tt-bg-elevated);
+    border: 1px solid var(--tt-border-default);
+    box-shadow: var(--tt-shadow-lg);
+}
+
+.language-option {
+    color: var(--tt-text-secondary);
+    transition: all var(--tt-transition-fast);
+}
+
+.language-option:hover {
+    background: var(--tt-bg-secondary);
+    color: var(--tt-accent-blue);
+}
+
+/* =========================================
+   17. Scrollbar Styling (WebKit)
+   ========================================= */
+
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--tt-bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--tt-border-default);
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--tt-accent-blue);
+}
+
+/* =========================================
+   18. Selection Styling
+   ========================================= */
+
+::selection {
+    background: var(--tt-accent-blue);
+    color: white;
+}
+
+::-moz-selection {
+    background: var(--tt-accent-blue);
+    color: white;
+}
+
+/* =========================================
+   19. Utility Classes
+   ========================================= */
+
+.text-blue {
+    color: var(--tt-accent-blue);
+}
+
+.text-mint {
+    color: var(--tt-accent-mint);
+}
+
+.bg-secondary {
+    background: var(--tt-bg-secondary);
+}
+
+.border-blue {
+    border-color: var(--tt-accent-blue);
+}
+
+/* =========================================
+   20. Focus Visible (Accessibility)
+   ========================================= */
+
+*:focus-visible {
+    outline: 2px solid var(--tt-accent-blue);
+    outline-offset: 2px;
+}
+
+/* =========================================
+   END - ThangTek Theme Foundation
+   ========================================= */
+
+/* 
+  Phase 1 Complete ✅
+  Next: Phase 2 - Component refinements per section
+*/

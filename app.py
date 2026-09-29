@@ -122,13 +122,40 @@ def blog():
     categories = db.session.query(BlogPost.category).filter_by(published=True).distinct().all()
     categories = [c[0] for c in categories if c[0]]
     
-    return render_template("blog.html", posts=posts, categories=categories, search=search, current_category=category)
+    # Get featured posts for sidebar (most viewed)
+    featured_posts = BlogPost.query.filter_by(published=True).order_by(BlogPost.views.desc()).limit(5).all()
+    
+    # Get all unique tags
+    all_tags = []
+    for post in BlogPost.query.filter_by(published=True).all():
+        if post.tags:
+            all_tags.extend([t.strip() for t in post.tags.split(',')])
+    tags = list(set(all_tags))[:15]  # Max 15 tags
+    
+    return render_template("blog.html", 
+                           posts=posts, 
+                           categories=categories, 
+                           search=search, 
+                           current_category=category,
+                           featured_posts=featured_posts,
+                           tags=tags)
 
 @app.route("/blog/<slug>")
 def blog_post(slug):
     post = BlogPost.query.filter_by(slug=slug, published=True).first_or_404()
     post.views += 1
     db.session.commit()
+    
+    # Get previous and next posts for navigation
+    prev_post = BlogPost.query.filter(
+        BlogPost.published == True,
+        BlogPost.created_at < post.created_at
+    ).order_by(BlogPost.created_at.desc()).first()
+    
+    next_post = BlogPost.query.filter(
+        BlogPost.published == True,
+        BlogPost.created_at > post.created_at
+    ).order_by(BlogPost.created_at.asc()).first()
     
     # Get related posts
     related = BlogPost.query.filter(
@@ -140,7 +167,11 @@ def blog_post(slug):
         )
     ).limit(3).all()
     
-    return render_template("blog_post.html", post=post, related=related)
+    return render_template("blog-single.html", 
+                           post=post, 
+                           prev_post=prev_post,
+                           next_post=next_post,
+                           related_posts=related)
 
 @app.route("/work")
 def work():
