@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Search Results | DavidHE Portfolio</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+  <header class="header" id="header">
+    <div class="container header__bar">
+      <a class="brand" href="/" aria-label="Go to home">
+        <span class="brand__text">DavidHE</span>
+      </a>
+      <nav class="nav">
+        <ul class="nav__list">
+          <li><a href="/" class="nav__link">Home</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+  <main id="main">
+    <section class="section">
+      <div class="container">
+        <header class="section__head">
+          <h1 class="h1">Search Results</h1>
+          <p class="lead">Results for: "{{ query }}"</p>
+        </header>
+        
+        {% if blog_results or project_results %}
+        <div class="search-results">
+          {% if blog_results %}
+          <section>
+            <h2 class="h2">Blog Posts</h2>
+            <div class="grid grid--3">
+              {% for post in blog_results %}
+              <article class="blog__card card">
+                <div class="blog__body">
+                  <span class="tag">{{ post.category or 'Blog' }}</span>
+                  <h3 class="h3">{{ post.title }}</h3>
+                  <p class="excerpt">{{ post.excerpt or post.content[:150] + '...' }}</p>
+                  <a class="read" href="/blog/{{ post.slug }}">Read Article →</a>
+                </div>
+              </article>
+              {% endfor %}
+            </div>
+          </section>
+          {% endif %}
+          
+          {% if project_results %}
+          <section style="margin-top: 3rem;">
+            <h2 class="h2">Projects</h2>
+            <div class="grid grid--3">
+              {% for project in project_results %}
+              <article class="work card">
+                <div class="work__body">
+                  <h3 class="h3">{{ project.title }}</h3>
+                  <p class="muted">{{ project.description or project.content[:150] + '...' }}</p>
+                  <a class="read" href="/work/{{ project.slug }}">View Project →</a>
+                </div>
+              </article>
+              {% endfor %}
+            </div>
+          </section>
+          {% endif %}
+        </div>
+        {% else %}
+        <div class="card" style="text-align: center; padding: 3rem;">
+          <p class="lead">No results found for "{{ query }}"</p>
+          <a href="/" class="btn btn--primary" style="margin-top: 1rem;">Go Home</a>
+        </div>
+        {% endif %}
+      </div>
+    </section>
+  </main>
+  
+  <footer class="footer">
+    <div class="container">
+      <p class="muted body-sm footer__copyright">
+        © {{ current_year }} DavidHE. All rights reserved.
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
+

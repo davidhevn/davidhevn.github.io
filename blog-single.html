@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{ post.title }} | DavidHE Blog</title>
+  <meta name="description" content="{{ post.excerpt or post.content[:160] }}" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet" />
+
+  <!-- Feather Icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/blog-redesign.css') }}" />
+</head>
+
+<body class="blog-page">
+
+  <!-- Reading Progress Bar -->
+  <div class="reading-progress-container">
+    <div class="reading-progress" id="reading-progress"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="blog-header">
+    <div class="blog-header__bar">
+      <nav class="blog-nav">
+        <a href="/" class="blog-nav__link">Trang chủ</a>
+        <a href="/blog" class="blog-nav__link blog-nav__link--active">Blog</a>
+      </nav>
+
+      <a href="/" class="blog-logo">DavidHE</a>
+
+      <div class="blog-header__actions">
+        <button class="blog-header__btn" aria-label="Menu"><i data-feather="menu"></i></button>
+        <button class="blog-header__btn" aria-label="Search"><i data-feather="search"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <article class="article">
+      <!-- Hero Image -->
+      <div class="article__hero">
+        <img class="article__hero-image"
+          src="{{ post.image_url or url_for('static', filename='assets/blog-default.jpg') }}" alt="{{ post.title }}" />
+      </div>
+
+      <!-- Article Header -->
+      <header class="article__header">
+        <h1 class="article__title">{{ post.title }}</h1>
+        <div class="article__meta">
+          <span class="blog-post__meta-icon"><i data-feather="folder" style="width: 14px; height: 14px;"></i></span>
+          {% if post.category %}
+          <a href="/blog?category={{ post.category }}" class="blog-post__category">{{ post.category }}</a>
+          {% endif %}
+          <span>{{ post.created_at.strftime('%d/%m/%Y') if post.created_at else '' }}</span>
+          <span class="blog-post__author">
+            <img class="blog-post__author-avatar" src="{{ url_for('static', filename='assets/david-photo.jpg') }}"
+              alt="DavidHE" />
+            DavidHE
+          </span>
+        </div>
+      </header>
+
+      <!-- Article Content -->
+      <div class="article__content" id="article-content">
+        {{ post.content | safe }}
+      </div>
+
+      <!-- Social Share -->
+      <div class="blog-post__actions"
+        style="margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--blog-border);">
+        <div class="blog-post__share">
+          <a href="#" class="blog-post__share-btn" title="Share"><i data-feather="share-2"></i></a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.url }}" target="_blank"
+            class="blog-post__share-btn" title="Facebook"><i data-feather="facebook"></i></a>
+          <a href="https://twitter.com/intent/tweet?url={{ request.url }}" target="_blank" class="blog-post__share-btn"
+            title="Twitter"><i data-feather="twitter"></i></a>
+        </div>
+      </div>
+
+      <!-- Author Section -->
+      <div class="article__author">
+        <img class="article__author-avatar" src="{{ url_for('static', filename='assets/david-photo.jpg') }}"
+          alt="DavidHE" />
+        <div class="article__author-info">
+          <div class="article__author-name">DavidHE</div>
+          <div class="article__author-bio">Full-Stack Developer & Content Creator</div>
+        </div>
+        <div class="article__author-social">
+          <a href="https://github.com/davidhevn" target="_blank" title="GitHub"><i data-feather="github"></i></a>
+        </div>
+      </div>
+
+      <!-- Post Navigation -->
+      {% if prev_post or next_post %}
+      <nav class="post-nav">
+        {% if prev_post %}
+        <a href="/blog/{{ prev_post.slug }}" class="post-nav__item post-nav__item--prev">
+          <span class="post-nav__arrow"><i data-feather="chevron-left"></i></span>
+          <img class="post-nav__thumb"
+            src="{{ prev_post.image_url or url_for('static', filename='assets/blog-default.jpg') }}"
+            alt="{{ prev_post.title }}" />
+          <div>
+            <div class="post-nav__label">Previous Post:</div>
+            <div class="post-nav__title">{{ prev_post.title }}</div>
+          </div>
+        </a>
+        {% else %}
+        <div></div>
+        {% endif %}
+
+        {% if next_post %}
+        <a href="/blog/{{ next_post.slug }}" class="post-nav__item post-nav__item--next">
+          <div>
+            <div class="post-nav__label">Next Post:</div>
+            <div class="post-nav__title">{{ next_post.title }}</div>
+          </div>
+          <img class="post-nav__thumb"
+            src="{{ next_post.image_url or url_for('static', filename='assets/blog-default.jpg') }}"
+            alt="{{ next_post.title }}" />
+          <span class="post-nav__arrow"><i data-feather="chevron-right"></i></span>
+        </a>
+        {% endif %}
+      </nav>
+      {% endif %}
+
+      <!-- Related Posts -->
+      {% if related_posts %}
+      <section class="related-posts">
+        <h2 class="related-posts__title">Related Posts:</h2>
+        <div class="related-posts__grid">
+          {% for related in related_posts[:3] %}
+          <a href="/blog/{{ related.slug }}" class="related-posts__item">
+            <img class="related-posts__image"
+              src="{{ related.image_url or url_for('static', filename='assets/blog-default.jpg') }}"
+              alt="{{ related.title }}" />
+            <div class="related-posts__item-title">{{ related.title }}</div>
+          </a>
+          {% endfor %}
+        </div>
+      </section>
+      {% endif %}
+
+      <!-- Comments Section -->
+      <section class="comments-section">
+        <div class="comments-section__sort">
+          <span class="comments-section__count">0 comments</span>
+          <select class="comments-section__sort-select">
+            <option>Oldest ↓</option>
+            <option>Newest ↓</option>
+          </select>
+        </div>
+
+        <div class="comment-form">
+          <div class="comment-form__avatar">
+            <img src="{{ url_for('static', filename='assets/default-avatar.png') }}" alt="Your avatar" />
+            <input type="text" class="comment-form__input" placeholder="Add a comment..." />
+          </div>
+
+          <a href="#" class="fb-comments-link">
+            <i data-feather="facebook"></i> Facebook Comments Plugin
+          </a>
+
+          <h3 class="comment-form__title">Leave a reply:</h3>
+          <p class="comment-form__note">Your email address will not be published.</p>
+
+          <textarea class="comment-form__textarea" placeholder="Write your comment..."></textarea>
+
+          <div class="comment-form__fields">
+            <input type="text" class="comment-form__field" placeholder="Name" required />
+            <input type="email" class="comment-form__field" placeholder="Email" required />
+            <input type="url" class="comment-form__field" placeholder="Website" />
+          </div>
+
+          <button type="submit" class="comment-form__submit">Post Comment</button>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <!-- Reading Progress Script -->
+  <script>
+    (function () {
+      const progressBar = document.getElementById('reading-progress');
+      const article = document.getElementById('article-content');
+
+      if (!progressBar || !article) return;
+
+      function updateProgress() {
+        const articleRect = article.getBoundingClientRect();
+        const articleTop = articleRect.top + window.scrollY;
+        const articleHeight = article.offsetHeight;
+        const windowHeight = window.innerHeight;
+        const scrollY = window.scrollY;
+
+        // Calculate progress based on article position
+        const start = articleTop - windowHeight;
+        const end = articleTop + articleHeight;
+        const current = scrollY;
+
+        let progress = 0;
+        if (current >= start && current <= end) {
+          progress = ((current - start) / (end - start)) * 100;
+        } else if (current > end) {
+          progress = 100;
+        }
+
+        progressBar.style.width = Math.min(Math.max(progress, 0), 100) + '%';
+      }
+
+      window.addEventListener('scroll', updateProgress, { passive: true });
+      window.addEventListener('resize', updateProgress, { passive: true });
+      updateProgress();
+    })();
+  </script>
+
+  <!-- Initialize Feather Icons -->
+  <script>
+    feather.replace({ width: 18, height: 18 });
+  </script>
+</body>
+
+</html>

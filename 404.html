@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>404 - Page Not Found | DavidHE Portfolio</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+  <div style="min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 2rem;">
+    <div>
+      <h1 style="font-size: 8rem; font-weight: 800; color: var(--mint-600); margin-bottom: 1rem;">404</h1>
+      <h2 style="font-size: 2rem; margin-bottom: 1rem; color: var(--ink-900);">Page Not Found</h2>
+      <p style="color: var(--ink-600); margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto;">
+        The page you're looking for doesn't exist or has been moved.
+      </p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="{{ url_for('home') }}" class="btn btn--primary">Go Home</a>
+        <a href="{{ url_for('blog') }}" class="btn btn--secondary">View Blog</a>
+        <a href="{{ url_for('work') }}" class="btn btn--secondary">View Work</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
